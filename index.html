@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domenico Perroni · HR and data</title>
+<meta name="description" content="HR advisor who builds the analysis an HR function runs on: payroll checks, pay transparency reporting, business cases. Every figure computed twice and reconciled.">
+<meta property="og:title" content="Domenico Perroni · HR and data">
+<meta property="og:description" content="Three projects in two minutes: payroll checks, a growth business case from SEC filings, and an EU pay transparency dry run.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://d0m3n1c0x.github.io/">
+<meta property="og:image" content="https://d0m3n1c0x.github.io/media/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231d4ed8'/%3E%3Ctext x='16' y='22' font-family='Georgia,serif' font-size='17' text-anchor='middle' fill='white'%3EDP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root {
+  --paper:#fbfcfd; --surface:#ffffff; --ink:#131a24; --ink-soft:#39434f; --muted:#5f6b7a;
+  --line:#e2e7ef; --line-strong:#c9d2df; --accent:#1d4ed8; --accent-wash:#eef3ff; --good:#0c6b59;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+    --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a; --good:#5fc6ae;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#0f141b; --surface:#161d26; --ink:#e7ecf3; --ink-soft:#c3cbd6; --muted:#8b97a6;
+  --line:#232c38; --line-strong:#33404f; --accent:#7ba4ff; --accent-wash:#17233a; --good:#5fc6ae;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.6 "IBM Plex Sans", system-ui, sans-serif; }
+a { color: var(--accent); text-underline-offset: 2px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.eyebrow { font: 500 12px/1.4 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+header { padding: 56px 0 32px; }
+h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.08; margin: 10px 0 16px; }
+.lede { font-size: 19px; line-height: 1.55; color: var(--ink-soft); max-width: 46em; margin: 0; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 28px 0 0; padding: 0; list-style: none; }
+.facts li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.facts b { display: block; font: 600 24px/1.2 "Source Serif 4", Georgia, serif; font-variant-numeric: tabular-nums; }
+.facts span { color: var(--muted); font-size: 14px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 22px; font-weight: 500; }
+section { padding: 28px 0; border-top: 1px solid var(--line); }
+section > h2 { font-size: 28px; margin-bottom: 6px; }
+.sub { color: var(--muted); margin: 0 0 22px; }
+.project { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; align-items: start; padding: 26px 0; }
+.project + .project { border-top: 1px dashed var(--line-strong); }
+.project figure { margin: 0; }
+.project img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; box-shadow: 0 1px 2px rgba(19,26,36,.06), 0 8px 24px rgba(19,26,36,.06); }
+.project figcaption { margin-top: 8px; color: var(--muted); font-size: 13px; }
+.project h3 { font-size: 25px; line-height: 1.2; margin: 6px 0 10px; }
+.project p { margin: 0 0 12px; color: var(--ink-soft); }
+.proof { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 8px; }
+.proof li { padding-left: 18px; position: relative; color: var(--ink-soft); }
+.proof li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--good); }
+.proof b { color: var(--ink); font-weight: 600; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { display: inline-block; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--line-strong); text-decoration: none; font-weight: 500; font-size: 15px; color: var(--ink); background: var(--surface); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .btn.primary { color: #0f141b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #0f141b; } }
+.btn:hover { border-color: var(--accent); }
+.tag { display: inline-block; font: 500 11px/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-wash); padding: 5px 7px; border-radius: 5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+.card h3 { font-size: 18px; margin: 8px 0 6px; }
+.card h3 a { color: var(--ink); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); }
+.card p { margin: 0; color: var(--ink-soft); font-size: 15px; }
+.card .more { margin-top: 10px; font-size: 14px; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.two ul { margin: 0; padding-left: 18px; color: var(--ink-soft); }
+.two li { margin-bottom: 6px; }
+footer { border-top: 1px solid var(--line); padding: 22px 0 40px; color: var(--muted); font-size: 14px; }
+@media (max-width: 780px) {
+  header { padding-top: 36px; }
+  .project, .two { grid-template-columns: 1fr; gap: 16px; }
+  .lede { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <div class="eyebrow">HR advisory · People analytics · Kraków, open to relocation in Europe</div>
+  <h1>Domenico Perroni</h1>
+  <p class="lede">I advise on HR for the Italian market in a pan-European people operations team. Around that job I build
+    the analysis an HR function runs on: payroll checks, pay transparency reporting, business cases. Every figure is
+    computed twice, in Python and in a live spreadsheet, and the two must agree before anything ships.</p>
+  <ul class="facts">
+    <li><b>2,989</b><span>figures reconciled between Python and Excel, on every change</span></li>
+    <li><b>9</b><span>live reports, dashboards and tools to open now, nothing to install</span></li>
+    <li><b>2</b><span>master's degrees: politics &amp; organisation, media education (110/110)</span></li>
+    <li><b>5</b><span>languages: Italian, English C1, Spanish, French, Polish</span></li>
+  </ul>
+  <div class="links">
+    <a href="https://github.com/D0M3N1C0X">GitHub</a>
+    <a href="https://www.linkedin.com/in/domenico-perroni">LinkedIn</a>
+    <a href="https://orcid.org/0009-0001-8806-5188">ORCID</a>
+  </div>
+</header>
+
+<main>
+<section class="wrap" aria-labelledby="three">
+  <h2 id="three">Three projects, two minutes</h2>
+  <p class="sub">Each one is a deliverable a team would use, not an exercise. The loops are recorded from the live pages.</p>
+
+  <article class="project">
+    <figure>
+      <picture>
+        <source srcset="media/controlli.png" media="(prefers-reduced-motion: reduce)">
+        <img src="media/controlli.webp" width="960" height="608" loading="lazy" alt="The payroll tool loads example payslips, runs the checks and lists each flag with the expected and found amount.">
+      </picture>
+      <figcaption>The browser tool on the example files: 29 flags, each with the expected amount and what to do.</figcaption>
+    </figure>
+    <div>
+      <span class="tag">Payroll operations</span>
+      <h3>Payroll checks before the payslips go out</h3>
+      <p>Ten checks on Italian payslips under the retail and services contract (CCNL Terziario): minimum pay,
+        seniority steps, INPS contributions, severance accrual, holidays, the F24 tax payment, master-data changes
+        nobody declared. Plus what the November 2026 pay rise costs each client.</p>
+      <ul class="proof">
+        <li><b>Finds all 29 planted errors</b> with no false alarms; a statistical anomaly detector on the same data finds about a third.</li>
+        <li><b>Three twins, one answer:</b> Python, a live-formula sheet (435 checks) and a browser tool (1,807 values) agree, and files never leave the computer.</li>
+        <li><b>Sources on every rule,</b> and a test that keeps the one error no check can see on record.</li>
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="https://d0m3n1c0x.github.io/controlli-cedolini/strumento/">Try the tool</a>
+        <a class="btn" href="https://d0m3n1c0x.github.io/controlli-cedolini/">Report</a>
+        <a class="btn" href="https://github.com/D0M3N1C0X/controlli-cedolini">Code</a>
+      </div>
+      <p class="sub" style="margin:10px 0 0">In Italian.</p>
+    </div>
+  </article>
+
+  <article class="project">
+    <figure>
+      <picture>
+        <source srcset="media/vimeo.png" media="(prefers-reduced-motion: reduce)">
+        <img src="media/vimeo.webp" width="960" height="608" loading="lazy" alt="Moving the real uplift slider in the Vimeo model: below 0.68% a year the bet loses money, above it the value turns positive.">
+      </picture>
+      <figcaption>Move the uplift across 0.68% a year and the verdict flips: that is the bar the test has to clear.</figcaption>
+    </figure>
+    <div>
+      <span class="tag">Business analysis</span>
+      <h3>Vimeo: where the next dollar comes from</h3>
+      <p>An outside-in case from Vimeo's SEC filings. Self-Serve has lost subscribers for three years while price
+        held revenue up; Enterprise pays about 120 times more per account. The bet: route the Self-Serve teams that
+        already look like Enterprise buyers to sales, and test it before hiring for it.</p>
+      <ul class="proof">
+        <li><b>Revenue split into volume and price</b> for every category, from figures traced to each filing.</li>
+        <li><b>$2.2M net present value</b> at 1 extra upgrade per 100 accounts a year; it breaks even at 0.68%.</li>
+        <li><b>A test sized against the data:</b> of four designs only one can see the break-even on 22,558 accounts, and the decision rule's error rates are measured, not assumed.</li>
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="https://d0m3n1c0x.github.io/vimeo-growth-case/model/">Open the model</a>
+        <a class="btn" href="https://d0m3n1c0x.github.io/vimeo-growth-case/">Memo</a>
+        <a class="btn" href="https://github.com/D0M3N1C0X/vimeo-growth-case">Code</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="project">
+    <figure>
+      <picture>
+        <source srcset="media/kit.png" media="(prefers-reduced-motion: reduce)">
+        <img src="media/kit.webp" width="960" height="608" loading="lazy" alt="The pay transparency report: the gender pay gap by employer, the share of each pay quartile and the categories of workers that need a justification.">
+      </picture>
+      <figcaption>The report on four employers: pay gaps by Article 9 item, and where Article 10 asks for a justification.</figcaption>
+    </figure>
+    <div>
+      <span class="tag">Reward &amp; HR consulting</span>
+      <h3>Ready for the EU Pay Transparency Directive?</h3>
+      <p>A dry run of Directive (EU) 2023/970 for an employer in four countries, 3,443 workers, delivered as a
+        consulting team would: what each entity owes and when, the seven reporting items, the joint pay assessment
+        screen, and a plan for the next 90 days.</p>
+      <ul class="proof">
+        <li><b>A live Excel model</b> reconciled with pandas on 460 figures, recalculated in LibreOffice on every change.</li>
+        <li><b>A board briefing and a readiness checklist,</b> with a register of every legal source.</li>
+        <li><b>Clear about its limits:</b> synthetic data, and what each Member State's transposition can still change.</li>
+      </ul>
+      <div class="cta">
+        <a class="btn primary" href="https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/">Read the report</a>
+        <a class="btn" href="https://github.com/D0M3N1C0X/pay-transparency-readiness-kit">Code and workbook</a>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="wrap" aria-labelledby="more">
+  <h2 id="more">More work</h2>
+  <p class="sub">People analytics, reward, workforce planning, and the tools behind them.</p>
+  <div class="grid">
+    <div class="card"><span class="tag">Reward</span>
+      <h3><a href="https://github.com/D0M3N1C0X/equal-value-pay-ranges">Equal-value pay ranges</a></h3>
+      <p>One pay range per grade and country, priced on Eurostat market data, every employee placed against it, and the range to publish with each vacancy.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/equal-value-pay-ranges/">Report</a> · <a href="https://d0m3n1c0x.github.io/equal-value-pay-ranges/ads.html">Pay range finder</a></div></div>
+    <div class="card"><span class="tag">Workforce planning</span>
+      <h3><a href="https://github.com/D0M3N1C0X/workforce-cost-model">Workforce cost model</a></h3>
+      <p>Italian and Polish employer costs for 2026, a budget variance that adds up exactly, and next year under four scenarios.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/workforce-cost-model/">Memo</a></div></div>
+    <div class="card"><span class="tag">Research · R</span>
+      <h3><a href="https://github.com/D0M3N1C0X/where-pay-transparency-bites">Where pay transparency bites</a></h3>
+      <p>Eurostat data for 27 Member States: inside sectors the gender pay gap is wider than the published one in 22 countries.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/where-pay-transparency-bites/">Article</a> · <a href="https://d0m3n1c0x.github.io/where-pay-transparency-bites/dashboard/">Dashboard</a> · <a href="https://d0m3n1c0x.github.io/where-pay-transparency-bites/paper.pdf">Paper</a></div></div>
+    <div class="card"><span class="tag">People analytics</span>
+      <h3><a href="https://github.com/D0M3N1C0X/hr-people-analytics">Why people leave</a></h3>
+      <p>Attrition drivers, pay equity and HR service-desk performance on a 4,000-person organisation: logistic regression, gap decomposition, SQL.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/hr-people-analytics/">Report</a></div></div>
+    <div class="card"><span class="tag">People analytics</span>
+      <h3><a href="https://github.com/D0M3N1C0X/engagement-survey-analytics">Engagement survey to action plan</a></h3>
+      <p>2,753 answers: non-response bias, confidence intervals, key drivers, free-text themes, and a dashboard that will not report on fewer than five people.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/engagement-survey-analytics/">Dashboard</a></div></div>
+    <div class="card"><span class="tag">Tooling · Python</span>
+      <h3><a href="https://github.com/D0M3N1C0X/excel-twin">excel-twin</a></h3>
+      <p>The library behind the reconciliations: proves a spreadsheet's live formulas give the same numbers as the Python model, in CI.</p>
+      <div class="more"><a href="https://github.com/D0M3N1C0X/excel-twin#readme">Read me</a></div></div>
+    <div class="card"><span class="tag">Automation</span>
+      <h3><a href="https://github.com/D0M3N1C0X/job-search-agent">Job search agent</a></h3>
+      <p>A job search run as a data pipeline: public ATS board APIs, explainable fit scoring, tailored documents, funnel analytics.</p></div>
+    <div class="card"><span class="tag">Public history</span>
+      <h3><a href="https://github.com/D0M3N1C0X/pompei-stratificata">Pompeii after AD 79</a></h3>
+      <p>Pompeii and Herculaneum from the eruption to today as a model you walk through, in six languages, with a source next to every statement.</p>
+      <div class="more"><a href="https://d0m3n1c0x.github.io/pompei-stratificata/">Open the model</a></div></div>
+    <div class="card"><span class="tag">Media education</span>
+      <h3>Florence, 1216 <span class="eyebrow">in development</span></h3>
+      <p>A serious game for schools: the class writes the chronicle of the Buondelmonte murder as a young notary, then compares it with the chronicles that survive.</p></div>
+  </div>
+</section>
+
+<section class="wrap two" aria-label="How I work and background">
+  <div>
+    <h2>How I work</h2>
+    <p class="sub" style="color:var(--ink-soft)">I build with an AI coding assistant, and the commit history says so. What I own is the
+      question, the method and the check: every figure is computed twice or traced to its source, and each
+      repository keeps a register of what was verified, what was not, and what was corrected.</p>
+  </div>
+  <div>
+    <h2>Background</h2>
+    <ul>
+      <li>MSc Media Education, Università Cattolica, Milan (110/110)</li>
+      <li>MSc Politics, Administration &amp; Organisation, University of Bologna</li>
+      <li>Erasmus+ at Jagiellonian University, Kraków: leadership and HR management</li>
+      <li>People Analytics, The Wharton School (Coursera)</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="wrap">
+  <a href="https://github.com/D0M3N1C0X">GitHub</a> · <a href="https://www.linkedin.com/in/domenico-perroni">LinkedIn</a> ·
+  <a href="https://orcid.org/0009-0001-8806-5188">ORCID</a> · Data in every project is public or synthetic.
+  <a href="https://github.com/D0M3N1C0X/d0m3n1c0x.github.io">Source of this page</a>.
+</footer>
+</body>
+</html>
