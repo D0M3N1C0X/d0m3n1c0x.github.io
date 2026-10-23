@@ -43,7 +43,7 @@ nothing = lambda p: None
 
 SCENES = {
     # the payroll tool: load the example files, run the checks, read the flags
-    "controlli": ("https://d0m3n1c0x.github.io/controlli-cedolini/strumento/", [
+    "controlli": ("https://d0m3n1c0x.github.io/controlli-cedolini/strumento/?lang=en", [
         (nothing, 1400),
         (click("#esempio"), 900),
         (lambda p: (p.wait_for_function("!document.querySelector('#esegui').disabled"), p.click("#esegui")), 300),

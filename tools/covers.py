@@ -126,6 +126,15 @@ SPECS = {
         "stats": [["0", "accounts or servers"], ["3", "devices from one web app"], ["2", "free catalogues: iTunes and Wikipedia"]],
         "chips": ["JavaScript", "IndexedDB", "Installable", "SwiftUI next"],
     },
+    "d0m3n1c0x.github.io": {
+        "eyebrow": "Portfolio · HR advisory, people analytics, reward",
+        "title": "Domenico Perroni",
+        "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
+               "business cases. Every figure computed twice or traced to its source.",
+        "stats": [["3,134", "figures reconciled between Python and Excel"], ["11", "projects to open live, nothing to install"],
+                  ["5", "languages: Italian, English, Spanish, French, Polish"]],
+        "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
+    },
     "excel-twin": {
         "eyebrow": "Open-source Python library",
         "title": "Prove the spreadsheet matches the model",
