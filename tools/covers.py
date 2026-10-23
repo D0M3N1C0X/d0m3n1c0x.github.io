@@ -100,6 +100,32 @@ SPECS = {
                   ["344", "offline tests"]],
         "chips": ["Python, no dependencies", "CLI", "Dashboard", "Funnel analytics"],
     },
+    "pompei-stratificata": {
+        "eyebrow": "Public history · Pompeii and Herculaneum, AD 79 to today",
+        "title": "Pompeii never vanished: it became unreadable",
+        "sub": "Two cities buried by the same night, in a model you walk through: eight phases from the eve of the eruption "
+               "to today's excavation, the two stratigraphic columns side by side, and a dossier with a source for every statement.",
+        "stats": [["8", "phases, from AD 79 to today's excavation"], ["5 m vs 20 m", "of deposit: Pompeii against Herculaneum"],
+                  ["6", "languages, and it works offline"]],
+        "chips": ["three.js", "Sourced dossier", "Six languages", "Installable app"],
+    },
+    "firenze-1216-citta": {
+        "eyebrow": "Media education · Florence, Easter morning 1216",
+        "title": "Walk the city of the Buondelmonte murder",
+        "sub": "Florence inside its 1172–75 walls, house by house, on two days: the broken promise of 10 February and Easter "
+               "morning. The explorable setting of a serious game for schools, still in development.",
+        "stats": [["1216", "Easter morning, the day of the murder"], ["2", "days to walk through, at any hour"],
+                  ["1172–75", "circle of walls, gates and suburbs, rebuilt"]],
+        "chips": ["three.js", "Vite", "Game scenes", "Prototype"],
+    },
+    "spinwall": {
+        "eyebrow": "Web app · iPhone, iPad and Mac",
+        "title": "Your albums, on a Cover Flow wall",
+        "sub": "Flip through the albums you have listened to, turn a cover over for its songs, and keep your own notes. "
+               "Everything stays on the device: no account, no server.",
+        "stats": [["0", "accounts or servers"], ["3", "devices from one web app"], ["2", "free catalogues: iTunes and Wikipedia"]],
+        "chips": ["JavaScript", "IndexedDB", "Installable", "SwiftUI next"],
+    },
     "excel-twin": {
         "eyebrow": "Open-source Python library",
         "title": "Prove the spreadsheet matches the model",
