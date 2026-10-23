@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What will next year&#x27;s people cost be? · Case study</title>
+<meta name="description" content="What does one person really cost in each country, why did last year overrun, and what does next year cost if we freeze hiring, lose more people or start closing pay gaps?">
+<style>
+:root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
+--line:#e8e8ed;--accent:#0066cc;--accent-wash:#eef5fd;--glow:none;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#000000;--paper-2:#0b0c0f;--surface:#15171c;
+--ink:#f5f5f7;--ink-soft:#c7c9d1;--muted:#8b8f9a;--line:#23262e;--accent:#4f8cff;--accent-wash:#101b33;color-scheme:dark;
+--glow:radial-gradient(55% 70% at 90% 0%,rgba(79,140,255,.22),transparent 70%)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:var(--glow);background-repeat:no-repeat;color:var(--ink);
+font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.page{max-width:820px;margin:0 auto;padding:40px 24px 56px}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted)}
+.top a{color:var(--muted)}
+.tag{display:inline-block;margin-top:28px;padding:4px 12px;border-radius:999px;background:var(--accent-wash);
+color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+h1{font:700 34px/1.12 var(--display);letter-spacing:-.02em;margin:12px 0 10px}
+.client{color:var(--ink-soft);margin:0 0 18px;font-size:15px}
+.q{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:0 0 22px;font-size:17px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}
+.kpi{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px}
+.kpi b{display:block;font:700 21px/1.15 var(--display);letter-spacing:-.01em;margin-bottom:4px}
+.kpi span{display:block;font-size:12px;line-height:1.35;color:var(--ink-soft)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+h2{font:650 13px/1.3 var(--font);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
+.check{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:4px 0 18px;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.skills span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600}
+.foot{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.list{display:grid;gap:12px;margin-top:24px}
+.item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
+border-radius:16px;padding:16px 18px}
+.item:hover{border-color:var(--accent)}
+.item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
+.item span{color:var(--ink-soft);font-size:14px}
+@media (max-width:680px){.kpis{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr;gap:0}h1{font-size:28px}}
+@page{size:A4;margin:12mm 13mm}
+@media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
+--accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
+.top .web{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.links a::after{content:" " attr(href);
+font-weight:400;color:#6e6e73}}
+</style></head>
+<body><main class="page">
+<div class="top"><span>Case study · Domenico Perroni</span>
+<span class="web"><a href="./">All case studies</a> · <a href="workforce-cost-model.pdf">PDF</a></span></div>
+<span class="tag">HR &amp; finance</span>
+<h1>What will next year&#x27;s people cost be?</h1>
+<p class="client"><b>Client:</b> An employer in Milan and Kraków closing its FY2026 people budget and planning FY2027.</p>
+<p class="q">What does one person really cost in each country, why did last year overrun, and what does next year cost if we freeze hiring, lose more people or start closing pay gaps?</p>
+<div class="kpis"><div class="kpi"><b>€5.8M</b><span>over the FY2026 budget (5.7%), explained by volume</span></div><div class="kpi"><b>€59,382</b><span>a fully loaded FTE in Milan, against €41,727 in Kraków</span></div><div class="kpi"><b>€111.0M</b><span>FY2027 in the base case (+3.6%)</span></div><div class="kpi"><b>€0.76M</b><span>added in FY2027 by closing pay gaps from January</span></div></div>
+<div class="cols">
+<section><h2>What I did</h2><ul><li>Loaded every employee with each employer contribution, cap by cap: INPS and TFR in Italy; ZUS, the Labour Fund, FGŚP and PPK in Poland.</li><li>Split the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.</li><li>Forecast FY2027 month by month under four scenarios, moving FTE rather than people.</li><li>Built a simulator for the budget meeting, with the cost of one employee in four countries.</li></ul></section>
+<section><h2>What it found</h2><ul><li>A hiring freeze from October cuts FY2027 to €104.6M but ends the year with 278 fewer FTE: a capacity decision, not a finance one.</li><li>Higher attrition barely moves payroll but lifts recruitment cost to €1.54M.</li></ul><h2>With real data</h2><ul><li>Actual payroll by month, with the company&#x27;s own on-cost rules and benefits.</li><li>Hiring and leaver plans by team from the business, not last year&#x27;s rates.</li><li>The pay-gap remediation from the client&#x27;s own Article 10 screen.</li></ul></section>
+</div>
+<p class="check"><b>How it is checked.</b> 570 figures reconciled between the Excel formulas and pandas; the simulator checked against the model on 9,679 values; every rate and cap in a register with its source.</p>
+<div class="skills"><span>Workforce planning</span><span>Budget variance</span><span>Employer costs IT/PL/DE/ES</span><span>Excel modelling</span><span>Python</span></div>
+<div class="links"><a href="https://d0m3n1c0x.github.io/workforce-cost-model/">Read the CFO memo</a><a href="https://d0m3n1c0x.github.io/workforce-cost-model/simulator/">Try the simulator</a><a href="https://github.com/D0M3N1C0X/workforce-cost-model">The repository</a></div>
+<p class="foot">Synthetic or public data; not legal, pay or investment advice. Figures as published on
+24 October 2026. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
+<a href="https://d0m3n1c0x.github.io/">d0m3n1c0x.github.io</a></p>
+</main></body></html>
