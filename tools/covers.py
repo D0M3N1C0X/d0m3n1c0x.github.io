@@ -73,6 +73,33 @@ SPECS = {
                   ["22 of 27", "Member States where the headline flatters"]],
         "chips": ["R", "Quarto", "Eurostat", "Working paper"],
     },
+    "hr-people-analytics": {
+        "eyebrow": "People analytics · attrition, pay equity, HR service",
+        "title": "Why people leave, and what it costs",
+        "sub": "Three questions a People function has to answer with numbers, end to end on a 4,000-employee European "
+               "organisation: data model, SQL warehouse, statistics, charts and a report for leadership.",
+        "stats": [["3.53×", "odds of resigning when paid below 0.92 compa-ratio"], ["13.6%", "voluntary turnover, 16.8% in Customer Service"],
+                  ["76.4%", "SLA attainment against a 90% target"]],
+        "chips": ["Python, no dependencies", "SQL", "Statistics", "Report"],
+    },
+    "engagement-survey-analytics": {
+        "eyebrow": "People analytics · employee engagement survey",
+        "title": "From 2,753 answers to what to do on Monday",
+        "sub": "An engagement survey analysed end to end: non-response bias, scores with confidence intervals, a key-driver "
+               "analysis that survives a bootstrap, and free text that reports its own error rate.",
+        "stats": [["40%", "of the explained variance carried by Manager Support"], ["−12", "eNPS, with an engagement index of 54%"],
+                  ["34", "teams significantly below the company score"]],
+        "chips": ["Python, no dependencies", "Statistics", "Text analytics", "Live dashboard"],
+    },
+    "job-search-agent": {
+        "eyebrow": "Automation · a job search as a data pipeline",
+        "title": "A job search that runs as a pipeline",
+        "sub": "Postings from public ATS board APIs, scored against a profile with rules you can read, tailored documents, "
+               "and funnel analytics on which positioning gets replies. Zero dependencies.",
+        "stats": [["8", "ATS providers, fetching split from parsing"], ["325", "company boards in the catalogue"],
+                  ["344", "offline tests"]],
+        "chips": ["Python, no dependencies", "CLI", "Dashboard", "Funnel analytics"],
+    },
     "excel-twin": {
         "eyebrow": "Open-source Python library",
         "title": "Prove the spreadsheet matches the model",
