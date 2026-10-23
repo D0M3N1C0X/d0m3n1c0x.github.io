@@ -19,7 +19,7 @@
 /* Portfolio identity 1.0 (brand/tokens.css): light in the Apple manner, dark in the Revolut manner. System fonts. */
 :root {
   --paper:#ffffff; --paper-2:#f5f5f7; --surface:#ffffff; --ink:#1d1d1f; --ink-soft:#424245; --muted:#6e6e73;
-  --line:#e8e8ed; --line-strong:#d2d2d7; --accent:#0071e3; --accent-2:#5e5ce6; --accent-wash:#eef5fd; --good:#1a7f37;
+  --line:#e8e8ed; --line-strong:#d2d2d7; --accent:#0066cc; --accent-2:#5e5ce6; --accent-wash:#eef5fd; --good:#17783a;
   --shadow:0 1px 2px rgba(0,0,0,.04),0 12px 32px rgba(0,0,0,.07); --glow:none; --on-accent:#ffffff;
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   --display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Inter","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -91,6 +91,7 @@ section > h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin-botto
 .two li { margin-bottom: 8px; }
 .two li::marker { color: var(--accent); }
 footer { border-top: 1px solid var(--line); padding: 26px 0 44px; color: var(--muted); font-size: 14px; }
+footer a { text-decoration: underline; text-underline-offset: 3px; }
 @media (max-width: 780px) {
   header { padding-top: 44px; }
   .project, .two { grid-template-columns: 1fr; gap: 18px; }
