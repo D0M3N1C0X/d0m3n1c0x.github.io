@@ -1,0 +1,27 @@
+name: design
+
+on:
+  push:
+    paths: ["design/**", ".github/workflows/design.yml"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Tables and column matching
+        run: node design/tests/table.test.mjs
+      - name: Excel reading and writing
+        run: OUT="$RUNNER_TEMP/roundtrip.xlsx" node design/tests/xlsx.test.mjs
+      - name: A written file opens in openpyxl
+        run: |
+          pip install --quiet openpyxl==3.1.5
+          python -W error -c "from openpyxl import load_workbook; wb = load_workbook('$RUNNER_TEMP/roundtrip.xlsx'); print(wb.sheetnames)"
