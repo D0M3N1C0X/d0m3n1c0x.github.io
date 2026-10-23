@@ -70,6 +70,15 @@ SCENES = {
         (scroll_to("svg[aria-label^='Share']", -60), 2000),
         (scroll_to("svg[aria-label^='Hourl']", -150), 2600),
     ], 1),
+    # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen
+    "kit-tool": ("https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/tool/?lang=en", [
+        (nothing, 1400),
+        (lambda p: (p.click("#esempio"), p.wait_for_selector("#kpis .s-kpi")), 600),
+        (scroll_to("#kpis", -90), 2400),
+        (scroll_to("#grafico-quartili", -160), 2200),
+        (scroll_to("#grafico-categorie", -120), 2600),
+        (scroll_to("#tab-categorie", -40), 2400),
+    ], 2),
 }
 
 
