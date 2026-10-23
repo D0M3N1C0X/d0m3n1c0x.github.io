@@ -92,6 +92,10 @@ section > h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin-botto
 .two li::marker { color: var(--accent); }
 footer { border-top: 1px solid var(--line); padding: 26px 0 44px; color: var(--muted); font-size: 14px; }
 footer a { text-decoration: underline; text-underline-offset: 3px; }
+.film { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--line); background: #000;
+  box-shadow: var(--shadow); margin-top: 14px; }
+.film-text { margin-top: 10px; color: var(--muted); font-size: 15px; }
+.film-text summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; }
 @media (max-width: 780px) {
   header { padding-top: 44px; }
   .project, .two { grid-template-columns: 1fr; gap: 18px; }
@@ -124,6 +128,22 @@ footer a { text-decoration: underline; text-underline-offset: 3px; }
 </header>
 
 <main>
+<section class="wrap" aria-labelledby="film">
+  <h2 id="film">The portfolio in 90 seconds</h2>
+  <p class="sub">No sound needed: the captions are on screen.</p>
+  <video class="film" controls muted playsinline preload="none" poster="media/film.png" width="1280" height="720"
+    aria-describedby="film-text"><source src="media/film.mp4" type="video/mp4"></video>
+  <details class="film-text" id="film-text"><summary>Text of the video</summary>
+    <p>Six tools an HR team can use today. EU Pay Transparency Directive: the pay gap report on the client's own
+      payroll, with the seven reporting items, the 5% screen by category and the cost of closing each gap; the file never
+      leaves the computer, and Italy is measured the Italian way. Italian payroll: fourteen checks before the payslips go
+      out, 35 of 35 planted errors found with no false alarms. HR and finance: next year's people cost, scenario by
+      scenario, month by month, with the sentence for the CFO. Reward: the pay range for every job ad, priced on
+      Eurostat market data. Research: inside the same sector, the gender pay gap is wider than the headline in 22 of 27
+      Member States. 3,185 figures computed twice, in Python and in a live spreadsheet. See the work at
+      d0m3n1c0x.github.io.</p></details>
+</section>
+
 <section class="wrap" aria-labelledby="three">
   <h2 id="three">Three projects, two minutes</h2>
   <p class="sub">Each one is a deliverable a team would use, not an exercise. The loops are recorded from the live pages.</p>

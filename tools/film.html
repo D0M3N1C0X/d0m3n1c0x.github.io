@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Portfolio in 90 seconds</title>
+<style>html, body { margin: 0; background: #000; } canvas { display: block; }</style></head>
+<body>
+<canvas id="c" width="1280" height="720"></canvas>
+<script>
+// A 90-second tour for LinkedIn and the portfolio, drawn on a canvas and recorded by Chrome's own MediaRecorder
+// (tools/film.py). Captions on screen, no sound: most feeds play muted. The loops are the ones in media/, recorded
+// from the live pages; their frames are decoded with WebCodecs so the timing does not depend on the screen.
+const W = 1280, H = 720, FADE = 0.7;
+const C = { ink: "#f5f5f7", soft: "#c7c9d1", muted: "#8b8f9a", accent: "#4f8cff", violet: "#8b5cf6",
+  surface: "#15171c", line: "#343844" };
+const FONT = '-apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+const SCENES = [
+  { s: 6, kind: "title", eyebrow: "Domenico Perroni · HR advisory · People analytics · Reward",
+    title: "Six tools an HR team\ncan use today", text: "Ninety seconds, no sound needed." },
+  { s: 14, kind: "shot", img: "kit-tool", eyebrow: "EU Pay Transparency Directive",
+    title: "The pay gap report, on the client's own payroll",
+    text: "The seven reporting items, the 5% screen by category and the cost of closing each gap. The file never leaves the computer.",
+    tag: "Italy measured the Italian way" },
+  { s: 14, kind: "shot", img: "controlli-en", eyebrow: "Italian payroll · CCNL Terziario",
+    title: "Fourteen checks before the payslips go out",
+    text: "Minimums, seniority, contributions, severance, leavers, the F24. 35 of 35 planted errors found, no false alarms." },
+  { s: 14, kind: "shot", img: "wcm-sim", eyebrow: "HR and finance",
+    title: "Next year's people cost, scenario by scenario",
+    text: "Freeze hiring, lose more people, close pay gaps: FY2027 month by month, with the sentence for the CFO." },
+  { s: 12, kind: "shot", img: "ads", eyebrow: "Reward", title: "The pay range for every job ad",
+    text: "One range per grade and country, priced on Eurostat market data, ready for Article 5." },
+  { s: 12, kind: "shot", img: "wpb-dash", eyebrow: "Research · Eurostat, 27 countries", title: "The published gap flatters",
+    text: "Inside the same sector, the gender pay gap is wider than the headline in 22 of 27 Member States." },
+  { s: 10, kind: "number", eyebrow: "How it is built", big: "3,185",
+    text: "figures computed twice, in Python and in a live spreadsheet, and reconciled on every change. Every legal claim carries its source." },
+  { s: 8, kind: "end", title: "See the work", text: "Case studies, live tools and the code behind them.", url: "d0m3n1c0x.github.io" },
+];
+const TOTAL = SCENES.reduce((a, x) => a + x.s, 0);
+const ctx = document.getElementById("c").getContext("2d");
+
+// ---- animated WebP loops, decoded once -------------------------------------------------------------------
+const loops = {};
+async function load(name) {
+  const data = await (await fetch(`../media/${name}.webp`)).arrayBuffer();
+  const dec = new ImageDecoder({ data, type: "image/webp" });
+  await dec.tracks.ready;
+  const n = dec.tracks.selectedTrack.frameCount, frames = [];
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    const { image } = await dec.decode({ frameIndex: i });
+    const ms = (image.duration || 100000) / 1000;
+    frames.push({ bmp: await createImageBitmap(image), start: total, ms });
+    total += ms;
+    image.close();
+  }
+  loops[name] = { frames, total };
+}
+function frameAt(name, ms) {
+  const l = loops[name], t = ms % l.total;
+  return (l.frames.find((f) => t >= f.start && t < f.start + f.ms) || l.frames[0]).bmp;
+}
+
+// ---- drawing ----------------------------------------------------------------------------------------------------
+function background() {
+  ctx.fillStyle = "#000"; ctx.fillRect(0, 0, W, H);
+  for (const [x, y, r, col] of [[W * 0.9, 0, 700, "rgba(79,140,255,0.25)"], [W, H * 0.35, 520, "rgba(139,92,246,0.2)"]]) {
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, col); g.addColorStop(1, "rgba(0,0,0,0)");
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  }
+}
+function lines(text, maxW, size, weight) {
+  ctx.font = `${weight} ${size}px ${FONT}`;
+  const out = [];
+  for (const para of text.split("\n")) {
+    let line = "";
+    for (const word of para.split(" ")) {
+      const test = line ? `${line} ${word}` : word;
+      if (ctx.measureText(test).width > maxW && line) { out.push(line); line = word; } else line = test;
+    }
+    out.push(line);
+  }
+  return out;
+}
+function write(text, x, y, maxW, size, weight, colour, lh, align = "left", spacing = "0px") {
+  const ls = lines(text, maxW, size, weight);
+  ctx.fillStyle = colour; ctx.textAlign = align; ctx.textBaseline = "alphabetic"; ctx.letterSpacing = spacing;
+  ls.forEach((l, i) => ctx.fillText(l, x, y + i * size * lh));
+  ctx.letterSpacing = "0px";
+  return y + ls.length * size * lh;
+}
+function rounded(x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+function scene(sc, local) {
+  const cx = W / 2;
+  if (sc.kind === "shot") {
+    const tx = 72, tw = 360;
+    let y = 250;
+    y = write(sc.eyebrow.toUpperCase(), tx, y - 40, tw, 14, 600, C.accent, 1.3, "left", "1px");
+    y = write(sc.title, tx, y + 28, tw, 38, 700, C.ink, 1.1);
+    y = write(sc.text, tx, y + 14, tw, 21, 400, C.soft, 1.4);
+    if (sc.tag) {
+      ctx.font = `400 15px ${FONT}`;
+      const w = ctx.measureText(sc.tag).width + 28;
+      rounded(tx, y + 6, w, 32, 16); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+      write(sc.tag, tx + 14, y + 27, w, 15, 400, C.soft, 1);
+    }
+    const bmp = frameAt(sc.img, local * 1000);
+    const sx = 488, sw = W - sx - 72, sh = sw * bmp.height / bmp.width, sy = (H - sh) / 2;
+    ctx.save(); ctx.shadowColor = "rgba(0,0,0,0.6)"; ctx.shadowBlur = 60; ctx.shadowOffsetY = 24;
+    rounded(sx, sy, sw, sh, 20); ctx.fillStyle = C.surface; ctx.fill(); ctx.restore();
+    ctx.save(); rounded(sx, sy, sw, sh, 20); ctx.clip(); ctx.drawImage(bmp, sx, sy, sw, sh); ctx.restore();
+    rounded(sx, sy, sw, sh, 20); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+  } else if (sc.kind === "title") {
+    write(sc.eyebrow.toUpperCase(), cx, 250, 1100, 15, 600, C.accent, 1.3, "center", "1px");
+    const y = write(sc.title, cx, 330, 1100, 64, 700, C.ink, 1.05, "center", "-1px");
+    write(sc.text, cx, y + 26, 900, 21, 400, C.soft, 1.4, "center");
+  } else if (sc.kind === "number") {
+    write(sc.eyebrow.toUpperCase(), cx, 230, 1100, 15, 600, C.accent, 1.3, "center", "1px");
+    ctx.font = `700 120px ${FONT}`; ctx.textAlign = "center"; ctx.letterSpacing = "-3px";
+    const w = ctx.measureText(sc.big).width, g = ctx.createLinearGradient(cx - w / 2, 0, cx + w / 2, 0);
+    g.addColorStop(0, C.accent); g.addColorStop(1, C.violet); ctx.fillStyle = g; ctx.fillText(sc.big, cx, 370);
+    ctx.letterSpacing = "0px";
+    write(sc.text, cx, 430, 820, 22, 400, C.soft, 1.4, "center");
+  } else {
+    const y = write(sc.title, cx, 320, 1100, 64, 700, C.ink, 1.05, "center", "-1px");
+    write(sc.text, cx, y + 24, 900, 21, 400, C.soft, 1.4, "center");
+    write(sc.url, cx, y + 96, 900, 30, 650, C.ink, 1, "center");
+  }
+}
+function draw(t) {
+  background();
+  let start = 0;
+  SCENES.forEach((sc, i) => {
+    const local = t - start, last = i === SCENES.length - 1;
+    if (local > -FADE && (local < sc.s || last)) {
+      const a = Math.min(1, (local + FADE) / FADE, last ? 1 : (sc.s - local) / FADE);
+      if (a > 0) { ctx.globalAlpha = Math.max(0, a); scene(sc, Math.max(0, local)); ctx.globalAlpha = 1; }
+    }
+    start += sc.s;
+  });
+  const g = ctx.createLinearGradient(0, 0, W, 0);
+  g.addColorStop(0, C.accent); g.addColorStop(1, C.violet);
+  ctx.fillStyle = g; ctx.fillRect(0, H - 4, W * Math.min(1, t / TOTAL), 4);
+}
+
+// ---- recording ------------------------------------------------------------------------------------------------
+window.ready = (async () => { for (const n of new Set(SCENES.filter((s) => s.img).map((s) => s.img))) await load(n); draw(0); })();
+window.still = (t) => draw(t);
+window.record = async () => {
+  await window.ready;
+  const types = ["video/mp4;codecs=avc1.640028", "video/mp4;codecs=avc1.42E01F", "video/mp4", "video/webm;codecs=vp9"];
+  const mimeType = types.find((m) => MediaRecorder.isTypeSupported(m));
+  const stream = document.getElementById("c").captureStream(30);
+  const rec = new MediaRecorder(stream, { mimeType, videoBitsPerSecond: 8_000_000 });
+  const chunks = [];
+  rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
+  const stopped = new Promise((r) => { rec.onstop = r; });
+  rec.start(1000);
+  const t0 = performance.now();
+  await new Promise((done) => {
+    const tick = () => {
+      const t = (performance.now() - t0) / 1000;
+      draw(Math.min(t, TOTAL));
+      if (t < TOTAL + 0.5) requestAnimationFrame(tick); else done();
+    };
+    requestAnimationFrame(tick);
+  });
+  rec.stop();
+  await stopped;
+  const blob = new Blob(chunks, { type: mimeType });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = mimeType.startsWith("video/mp4") ? "film.mp4" : "film.webm";
+  document.body.appendChild(a); a.click();
+  return mimeType;
+};
+</script>
+</body></html>
