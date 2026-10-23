@@ -70,6 +70,33 @@ SCENES = {
         (scroll_to("svg[aria-label^='Share']", -60), 2000),
         (scroll_to("svg[aria-label^='Hourl']", -150), 2600),
     ], 1),
+    # the payroll checks in English: the example files, the flags and what to do
+    "controlli-en": ("https://d0m3n1c0x.github.io/controlli-cedolini/strumento/?lang=en", [
+        (nothing, 1400),
+        (click("#esempio"), 900),
+        (lambda p: (p.wait_for_function("!document.querySelector('#esegui').disabled"), p.click("#esegui")), 300),
+        (scroll_to("#risultati"), 2200),
+        (scroll_by(380), 1600),
+        (scroll_by(380), 1600),
+        (scroll_to("#novembre", -140), 2400),
+    ], 3),
+    # the people-cost simulator: base case, then a hiring freeze and more leavers, and the months
+    "wcm-sim": ("https://d0m3n1c0x.github.io/workforce-cost-model/simulator/?lang=en", [
+        (nothing, 1200),
+        (scroll_to("#h-leve", -20), 1600),
+        (click("#preset button[data-p='1']"), 1400),
+        (scroll_to("#kpis", -20), 2200),
+        (scroll_to("#h-mesi", -20), 2400),
+        (scroll_to("#h-confronto", -20), 2200),
+    ], 3),
+    # the pay range finder: one role after another
+    "ads": ("https://d0m3n1c0x.github.io/equal-value-pay-ranges/ads.html", [
+        (nothing, 1600),
+        (lambda p: p.select_option("#country", index=1), 1400),
+        (lambda p: p.select_option("#family", index=3), 1400),
+        (lambda p: p.select_option("#level", index=4), 2200),
+        (scroll_to("#grades", -60), 2400),
+    ], 3),
     # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen
     "kit-tool": ("https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/tool/?lang=en", [
         (nothing, 1400),
