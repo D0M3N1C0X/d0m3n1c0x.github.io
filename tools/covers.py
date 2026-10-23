@@ -64,6 +64,15 @@ SPECS = {
                   ["$2.2M", "net present value at the 1% plan"]],
         "chips": ["Python", "Excel model", "Interactive model", "A/B test design"],
     },
+    "where-pay-transparency-bites": {
+        "eyebrow": "Research · Eurostat, 27 Member States",
+        "title": "The published pay gap understates what employers will find",
+        "sub": "Split across 17 sectors, the 2022 gender pay gap is wider inside sectors than in the headline in 22 of "
+               "27 Member States, most of all where the headline looks small. In R and Quarto.",
+        "stats": [["14.6%", "EU gap inside the same sector, against 12.2% published"], ["3.8% → 14.4%", "Italy: published, then inside sectors"],
+                  ["22 of 27", "Member States where the headline flatters"]],
+        "chips": ["R", "Quarto", "Eurostat", "Working paper"],
+    },
     "excel-twin": {
         "eyebrow": "Open-source Python library",
         "title": "Prove the spreadsheet matches the model",

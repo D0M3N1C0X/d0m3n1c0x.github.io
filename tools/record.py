@@ -97,6 +97,13 @@ SCENES = {
         (lambda p: p.select_option("#level", index=4), 2200),
         (scroll_to("#grades", -60), 2400),
     ], 3),
+    # the Eurostat explorer: the EU, then Italy and Poland
+    "wpb-dash": ("https://d0m3n1c0x.github.io/where-pay-transparency-bites/dashboard/", [
+        (nothing, 1800),
+        (lambda p: p.select_option("select", label="Italy"), 2000),
+        (lambda p: p.select_option("select", label="Poland"), 2000),
+        (scroll_by(420), 2200),
+    ], 1),
     # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen
     "kit-tool": ("https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/tool/?lang=en", [
         (nothing, 1400),
