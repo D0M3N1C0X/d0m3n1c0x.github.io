@@ -44,7 +44,10 @@ export function createI18n(dicts, fallback = "it") {
     get lang() { return lang; }, t, set, apply,
     onChange: (fn) => listeners.push(fn),
     number: (x, d = 0) => fmt(x, { minimumFractionDigits: d, maximumFractionDigits: d }),
-    money: (x, d = 2) => `${x < 0 ? "−" : ""}${fmt(Math.abs(x), { minimumFractionDigits: d, maximumFractionDigits: d })} €`,
+    money: (x, d = 2) => {
+      const n = fmt(Math.abs(x), { minimumFractionDigits: d, maximumFractionDigits: d });
+      return `${x < 0 ? "−" : ""}${lang === "it" ? `${n} €` : `€${n}`}`;
+    },
     percent: (x, d = 1) => fmt(x, { style: "percent", minimumFractionDigits: d, maximumFractionDigits: d }),
   };
 }
