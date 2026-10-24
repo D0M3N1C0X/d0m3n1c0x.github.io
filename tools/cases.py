@@ -61,6 +61,46 @@ CASES = [
         "skills": ["Directive (EU) 2023/970", "Job evaluation", "Excel modelling", "Python", "Board communication"],
     },
     {
+        "slug": "ai-act-hr-readiness",
+        "repo": "ai-act-hr-readiness-kit",
+        "tag": "AI governance · HR",
+        "title": "Which of HR's AI systems are high-risk, and what do they owe?",
+        "client": "The same four-country employer, whose HR function uses twelve AI systems, from CV screening to a "
+                  "pay review recommender and an attrition model built in-house.",
+        "question": "Which systems does the AI Act ban or class as high-risk, what does each owe and from when, and whom "
+                    "do we have to tell before we use them?",
+        "did": [
+            "Read the AI Act and the Digital Omnibus (Regulation (EU) 2026/1744) in the Official Journal: the high-risk "
+            "duties for HR moved to 2 December 2027; the bans and AI literacy did not.",
+            "Classified each system from twenty answers: prohibited, high-risk, not high-risk under Article 6(3), "
+            "transparency only or minimal, with the reason written next to it.",
+            "Mapped thirteen obligations to the systems that trigger them, and the national rules on informing and "
+            "consulting workers in Italy, Germany, Spain and Poland.",
+            "Delivered a live Excel register, a report for the HR director and a worker information pack with a model "
+            "notice per country.",
+        ],
+        "kpis": [("1 of 12", "systems to stop now: emotion recognition in interviews"),
+                 ("7", "high-risk systems, with duties from 2 December 2027"),
+                 ("1", "system built in-house that makes the employer a provider"),
+                 ("8 · 5", "systems to inform the German works council about · that need its agreement")],
+        "found": [
+            "A video interview pilot infers candidates' emotions: prohibited at work since February 2025, with fines up "
+            "to 7% of turnover.",
+            "National labour law binds before the AI Act does: Spain owes the works council the parameters of seven "
+            "systems; Italy requires notices for two fully automated ones.",
+        ],
+        "real": [
+            "The suppliers' instructions for use and their Article 6(4) assessments, on file.",
+            "The Commission's guidelines on high-risk classification applied to the boundary cases.",
+            "A labour lawyer in each country to confirm the notices before they go out.",
+        ],
+        "checked": "317 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
+                   "change; a test changes an answer and checks both engines reclassify the system.",
+        "links": [("Read the report", f"{SITE}/ai-act-hr-readiness-kit/"),
+                  ("Worker information pack", f"{REPO}/ai-act-hr-readiness-kit/blob/main/docs/worker-information.md")],
+        "skills": ["EU AI Act", "Labour law IT/DE/ES/PL", "AI governance", "Excel modelling", "Python"],
+    },
+    {
         "slug": "equal-value-pay-ranges",
         "repo": "equal-value-pay-ranges",
         "tag": "Reward",
@@ -332,7 +372,7 @@ def index() -> str:
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Case studies · Domenico Perroni</title>
-<meta name="description" content="Six one-page case studies: the question, what was done, what it found.">
+<meta name="description" content="Seven one-page case studies: the question, what was done, what it found.">
 <style>{CSS}</style></head>
 <body><main class="page">
 <div class="top"><span>Domenico Perroni</span><span class="web"><a href="../">Portfolio</a></span></div>

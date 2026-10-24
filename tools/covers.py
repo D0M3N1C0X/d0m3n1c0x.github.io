@@ -28,6 +28,16 @@ SPECS = {
                   ["€1.9M", "a year, at most, to close every flagged gap"]],
         "chips": ["Python", "Excel model", "Browser tool", "Board deck"],
     },
+    "ai-act-hr-readiness-kit": {
+        "eyebrow": "EU AI Act · Regulation (EU) 2024/1689 and 2026/1744",
+        "title": "Which of HR's AI systems are high-risk, and what do they owe?",
+        "sub": "Every AI system an HR function in four countries uses, classified under the AI Act: what each one owes "
+               "and from when, and whom to tell under national labour law.",
+        "stats": [["1 of 12", "AI systems to stop now: emotion recognition in interviews"],
+                  ["7", "high-risk systems, with duties from 2 December 2027"],
+                  ["4 countries", "rules on telling the workers, already in force"]],
+        "chips": ["Python", "Excel register", "Worker information pack", "Sourced rules"],
+    },
     "controlli-cedolini": {
         "eyebrow": "Payroll operations · CCNL Terziario, Italy",
         "title": "Catch payroll errors before the client does",
@@ -131,7 +141,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["3,185", "figures reconciled between Python and Excel"], ["11", "projects to open live, nothing to install"],
+        "stats": [["3,502", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -140,7 +150,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["5", "analysis repositories reconcile through it"], ["3,185", "figures checked between Python and Excel"],
+        "stats": [["6", "analysis repositories reconcile through it"], ["3,502", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
