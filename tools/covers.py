@@ -36,7 +36,7 @@ SPECS = {
         "stats": [["1 of 12", "AI systems to stop now: emotion recognition in interviews"],
                   ["7", "high-risk systems, with duties from 2 December 2027"],
                   ["4 countries", "rules on telling the workers, already in force"]],
-        "chips": ["Python", "Excel register", "Worker information pack", "Sourced rules"],
+        "chips": ["Python", "Excel register", "Browser tool", "Worker information pack"],
     },
     "controlli-cedolini": {
         "eyebrow": "Payroll operations · CCNL Terziario, Italy",

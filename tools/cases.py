@@ -54,7 +54,7 @@ CASES = [
             "In Italy, the collective agreement's levels as the starting categories (D.lgs. 96/2026, art. 4).",
             "A justification workshop per flagged category, before the cost is budgeted.",
         ],
-        "checked": "511 figures reconciled between the Excel formulas and pandas; the browser tool checked on 3,821 "
+        "checked": "511 figures reconciled between the Excel formulas and pandas; the browser tool checked on 4,452 "
                    "values; every legal statement in a verification register with its source.",
         "links": [("Read the report", f"{SITE}/pay-transparency-readiness-kit/"),
                   ("Try the tool", f"{SITE}/pay-transparency-readiness-kit/tool/")],
@@ -70,34 +70,34 @@ CASES = [
         "question": "Which systems does the AI Act ban or class as high-risk, what does each owe and from when, and whom "
                     "do we have to tell before we use them?",
         "did": [
-            "Read the AI Act and the Digital Omnibus (Regulation (EU) 2026/1744) in the Official Journal: the high-risk "
-            "duties for HR moved to 2 December 2027; the bans and AI literacy did not.",
-            "Classified each system from twenty answers: prohibited, high-risk, not high-risk under Article 6(3), "
-            "transparency only or minimal, with the reason written next to it.",
-            "Mapped thirteen obligations to the systems that trigger them, and the national rules on informing and "
-            "consulting workers in Italy, Germany, Spain and Poland.",
-            "Delivered a live Excel register, a report for the HR director and a worker information pack with a model "
-            "notice per country.",
+            "Read the AI Act and the Digital Omnibus (Regulation (EU) 2026/1744) in the Official Journal.",
+            "Classified each system from eighteen answers: prohibited, high-risk, not high-risk under Article 6(3), "
+            "transparency only or minimal, with the reason written next to it, and when its duties bite under the "
+            "amended Article 111(2).",
+            "Mapped thirteen obligations, and the national rules on informing workers in four countries.",
+            "Delivered a live Excel register, a report, model notices per country and a browser tool.",
         ],
         "kpis": [("1 of 12", "systems to stop now: emotion recognition in interviews"),
                  ("7", "high-risk systems, with duties from 2 December 2027"),
                  ("1", "system built in-house that makes the employer a provider"),
-                 ("8 · 5", "systems to inform the German works council about · that need its agreement")],
+                 ("11 · 5+", "systems to tell the German works council about · that need its agreement")],
         "found": [
-            "A video interview pilot infers candidates' emotions: prohibited at work since February 2025, with fines up "
-            "to 7% of turnover.",
+            "A video interview pilot infers candidates' emotions: prohibited since February 2025.",
             "National labour law binds before the AI Act does: Spain owes the works council the parameters of seven "
-            "systems; Italy requires notices for two fully automated ones.",
+            "systems; Italy requires a written notice for the fully automated shift rota.",
+            "Already on the market is not a free pass: the seven high-risk systems fall under the duties at their next "
+            "significant design change (Art. 111(2)), and cloud HR software changes often.",
         ],
         "real": [
             "The suppliers' instructions for use and their Article 6(4) assessments, on file.",
             "The Commission's guidelines on high-risk classification applied to the boundary cases.",
             "A labour lawyer in each country to confirm the notices before they go out.",
         ],
-        "checked": "317 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
-                   "change; a test changes an answer and checks both engines reclassify the system.",
-        "links": [("Read the report", f"{SITE}/ai-act-hr-readiness-kit/"),
-                  ("Worker information pack", f"{REPO}/ai-act-hr-readiness-kit/blob/main/docs/worker-information.md")],
+        "checked": "330 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
+                   "change; the browser tool checked against Python on 12,090 values; an independent legal and code "
+                   "review on 24 October 2026, its fixes in v1.1.0.",
+        "links": [("Try the tool", f"{SITE}/ai-act-hr-readiness-kit/tool/"),
+                  ("Read the report", f"{SITE}/ai-act-hr-readiness-kit/")],
         "skills": ["EU AI Act", "Labour law IT/DE/ES/PL", "AI governance", "Excel modelling", "Python"],
     },
     {
@@ -387,12 +387,18 @@ found, and what real data would change. Every page is also a PDF to attach to an
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text(index(), encoding="utf-8")
+    changed = []
     for c in CASES:
-        (OUT / f"{c['slug']}.html").write_text(page(c), encoding="utf-8")
+        html_path, pdf = OUT / f"{c['slug']}.html", OUT / f"{c['slug']}.pdf"
+        text = page(c)
+        if not pdf.exists() or not html_path.exists() or html_path.read_text(encoding="utf-8") != text:
+            changed.append(c)
+        html_path.write_text(text, encoding="utf-8")
+    # PDFs only for pages that changed: Chrome stamps every PDF with a new date, so an unchanged case keeps its bytes
     with sync_playwright() as p:
         browser = p.chromium.launch(channel="chrome")
         pg = browser.new_page()
-        for c in CASES:
+        for c in changed:
             pg.goto((OUT / f"{c['slug']}.html").as_uri())
             pg.emulate_media(media="print", color_scheme="light")
             pg.pdf(path=str(OUT / f"{c['slug']}.pdf"), format="A4", print_background=True,

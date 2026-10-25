@@ -104,6 +104,15 @@ SCENES = {
         (lambda p: p.select_option("select", label="Poland"), 2000),
         (scroll_by(420), 2200),
     ], 1),
+    # the AI Act tool: the sample systems, the register, what applies when, whom to tell
+    "aiact-tool": ("https://d0m3n1c0x.github.io/ai-act-hr-readiness-kit/tool/?lang=en", [
+        (nothing, 1400),
+        (lambda p: (p.click("#esempio"), p.wait_for_selector("#kpis .s-kpi")), 600),
+        (scroll_to("#kpis", -90), 2200),
+        (scroll_to("#h-registro", -20), 2400),
+        (scroll_to("#h-obblighi", -20), 2400),
+        (scroll_to("#h-avvisi", -20), 2400),
+    ], 2),
     # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen
     "kit-tool": ("https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/tool/?lang=en", [
         (nothing, 1400),
