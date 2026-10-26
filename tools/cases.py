@@ -373,6 +373,15 @@ def index() -> str:
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Case studies · Domenico Perroni</title>
 <meta name="description" content="Seven one-page case studies: the question, what was done, what it found.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Case studies · Domenico Perroni">
+<meta property="og:description" content="Seven client questions, one page each: what was done, what it found and what real data would change.">
+<meta property="og:url" content="https://d0m3n1c0x.github.io/cases/">
+<meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Seven client questions, one page each; 3,515 values reconciled between Excel and Python.">
+<meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
 <div class="top"><span>Domenico Perroni</span><span class="web"><a href="../">Portfolio</a></span></div>

@@ -7,6 +7,7 @@ preview. Rendered with the Chrome already installed, so the system font is SF Pr
 
     .venv/bin/python tools/covers.py                          # every repository
     .venv/bin/python tools/covers.py pay-transparency-readiness-kit
+    .venv/bin/python tools/covers.py cases                    # the case-study index card, in media/
 """
 import json
 import sys
@@ -157,6 +158,28 @@ SPECS = {
 }
 
 
+# The portfolio's case-study index: a social card only, written into this repository's media folder.
+CASES_CARD = {
+    "eyebrow": "Case studies · Domenico Perroni",
+    "title": "Seven client questions, one page each",
+    "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
+           "to attach to an application.",
+    "stats": [["7", "case studies, each also a PDF"], ["3,515", "values reconciled between Excel and Python"]],
+    "chips": ["Pay transparency", "AI Act", "Payroll", "Business case"],
+}
+
+
+def render_cases_card(browser) -> None:
+    url = f"{TEMPLATE.as_uri()}?spec={quote(json.dumps({**CASES_CARD, 'repo': 'd0m3n1c0x.github.io'}))}&theme=dark"
+    page = browser.new_page(viewport={"width": 1280, "height": 640})
+    page.goto(url)
+    page.evaluate("document.getElementById('repo').textContent = 'd0m3n1c0x.github.io/cases'")
+    page.wait_for_timeout(300)
+    page.screenshot(path=Path(__file__).resolve().parent.parent / "media" / "og-cases.png")
+    page.close()
+    print("cases: media/og-cases.png")
+
+
 def render(repo: str, spec: dict, browser) -> None:
     out = HOME / repo / "site-assets"
     out.mkdir(exist_ok=True)
@@ -171,11 +194,14 @@ def render(repo: str, spec: dict, browser) -> None:
 
 
 def main() -> None:
-    names = sys.argv[1:] or list(SPECS)
+    names = sys.argv[1:] or [*SPECS, "cases"]
     with sync_playwright() as pw:
         browser = pw.chromium.launch(channel="chrome")
         for name in names:
-            render(name, SPECS[name], browser)
+            if name == "cases":
+                render_cases_card(browser)
+            else:
+                render(name, SPECS[name], browser)
         browser.close()
 
 
