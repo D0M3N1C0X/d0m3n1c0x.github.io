@@ -58,6 +58,8 @@ h1 { font-size: clamp(40px, 7vw, 64px); line-height: 1.04; letter-spacing: -.035
 .facts b { display: block; font: 700 34px/1.1 var(--display); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .facts b { background: linear-gradient(100deg,#fff 0%,#9cc0ff 60%,#b79cff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; } }
 .facts span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.4; }
+.open { margin: 20px 0 0; font-weight: 600; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
 .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 26px; font-weight: 600; }
 section { padding: 44px 0; border-top: 1px solid var(--line); }
 section > h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.1; margin-bottom: 8px; }
@@ -107,12 +109,17 @@ footer a { text-decoration: underline; text-underline-offset: 3px; }
 </head>
 <body>
 <header class="wrap">
-  <div class="eyebrow">HR advisory · People analytics · Kraków, open to relocation in Europe</div>
+  <div class="eyebrow">HR advisory · Reward · People analytics · Kraków, open to relocation in Europe</div>
   <h1>Domenico Perroni</h1>
   <p class="lede">I advise on HR for the Italian market in a pan-European people operations team. Around that job I build
     the analysis an HR function runs on: payroll checks, pay transparency reporting, business cases. Every figure is
     computed twice, in Python and in a live spreadsheet, or traced to its source; where there are two, they must
     agree before anything ships.</p>
+  <p class="open">Open to conversations about HR advisory and reward roles in Europe, relocation included.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="https://www.linkedin.com/in/domenico-perroni">Message me on LinkedIn</a>
+    <a class="btn" href="cases/">One-page case studies</a>
+  </div>
   <ul class="facts">
     <li><b>3,515</b><span>figures reconciled between Python and Excel, on every change</span></li>
     <li><b>12</b><span>projects with reports, dashboards or tools to open now, nothing to install</span></li>
