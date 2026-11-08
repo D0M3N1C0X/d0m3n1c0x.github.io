@@ -42,19 +42,19 @@ SPECS = {
     "controlli-cedolini": {
         "eyebrow": "Payroll operations · CCNL Terziario, Italy",
         "title": "Catch payroll errors before the client does",
-        "sub": "Fourteen checks on Italian payslips before they go out: minimums, seniority, social security, severance, "
-               "holidays, the F24 tax payment and leavers. Recomputed from the contract's rules, not from the payroll software.",
-        "stats": [["35 of 35", "planted errors found, with no false alarms"], ["14", "checks, each with its source in the agreement"],
+        "sub": "Nineteen checks on Italian payslips before they go out: minimums, INPS rates, sick and maternity pay, leave "
+               "hours, severance at leaving, the F24 tax payment. Recomputed from the rules, not from the payroll software.",
+        "stats": [["44 of 44", "planted errors found, with no false alarms"], ["19", "checks, each with its source in the agreement or INPS"],
                   ["3 engines", "Python, a live spreadsheet and a browser tool, in agreement"]],
         "chips": ["Python", "Excel and Google Sheets", "Browser tool", "Sourced rules"],
     },
     "workforce-cost-model": {
         "eyebrow": "People budget · HR and finance",
         "title": "What will next year's people cost be?",
-        "sub": "A two-country employer's people budget, built as HR and finance would build it: what an employee really "
-               "costs, why last year overran, and next year under your own scenarios.",
-        "stats": [["€111.0M", "FY2027 in the base case, +3.6% on FY2026"], ["€5.8M", "FY2026 over budget, explained by headcount"],
-                  ["€59,382", "fully loaded cost of an FTE in Milan, €41,727 in Kraków"]],
+        "sub": "A four-country employer's people budget, built as HR and finance would build it: what an employee really "
+               "costs, why last year overran, next year under your own scenarios, and where it is heading after October.",
+        "stats": [["€192.9M", "FY2027 in the base case, +4.0% on FY2026"], ["€9.9M", "FY2026 over budget, explained by headcount"],
+                  ["64 a month", "hires from January to land on the June 2027 headcount plan"]],
         "chips": ["Python", "Excel model", "Scenario simulator", "CFO memo"],
     },
     "equal-value-pay-ranges": {
