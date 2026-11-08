@@ -42,19 +42,19 @@ SPECS = {
     "controlli-cedolini": {
         "eyebrow": "Payroll operations · CCNL Terziario, Italy",
         "title": "Catch payroll errors before the client does",
-        "sub": "Fourteen checks on Italian payslips before they go out: minimums, seniority, social security, severance, "
-               "holidays, the F24 tax payment and leavers. Recomputed from the contract's rules, not from the payroll software.",
-        "stats": [["35 of 35", "planted errors found, with no false alarms"], ["14", "checks, each with its source in the agreement"],
+        "sub": "Nineteen checks on Italian payslips before they go out: minimums, INPS rates, sick and maternity pay, leave "
+               "hours, severance at leaving, the F24 tax payment. Recomputed from the rules, not from the payroll software.",
+        "stats": [["44 of 44", "planted errors found, with no false alarms"], ["19", "checks, each with its source in the agreement or INPS"],
                   ["3 engines", "Python, a live spreadsheet and a browser tool, in agreement"]],
         "chips": ["Python", "Excel and Google Sheets", "Browser tool", "Sourced rules"],
     },
     "workforce-cost-model": {
         "eyebrow": "People budget · HR and finance",
         "title": "What will next year's people cost be?",
-        "sub": "A two-country employer's people budget, built as HR and finance would build it: what an employee really "
-               "costs, why last year overran, and next year under your own scenarios.",
-        "stats": [["€111.0M", "FY2027 in the base case, +3.6% on FY2026"], ["€5.8M", "FY2026 over budget, explained by headcount"],
-                  ["€59,382", "fully loaded cost of an FTE in Milan, €41,727 in Kraków"]],
+        "sub": "A four-country employer's people budget, built as HR and finance would build it: what an employee really "
+               "costs, why last year overran, next year under your own scenarios, and where it is heading after October.",
+        "stats": [["€192.9M", "FY2027 in the base case, +4.0% on FY2026"], ["€9.9M", "FY2026 over budget, explained by headcount"],
+                  ["64 a month", "hires from January to land on the June 2027 headcount plan"]],
         "chips": ["Python", "Excel model", "Scenario simulator", "CFO memo"],
     },
     "equal-value-pay-ranges": {
@@ -142,7 +142,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["3,515", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
+        "stats": [["5,234", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -151,7 +151,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["6", "analysis repositories reconcile through it"], ["3,515", "figures checked between Python and Excel"],
+        "stats": [["6", "analysis repositories reconcile through it"], ["5,234", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
@@ -164,7 +164,7 @@ CASES_CARD = {
     "title": "Seven client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["7", "case studies, each also a PDF"], ["3,515", "values reconciled between Excel and Python"]],
+    "stats": [["7", "case studies, each also a PDF"], ["5,234", "values reconciled between Excel and Python"]],
     "chips": ["Pay transparency", "AI Act", "Payroll", "Business case"],
 }
 

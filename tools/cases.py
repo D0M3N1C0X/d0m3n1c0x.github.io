@@ -3,8 +3,8 @@ One-page case studies, in the shape a consulting firm uses: the client's questio
 what real data would change, and how the work is checked. Each case is a page on the site (cases/<slug>.html) and the
 same page as an A4 PDF to attach to an application (cases/<slug>.pdf), printed in the light theme.
 
-Every figure is copied from the project's README as published on AS_OF; when a project changes its headline
-numbers, change them here too.
+Every figure is copied from the project's README as published on AS_OF, or on the case's own "as_of" when it was
+updated later; when a project changes its headline numbers, change them here too, with the date.
 
     .venv/bin/python tools/cases.py          # pages, index and PDFs
 """
@@ -65,6 +65,7 @@ CASES = [
         "repo": "ai-act-hr-readiness-kit",
         "tag": "AI governance · HR",
         "title": "Which of HR's AI systems are high-risk, and what do they owe?",
+        "as_of": "8 November 2026",
         "client": "The same four-country employer, whose HR function uses twelve AI systems, from CV screening to a "
                   "pay review recommender and an attrition model built in-house.",
         "question": "Which systems does the AI Act ban or class as high-risk, what does each owe and from when, and whom "
@@ -74,7 +75,10 @@ CASES = [
             "Classified each system from eighteen answers: prohibited, high-risk, not high-risk under Article 6(3), "
             "transparency only or minimal, with the reason written next to it, and when its duties bite under the "
             "amended Article 111(2).",
-            "Mapped thirteen obligations, and the national rules on informing workers in four countries.",
+            "Mapped fifteen obligations, including the fundamental rights impact assessment and registration that "
+            "public bodies owe, and the national rules on informing workers in nine countries.",
+            "Wrote what to ask each supplier (sixteen questions, each tied to a duty), an AI literacy plan for named "
+            "groups, and a draft impact assessment per high-risk system that reuses the DPIA.",
             "Delivered a live Excel register, a report, model notices per country and a browser tool.",
         ],
         "kpis": [("1 of 12", "systems to stop now: emotion recognition in interviews"),
@@ -93,12 +97,12 @@ CASES = [
             "The Commission's guidelines on high-risk classification applied to the boundary cases.",
             "A labour lawyer in each country to confirm the notices before they go out.",
         ],
-        "checked": "330 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
-                   "change; the browser tool checked against Python on 12,090 values; an independent legal and code "
-                   "review on 24 October 2026, its fixes in v1.1.0.",
+        "checked": "813 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
+                   "change; the browser tool checked against Python on 16,309 values; every legal statement read in "
+                   "the official text and logged with its source.",
         "links": [("Try the tool", f"{SITE}/ai-act-hr-readiness-kit/tool/"),
                   ("Read the report", f"{SITE}/ai-act-hr-readiness-kit/")],
-        "skills": ["EU AI Act", "Labour law IT/DE/ES/PL", "AI governance", "Excel modelling", "Python"],
+        "skills": ["EU AI Act", "Labour law in nine countries", "AI governance", "Excel modelling", "Python"],
     },
     {
         "slug": "equal-value-pay-ranges",
@@ -141,32 +145,38 @@ CASES = [
         "repo": "workforce-cost-model",
         "tag": "HR & finance",
         "title": "What will next year's people cost be?",
-        "client": "An employer in Milan and Kraków closing its FY2026 people budget and planning FY2027.",
-        "question": "What does one person really cost in each country, why did last year overrun, and what does next "
-                    "year cost if we freeze hiring, lose more people or start closing pay gaps?",
+        "as_of": "8 November 2026",
+        "client": "An employer in Milan, Kraków, Munich and Barcelona, four months into FY2027.",
+        "question": "What does one person really cost in each country, why did last year overrun, what does next year "
+                    "cost under each scenario, and where is it heading now that four months have closed?",
         "did": [
-            "Loaded every employee with each employer contribution, cap by cap: INPS and TFR in Italy; ZUS, the Labour "
-            "Fund, FGŚP and PPK in Poland.",
+            "Loaded every employee with each employer contribution, ceiling by ceiling: INPS and TFR in Italy; ZUS, "
+            "PPK and the funds in Poland; German social insurance; Spanish Seguridad Social and its solidarity "
+            "contribution.",
             "Split the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.",
-            "Forecast FY2027 month by month under four scenarios, moving FTE rather than people.",
+            "Forecast FY2027 month by month under five scenarios, renewals and the zloty included; then re-forecast "
+            "it from the closed months and turned a June 2027 headcount target into hires a month.",
             "Built a simulator for the budget meeting, with the cost of one employee in four countries.",
         ],
-        "kpis": [("€5.8M", "over the FY2026 budget (5.7%), explained by volume"),
-                 ("€59,382", "a fully loaded FTE in Milan, against €41,727 in Kraków"),
-                 ("€111.0M", "FY2027 in the base case (+3.6%)"),
-                 ("€0.76M", "added in FY2027 by closing pay gaps from January")],
+        "kpis": [("€9.9M", "over the FY2026 budget (5.6%), explained by volume"),
+                 ("€74,887", "a fully loaded FTE in Munich, against €41,727 in Kraków"),
+                 ("€192.9M", "FY2027 in the base case (+4.0%)"),
+                 ("64 a month", "hires from January to land on the June 2027 plan")],
         "found": [
-            "A hiring freeze from October cuts FY2027 to €104.6M but ends the year with 278 fewer FTE: a capacity "
+            "After October the year is €0.18M over budget for the wrong reasons: fewer people save €0.60M, a higher "
+            "cost per FTE, mostly in Kraków, adds €0.77M.",
+            "A hiring freeze from October cuts FY2027 to €182.6M but ends the year with 411 fewer FTE: a capacity "
             "decision, not a finance one.",
-            "Higher attrition barely moves payroll but lifts recruitment cost to €1.54M.",
+            "Collective renewals and a stronger zloty would add €4.45M, €3.12M of it from the exchange rate alone.",
         ],
         "real": [
             "Actual payroll by month, with the company's own on-cost rules and benefits.",
             "Hiring and leaver plans by team from the business, not last year's rates.",
             "The pay-gap remediation from the client's own Article 10 screen.",
         ],
-        "checked": "570 figures reconciled between the Excel formulas and pandas; the simulator checked against the model "
-                   "on 9,679 values; every rate and cap in a register with its source.",
+        "checked": "1,649 figures reconciled between the Excel formulas and pandas; the simulator checked against the "
+                   "model on 43,152 values; every rate and ceiling in a register with its source; the closed months "
+                   "of FY2027 are synthetic and say so.",
         "links": [("Read the CFO memo", f"{SITE}/workforce-cost-model/"),
                   ("Try the simulator", f"{SITE}/workforce-cost-model/simulator/")],
         "skills": ["Workforce planning", "Budget variance", "Employer costs IT/PL/DE/ES", "Excel modelling", "Python"],
@@ -176,24 +186,28 @@ CASES = [
         "repo": "controlli-cedolini",
         "tag": "Payroll operations",
         "title": "Catching payroll errors before the client does",
-        "client": "An Italian payroll provider sending payslips for three clients and 122 employees under the CCNL "
+        "as_of": "8 November 2026",
+        "client": "An Italian payroll provider sending payslips for three clients and 124 employees under the CCNL "
                   "Terziario, with errors planted on purpose.",
         "question": "Which payslips are wrong before they go out, by how much, and what does the November 2026 pay "
                     "increase cost each client?",
         "did": [
-            "Wrote fourteen checks that recompute each item from the collective agreement's rules, not from the payroll "
-            "software: minimums, seniority steps, INPS, TFR, holidays, 13th and 14th month, leavers, notice.",
+            "Wrote nineteen checks that recompute each item from the agreement's and INPS's rules, not from the payroll "
+            "software: minimums, seniority steps, each client's INPS rate, sick and maternity pay, leave hours, TFR "
+            "at leaving with ISTAT's revaluation, holidays, 13th and 14th month, notice.",
             "Reconciled the F24 tax payment with the sum of each client's payslips.",
             "Delivered the checks three ways that agree: Python, a live-formula sheet for Google Sheets and a browser "
             "tool in English and Italian.",
         ],
-        "kpis": [("35 of 35", "planted errors found, with no false alarms"),
+        "kpis": [("44 of 44", "planted errors found, with no false alarms"),
                  ("6", "employees below the minimum: €175.44 a month plus arrears"),
                  ("€212.40", "less withholding tax in one F24 than the payslips add up to"),
-                 ("€2,379.98", "a month to pay in November 2026, after absorption")],
+                 ("€2,448.98", "a month to pay in November 2026, after absorption")],
         "found": [
-            "Three of six leavers carry an error: the 14th month counted from January, untaken holiday paid at 1/30, a "
-            "dismissal with half the notice the agreement requires.",
+            "Five contributions withheld at the wrong rate: CIGS and the FIS share missing above 15 staff on average, "
+            "CIGS taken below it, the extra 1% forgotten above €4,685 a month.",
+            "Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, "
+            "the 17% substitute tax not deducted.",
             "Each flag comes with the expected value, the value found and what to do.",
         ],
         "real": [
@@ -201,8 +215,9 @@ CASES = [
             "The other collective agreements the provider's clients apply.",
             "A monthly record of what the checks caught, to measure the errors avoided.",
         ],
-        "checked": "The sheet checked against Python on 580 values; the browser tool on 2,219 values, half-cent "
-                   "alterations and Italian file formats included; every rule with its source in the agreement.",
+        "checked": "The sheet checked against Python on 737 values; the browser tool on 2,593 values, half-cent "
+                   "alterations and Italian file formats included; every rule with its source in the agreement, an "
+                   "INPS circular or ISTAT's indices.",
         "links": [("Try the tool", f"{SITE}/controlli-cedolini/strumento/?lang=en"),
                   ("Read the report (Italian)", f"{SITE}/controlli-cedolini/")],
         "skills": ["Italian payroll", "CCNL Terziario", "Process controls", "Google Sheets", "Python"],
@@ -360,7 +375,7 @@ def page(c: dict) -> str:
 <div class="skills">{"".join(f"<span>{esc(s)}</span>" for s in c['skills'])}</div>
 <div class="links">{links}</div>
 <p class="foot">Synthetic or public data; not legal, pay or investment advice. Figures as published on
-{AS_OF}. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
+{c.get('as_of', AS_OF)}. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
 <a href="{SITE}/">d0m3n1c0x.github.io</a></p>
 </main></body></html>
 """
@@ -380,7 +395,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="Seven client questions, one page each; 3,515 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="Seven client questions, one page each; 5,234 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
