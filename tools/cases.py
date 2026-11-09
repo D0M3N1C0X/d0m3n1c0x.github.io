@@ -186,21 +186,25 @@ CASES = [
         "repo": "controlli-cedolini",
         "tag": "Payroll operations",
         "title": "Catching payroll errors before the client does",
-        "as_of": "8 November 2026",
-        "client": "An Italian payroll provider sending payslips for three clients and 124 employees under the CCNL "
-                  "Terziario, with errors planted on purpose.",
+        "as_of": "9 November 2026",
+        "client": "An Italian payroll provider sending payslips for six clients and 182 employees under four collective "
+                  "agreements (retail and services, engineering industry, bars and restaurants, logistics), with errors "
+                  "planted on purpose.",
         "question": "Which payslips are wrong before they go out, by how much, and what does the November 2026 pay "
                     "increase cost each client?",
         "did": [
-            "Wrote nineteen checks that recompute each item from the agreement's and INPS's rules, not from the payroll "
-            "software: minimums, seniority steps, each client's INPS rate, sick and maternity pay, leave hours, TFR "
-            "at leaving with ISTAT's revaluation, holidays, 13th and 14th month, notice.",
+            "Wrote twenty-two checks that recompute each item from the client's agreement, INPS and the 2026 tax law, "
+            "not from the payroll software: minimums, seniority steps, each client's INPS rate, sick and maternity pay "
+            "with the employer's top-up, income tax and the adjustment at leaving, leave hours, TFR at leaving, "
+            "holidays, 13th and 14th month, notice.",
+            "Read each agreement's rules in the texts its signatories publish or filed at CNEL, and kept them in one "
+            "table: steps, monthly payments, part months, holidays, notice, sick pay and top-up.",
             "Reconciled the F24 tax payment with the sum of each client's payslips.",
             "Delivered the checks three ways that agree: Python, a live-formula sheet for Google Sheets and a browser "
             "tool in English and Italian.",
         ],
-        "kpis": [("44 of 44", "planted errors found, with no false alarms"),
-                 ("6", "employees below the minimum: €175.44 a month plus arrears"),
+        "kpis": [("67 of 67", "planted errors found, with no false alarms"),
+                 ("10", "employees below their agreement's minimum: €305.24 a month plus arrears"),
                  ("€212.40", "less withholding tax in one F24 than the payslips add up to"),
                  ("€2,448.98", "a month to pay in November 2026, after absorption")],
         "found": [
@@ -208,19 +212,22 @@ CASES = [
             "CIGS taken below it, the extra 1% forgotten above €4,685 a month.",
             "Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, "
             "the 17% substitute tax not deducted.",
+            "Most errors in the new clients are another agreement's rule applied by mistake: steps every three years "
+            "where they are every two, INPS sick pay advanced to an industrial white-collar employee, 50% where bars "
+            "and restaurants get 80%, a top-up at retail's 75% in logistics.",
             "Each flag comes with the expected value, the value found and what to do.",
         ],
         "real": [
             "A pilot on one client's real payslips, run in the browser so the files never leave the office.",
-            "The other collective agreements the provider's clients apply.",
+            "Blue-collar staff and drivers, whose sick pay base and notice follow other rules.",
             "A monthly record of what the checks caught, to measure the errors avoided.",
         ],
-        "checked": "The sheet checked against Python on 737 values; the browser tool on 2,593 values, half-cent "
+        "checked": "The sheet checked against Python on 1,682 values; the browser tool on 3,909 values, half-cent "
                    "alterations and Italian file formats included; every rule with its source in the agreement, an "
                    "INPS circular or ISTAT's indices.",
         "links": [("Try the tool", f"{SITE}/controlli-cedolini/strumento/?lang=en"),
                   ("Read the report (Italian)", f"{SITE}/controlli-cedolini/")],
-        "skills": ["Italian payroll", "CCNL Terziario", "Process controls", "Google Sheets", "Python"],
+        "skills": ["Italian payroll", "Four CCNLs", "Process controls", "Google Sheets", "Python"],
     },
     {
         "slug": "vimeo-growth-case",
@@ -395,7 +402,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="Seven client questions, one page each; 5,234 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="Seven client questions, one page each; 6,179 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
