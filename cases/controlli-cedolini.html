@@ -38,6 +38,7 @@ ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
 .item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
 border-radius:16px;padding:16px 18px}
 .item:hover{border-color:var(--accent)}
+.shot{margin:0 0 22px}.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
 .item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
 .item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
 .item span{color:var(--ink-soft);font-size:14px}
@@ -45,9 +46,10 @@ border-radius:16px;padding:16px 18px}
 @page{size:A4;margin:12mm 13mm}
 @media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
 --accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
-.top .web{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.top .web,.shot{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
 .client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
-li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.links a::after{content:" " attr(href);
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.skills{margin-bottom:12px}
+.foot{margin-top:12px;padding-top:8px}.links a::after{content:" " attr(href);
 font-weight:400;color:#6e6e73}}
 </style></head>
 <body><main class="page">
@@ -59,8 +61,8 @@ font-weight:400;color:#6e6e73}}
 <p class="q">Which payslips are wrong before they go out, by how much, and what does the November 2026 pay increase cost each client?</p>
 <div class="kpis"><div class="kpi"><b>67 of 67</b><span>planted errors found, with no false alarms</span></div><div class="kpi"><b>10</b><span>employees below their agreement&#x27;s minimum: €305.24 a month plus arrears</span></div><div class="kpi"><b>€212.40</b><span>less withholding tax in one F24 than the payslips add up to</span></div><div class="kpi"><b>€2,448.98</b><span>a month to pay in November 2026, after absorption</span></div></div>
 <div class="cols">
-<section><h2>What I did</h2><ul><li>Wrote twenty-two checks that recompute each item from the client&#x27;s agreement, INPS and the 2026 tax law, not from the payroll software: minimums, seniority steps, each client&#x27;s INPS rate, sick and maternity pay with the employer&#x27;s top-up, income tax and the adjustment at leaving, leave hours, TFR at leaving, holidays, 13th and 14th month, notice.</li><li>Read each agreement&#x27;s rules in the texts its signatories publish or filed at CNEL, and kept them in one table: steps, monthly payments, part months, holidays, notice, sick pay and top-up.</li><li>Reconciled the F24 tax payment with the sum of each client&#x27;s payslips.</li><li>Delivered the checks three ways that agree: Python, a live-formula sheet for Google Sheets and a browser tool in English and Italian.</li></ul></section>
-<section><h2>What it found</h2><ul><li>Five contributions withheld at the wrong rate: CIGS and the FIS share missing above 15 staff on average, CIGS taken below it, the extra 1% forgotten above €4,685 a month.</li><li>Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, the 17% substitute tax not deducted.</li><li>Most errors in the new clients are another agreement&#x27;s rule applied by mistake: steps every three years where they are every two, INPS sick pay advanced to an industrial white-collar employee, 50% where bars and restaurants get 80%, a top-up at retail&#x27;s 75% in logistics.</li><li>Each flag comes with the expected value, the value found and what to do.</li></ul><h2>With real data</h2><ul><li>A pilot on one client&#x27;s real payslips, run in the browser so the files never leave the office.</li><li>Blue-collar staff and drivers, whose sick pay base and notice follow other rules.</li><li>A monthly record of what the checks caught, to measure the errors avoided.</li></ul></section>
+<section><h2>What I did</h2><ul><li>Wrote twenty-two checks that recompute each item from the client&#x27;s agreement, INPS and the 2026 tax law, not from the payroll software: minimums, INPS rates, sick and maternity pay, income tax, TFR, notice.</li><li>Read each agreement&#x27;s rules in the texts its signatories publish or filed at CNEL, and kept them in one table: steps, monthly payments, part months, holidays, notice, sick pay and top-up.</li><li>Reconciled the F24 tax payment with the sum of each client&#x27;s payslips.</li><li>Delivered the checks three ways that agree: Python, a live-formula sheet for Google Sheets and a browser tool in English and Italian.</li></ul></section>
+<section><h2>What it found</h2><ul><li>Five contributions withheld at the wrong rate: CIGS and the FIS share missing above 15 staff on average, CIGS taken below it, the extra 1% forgotten above €4,685 a month.</li><li>Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, the 17% substitute tax not deducted.</li><li>Most errors in the new clients are another agreement&#x27;s rule applied by mistake: steps every three years where they are every two, 50% sick pay where bars and restaurants get 80%.</li></ul><h2>With real data</h2><ul><li>A pilot on one client&#x27;s real payslips, run in the browser so the files never leave the office.</li><li>Blue-collar staff and drivers, whose sick pay base and notice follow other rules.</li><li>A monthly record of what the checks caught, to measure the errors avoided.</li></ul></section>
 </div>
 <p class="check"><b>How it is checked.</b> The sheet checked against Python on 1,682 values; the browser tool on 3,909 values, half-cent alterations and Italian file formats included; every rule with its source in the agreement, an INPS circular or ISTAT&#x27;s indices.</p>
 <div class="skills"><span>Italian payroll</span><span>Four CCNLs</span><span>Process controls</span><span>Google Sheets</span><span>Python</span></div>

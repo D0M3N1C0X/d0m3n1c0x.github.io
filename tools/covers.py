@@ -104,13 +104,14 @@ SPECS = {
         "chips": ["Python, no dependencies", "Statistics", "Text analytics", "Live dashboard"],
     },
     "job-search-agent": {
-        "eyebrow": "Automation · a job search as a data pipeline",
+        "eyebrow": "Automation · a job search scored by rules, and measured",
         "title": "A job search that runs as a pipeline",
-        "sub": "Postings from public ATS board APIs, scored against a profile with rules you can read, tailored documents, "
-               "and funnel analytics on which positioning gets replies. Zero dependencies.",
-        "stats": [["8", "ATS providers, fetching split from parsing"], ["325", "company boards in the catalogue"],
-                  ["344", "offline tests"]],
-        "chips": ["Python, no dependencies", "CLI", "Dashboard", "Funnel analytics"],
+        "sub": "Postings from 306 company boards and two job feeds, scored with rules you can read, and the rules checked "
+               "against 160 hand-labelled postings: the held-out figures quoted, the misses listed. One-line install.",
+        "stats": [["21 of 30", "held-out postings scored as a person labelled them"],
+                  ["0 of 12", "postings worth applying to thrown away"],
+                  ["380", "offline tests, zero dependencies"]],
+        "chips": ["Python, no dependencies", "Benchmark", "Dashboard", "One-line install"],
     },
     "pompei-stratificata": {
         "eyebrow": "Public history · Pompeii and Herculaneum, AD 79 to today",
@@ -162,11 +163,11 @@ SPECS = {
 # The portfolio's case-study index: a social card only, written into this repository's media folder.
 CASES_CARD = {
     "eyebrow": "Case studies · Domenico Perroni",
-    "title": "Seven client questions, one page each",
+    "title": "Eight client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["7", "case studies, each also a PDF"], ["6,179", "values reconciled between Excel and Python"]],
-    "chips": ["Pay transparency", "AI Act", "Payroll", "Business case"],
+    "stats": [["8", "case studies, each also a PDF"], ["6,179", "values reconciled between Excel and Python"]],
+    "chips": ["Pay transparency", "AI Act", "Payroll", "Automation"],
 }
 
 
