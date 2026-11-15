@@ -194,9 +194,7 @@ CASES = [
                     "increase cost each client?",
         "did": [
             "Wrote twenty-two checks that recompute each item from the client's agreement, INPS and the 2026 tax law, "
-            "not from the payroll software: minimums, seniority steps, each client's INPS rate, sick and maternity pay "
-            "with the employer's top-up, income tax and the adjustment at leaving, leave hours, TFR at leaving, "
-            "holidays, 13th and 14th month, notice.",
+            "not from the payroll software: minimums, INPS rates, sick and maternity pay, income tax, TFR, notice.",
             "Read each agreement's rules in the texts its signatories publish or filed at CNEL, and kept them in one "
             "table: steps, monthly payments, part months, holidays, notice, sick pay and top-up.",
             "Reconciled the F24 tax payment with the sum of each client's payslips.",
@@ -213,9 +211,7 @@ CASES = [
             "Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, "
             "the 17% substitute tax not deducted.",
             "Most errors in the new clients are another agreement's rule applied by mistake: steps every three years "
-            "where they are every two, INPS sick pay advanced to an industrial white-collar employee, 50% where bars "
-            "and restaurants get 80%, a top-up at retail's 75% in logistics.",
-            "Each flag comes with the expected value, the value found and what to do.",
+            "where they are every two, 50% sick pay where bars and restaurants get 80%.",
         ],
         "real": [
             "A pilot on one client's real payslips, run in the browser so the files never leave the office.",
@@ -300,7 +296,116 @@ CASES = [
                   ("Open the explorer", f"{SITE}/where-pay-transparency-bites/dashboard/")],
         "skills": ["Eurostat SES", "Decomposition", "R and Quarto", "Research writing", "Data visualisation"],
     },
+    {
+        "slug": "job-search-agent",
+        "repo": "job-search-agent",
+        "translation": "job-search-agent-it",
+        "media": ("jsa", "The dashboard: the roles worth an hour, why one scored 94, every posting with its verdict, "
+                         "and the funnel."),
+        "tag": "Automation · Recruitment",
+        "title": "Which postings deserve an application?",
+        "as_of": "15 November 2026",
+        "client": "A job seeker in HR applying across Europe, with more postings than evenings. The figures are "
+                  "measured on an invented candidate, so they can be published.",
+        "question": "Which of this week's postings deserve an application, and how far can a scorer that decides it be "
+                    "trusted?",
+        "did": [
+            "Pulled postings from the public APIs of eight applicant tracking systems and two job feeds, each source "
+            "tested offline on a captured answer.",
+            "Scored every posting against each positioning track with rules a person can read: hard gates first (a "
+            "language actually required, years asked, location, seniority, terms), then keywords, every point explained.",
+            "Wrote 160 postings labelled apply, maybe or skip for the candidate, and kept 30 aside, written after the "
+            "last change to the rules, to measure each version on postings it was not tuned on.",
+            "Delivered a dashboard, a CV and cover letter that may only cite the profile, and a one-line install.",
+        ],
+        "kpis": [("21 of 30", "held-out postings scored as labelled, up from 15 with the first rules"),
+                 ("0 of 12", "postings worth applying to thrown away; all kept at least for review"),
+                 ("15 of 15", "postings worth sending matched to the right positioning"),
+                 ("306", "company boards, through 8 ATS APIs and 2 job feeds")],
+        "found": [
+            "The first rules scored half the held-out postings as a person would: 15 of 30. Rules written against "
+            "labelled postings raised that to 20.",
+            "The next version fixed every miss of its round and still scored 21 of 30 on a new held-out set, like "
+            "the one before: phrase-by-phrase rules had stopped generalising. The report says so, and quotes that "
+            "figure, not the 115 of 130 on the postings it was tuned on.",
+            "The errors left are the cheap kind: three skips scored as worth applying, nothing worth applying to "
+            "thrown away. Whether a language is required is the hardest rule: right on 3 of 5.",
+        ],
+        "real": [
+            "The candidate's own decisions as labels: what was sent against what was skipped, compared from 20 "
+            "decisions on.",
+            "A week of real postings labelled blind, to measure the market instead of written cases.",
+        ],
+        "checked": "380 offline tests; the benchmark runs at every change with a floor on the tuning set, so a rule "
+                   "that makes the scorer worse fails the build; the held-out set is replaced before the next figures "
+                   "are published.",
+        "links": [("Try the dashboard", f"{SITE}/job-search-agent/demo/"),
+                  ("How the scoring is measured", f"{REPO}/job-search-agent#measured-not-asserted")],
+        "skills": ["Evaluation design", "Rules engines", "Python, no dependencies", "Data pipelines", "Recruitment"],
+    },
+    {
+        "slug": "job-search-agent-it",
+        "repo": "job-search-agent",
+        "lang": "it",
+        "translation": "job-search-agent",
+        "media": ("jsa", "La dashboard: i ruoli che valgono un'ora, perché uno ha 94, ogni annuncio con il suo verdetto "
+                         "e il funnel delle candidature."),
+        "tag": "Automazione · Selezione",
+        "title": "Quali annunci meritano una candidatura?",
+        "as_of": "15 novembre 2026",
+        "client": "Chi cerca lavoro nelle risorse umane in Europa, con più annunci che sere. Le cifre sono misurate "
+                  "su un candidato inventato, così si possono pubblicare.",
+        "question": "Quali annunci di questa settimana meritano una candidatura, e quanto ci si può fidare di un "
+                    "punteggio che lo decide?",
+        "did": [
+            "Ho raccolto gli annunci dalle API pubbliche di otto sistemi di selezione e da due aggregatori, con ogni "
+            "fonte verificata senza rete su una risposta registrata.",
+            "Ho dato a ogni annuncio un punteggio per ciascun posizionamento con regole leggibili: prima i requisiti "
+            "che escludono (una lingua davvero richiesta, gli anni chiesti, il luogo, il livello, le condizioni), poi "
+            "le parole chiave, con ogni punto spiegato.",
+            "Ho scritto 160 annunci etichettati candidati, forse o lascia, e ne ho tenuti da parte 30, scritti dopo "
+            "l'ultima modifica alle regole, per misurare ogni versione su annunci su cui non è stata tarata.",
+            "Ho consegnato una dashboard, CV e lettera che possono citare solo il profilo, e l'installazione in una "
+            "riga.",
+        ],
+        "kpis": [("21 su 30", "annunci di verifica valutati come da etichetta, erano 15 con le prime regole"),
+                 ("0 su 12", "annunci da candidatura scartati; tutti tenuti almeno da rileggere"),
+                 ("15 su 15", "annunci da inviare abbinati al posizionamento giusto"),
+                 ("306", "bacheche aziendali, da 8 API di selezione e 2 aggregatori")],
+        "found": [
+            "Le prime regole valutavano come una persona metà degli annunci di verifica: 15 su 30. Regole scritte "
+            "su annunci etichettati hanno portato il risultato a 20.",
+            "La versione successiva ha corretto ogni errore del suo giro e su un nuovo insieme di verifica ha fatto "
+            "ancora 21 su 30, come la precedente: le regole frase per frase non generalizzavano più. Il rapporto lo "
+            "dice, e cita questa cifra, non il 115 su 130 sugli annunci usati per tararle.",
+            "Gli errori rimasti costano poco: tre annunci da lasciare valutati da candidatura, nessun annuncio buono "
+            "buttato via. Capire se una lingua è richiesta è la regola più difficile: giusta in 3 casi su 5.",
+        ],
+        "real": [
+            "Le decisioni del candidato come etichette: cosa ha inviato e cosa ha scartato, da 20 decisioni in su.",
+            "Una settimana di annunci veri etichettati alla cieca, per misurare il mercato e non casi scritti.",
+        ],
+        "checked": "380 test senza rete; la misura gira a ogni modifica, e una regola che peggiora il punteggio "
+                   "blocca la build; l'insieme di verifica si sostituisce prima di pubblicare nuove cifre.",
+        "links": [("Prova la dashboard", f"{SITE}/job-search-agent/demo/"),
+                  ("Come si misura il punteggio (inglese)", f"{REPO}/job-search-agent#measured-not-asserted")],
+        "skills": ["Progettare una misura", "Motori di regole", "Python senza dipendenze", "Pipeline di dati",
+                   "Selezione del personale"],
+    },
 ]
+
+LABELS = {
+    "en": {"kind": "Case study", "all": "All case studies", "client": "Client", "did": "What I did",
+           "found": "What it found", "real": "With real data", "checked": "How it is checked.",
+           "repo": "The repository", "other": "Italiano",
+           "foot": "Synthetic or public data; not legal, pay or investment advice. Figures as published on",
+           "role": "HR advisory, people analytics, reward"},
+    "it": {"kind": "Caso di studio", "all": "Tutti i casi di studio (inglese)", "client": "Cliente",
+           "did": "Cosa ho fatto", "found": "Cosa ha trovato", "real": "Con dati reali",
+           "checked": "Come è verificato.", "repo": "Il repository", "other": "English",
+           "foot": "Dati sintetici o pubblici; non è consulenza legale, retributiva o finanziaria. Cifre pubblicate il",
+           "role": "consulenza HR, people analytics, retribuzioni"},
+}
 
 CSS = """
 :root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
@@ -338,6 +443,7 @@ ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
 .item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
 border-radius:16px;padding:16px 18px}
 .item:hover{border-color:var(--accent)}
+.shot{margin:0 0 22px}.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
 .item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
 .item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
 .item span{color:var(--ink-soft);font-size:14px}
@@ -345,9 +451,10 @@ border-radius:16px;padding:16px 18px}
 @page{size:A4;margin:12mm 13mm}
 @media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
 --accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
-.top .web{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.top .web,.shot{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
 .client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
-li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.links a::after{content:" " attr(href);
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.skills{margin-bottom:12px}
+.foot{margin-top:12px;padding-top:8px}.links a::after{content:" " attr(href);
 font-weight:400;color:#6e6e73}}
 """
 
@@ -356,53 +463,72 @@ def esc(s: str) -> str:
     return html.escape(s, quote=True)
 
 
+def shot(c: dict) -> str:
+    """The case's loop from media/, on screen only: the PDF stays one page."""
+    if not c.get("media"):
+        return ""
+    name, alt = c["media"]
+    return (f'<figure class="shot"><picture><source srcset="../media/{name}.png" media="(prefers-reduced-motion: '
+            f'reduce)"><img src="../media/{name}.webp" width="960" height="608" loading="lazy" alt="{esc(alt)}">'
+            f'</picture></figure>\n')
+
+
 def page(c: dict) -> str:
+    lang = c.get("lang", "en")
+    L = LABELS[lang]
     ul = lambda items: "<ul>" + "".join(f"<li>{esc(x)}</li>" for x in items) + "</ul>"
     kpis = "".join(f'<div class="kpi"><b>{esc(v)}</b><span>{esc(t)}</span></div>' for v, t in c["kpis"])
     links = "".join(f'<a href="{esc(u)}">{esc(t)}</a>' for t, u in
-                    [*c["links"], ("The repository", f"{REPO}/{c['repo']}")])
+                    [*c["links"], (L["repo"], f"{REPO}/{c['repo']}")])
+    other = (f' · <a href="{c["translation"]}.html" hreflang="{"en" if lang == "it" else "it"}">{L["other"]}</a>'
+             if c.get("translation") else "")
     return f"""<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{esc(c['title'])} · Case study</title>
+<html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{esc(c['title'])} · {L['kind']}</title>
 <meta name="description" content="{esc(c['question'])}">
 <style>{CSS}</style></head>
 <body><main class="page">
-<div class="top"><span>Case study · Domenico Perroni</span>
-<span class="web"><a href="./">All case studies</a> · <a href="{c['slug']}.pdf">PDF</a></span></div>
+<div class="top"><span>{L['kind']} · Domenico Perroni</span>
+<span class="web"><a href="./">{L['all']}</a> · <a href="{c['slug']}.pdf">PDF</a>{other}</span></div>
 <span class="tag">{esc(c['tag'])}</span>
 <h1>{esc(c['title'])}</h1>
-<p class="client"><b>Client:</b> {esc(c['client'])}</p>
+<p class="client"><b>{L['client']}:</b> {esc(c['client'])}</p>
 <p class="q">{esc(c['question'])}</p>
 <div class="kpis">{kpis}</div>
-<div class="cols">
-<section><h2>What I did</h2>{ul(c['did'])}</section>
-<section><h2>What it found</h2>{ul(c['found'])}<h2>With real data</h2>{ul(c['real'])}</section>
+{shot(c)}<div class="cols">
+<section><h2>{L['did']}</h2>{ul(c['did'])}</section>
+<section><h2>{L['found']}</h2>{ul(c['found'])}<h2>{L['real']}</h2>{ul(c['real'])}</section>
 </div>
-<p class="check"><b>How it is checked.</b> {esc(c['checked'])}</p>
+<p class="check"><b>{L['checked']}</b> {esc(c['checked'])}</p>
 <div class="skills">{"".join(f"<span>{esc(s)}</span>" for s in c['skills'])}</div>
 <div class="links">{links}</div>
-<p class="foot">Synthetic or public data; not legal, pay or investment advice. Figures as published on
-{c.get('as_of', AS_OF)}. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
+<p class="foot">{L['foot']}
+{c.get('as_of', AS_OF)}. Domenico Perroni · {L['role']} · Kraków ·
 <a href="{SITE}/">d0m3n1c0x.github.io</a></p>
 </main></body></html>
 """
 
 
+NUMBERS = "zero one two three four five six seven eight nine ten eleven twelve".split()
+
+
 def index() -> str:
+    shown = [c for c in CASES if c.get("lang", "en") == "en"]
+    count = NUMBERS[len(shown)] if len(shown) < len(NUMBERS) else str(len(shown))
     items = "".join(f'<a class="item" href="{c["slug"]}.html"><small>{esc(c["tag"])}</small>'
-                    f'<strong>{esc(c["title"])}</strong><span>{esc(c["question"])}</span></a>' for c in CASES)
+                    f'<strong>{esc(c["title"])}</strong><span>{esc(c["question"])}</span></a>' for c in shown)
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Case studies · Domenico Perroni</title>
-<meta name="description" content="Seven one-page case studies: the question, what was done, what it found.">
+<meta name="description" content="{count.capitalize()} one-page case studies: the question, what was done, what it found.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Case studies · Domenico Perroni">
-<meta property="og:description" content="Seven client questions, one page each: what was done, what it found and what real data would change.">
+<meta property="og:description" content="{count.capitalize()} client questions, one page each: what was done, what it found and what real data would change.">
 <meta property="og:url" content="https://d0m3n1c0x.github.io/cases/">
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="Seven client questions, one page each; 6,179 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,179 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">

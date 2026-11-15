@@ -122,6 +122,14 @@ SCENES = {
         (scroll_to("#grafico-categorie", -120), 2600),
         (scroll_to("#tab-categorie", -40), 2400),
     ], 2),
+    # the job search: the roles worth an hour, why one scored 94, every posting with its verdict, the funnel
+    "jsa": ("https://d0m3n1c0x.github.io/job-search-agent/demo/", [
+        (nothing, 1600),
+        (scroll_to("#todayhead", -20), 2000),
+        (click("#deck button:has-text('Why this score') >> nth=0"), 3400),
+        (lambda p: (p.click("#dclose"), p.click(".tab:has-text('All postings')")), 2600),
+        (click(".tab:has-text('Insights')"), 2600),
+    ], 2),
 }
 
 
