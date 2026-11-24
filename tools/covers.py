@@ -96,13 +96,14 @@ SPECS = {
         "chips": ["Python, no dependencies", "Model validation", "Browser tool", "AI Act model card"],
     },
     "engagement-survey-analytics": {
-        "eyebrow": "People analytics · employee engagement survey",
-        "title": "From 2,753 answers to what to do on Monday",
-        "sub": "An engagement survey analysed end to end: non-response bias, scores with confidence intervals, a key-driver "
-               "analysis that survives a bootstrap, and free text that reports its own error rate.",
-        "stats": [["40%", "of the explained variance carried by Manager Support"], ["−12", "eNPS, with an engagement index of 54%"],
-                  ["34", "teams significantly below the company score"]],
-        "chips": ["Python, no dependencies", "Statistics", "Text analytics", "Live dashboard"],
+        "eyebrow": "People analytics · engagement survey, turnover, action plans",
+        "title": "What the survey says, and whether acting on it worked",
+        "sub": "A confidential survey set against resignations team by team, an action plan checked against a "
+               "comparison group, and a tool for your own export.",
+        "stats": [["16.8%", "resigned in a year in the lowest-scoring quarter of teams; 7.3% in the highest"],
+                  ["+14.0", "points from the action plan against its comparison group (truth +8.2)"],
+                  ["223", "figures reconciled between Python and Excel"]],
+        "chips": ["Python, no dependencies", "Survey statistics", "Browser tool", "Two-wave evaluation"],
     },
     "job-search-agent": {
         "eyebrow": "Automation · a job search scored by rules, and measured",
@@ -145,7 +146,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["6,300", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
+        "stats": [["6,523", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -154,7 +155,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["7", "analysis repositories reconcile through it"], ["6,300", "figures checked between Python and Excel"],
+        "stats": [["8", "analysis repositories reconcile through it"], ["6,523", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
@@ -164,10 +165,10 @@ SPECS = {
 # The portfolio's case-study index: a social card only, written into this repository's media folder.
 CASES_CARD = {
     "eyebrow": "Case studies · Domenico Perroni",
-    "title": "Nine client questions, one page each",
+    "title": "Ten client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["9", "case studies, each also a PDF"], ["6,300", "values reconciled between Excel and Python"]],
+    "stats": [["10", "case studies, each also a PDF"], ["6,523", "values reconciled between Excel and Python"]],
     "chips": ["Pay transparency", "AI Act", "Payroll", "Automation"],
 }
 

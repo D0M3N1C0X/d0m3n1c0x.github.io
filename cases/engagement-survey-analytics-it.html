@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosa dice il sondaggio, e agire è servito? · Caso di studio</title>
+<meta name="description" content="Cosa dice il sondaggio, ci dice chi se ne andrà, e il piano d&#x27;azione ha funzionato?">
+<style>
+:root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
+--line:#e8e8ed;--accent:#0066cc;--accent-wash:#eef5fd;--glow:none;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#000000;--paper-2:#0b0c0f;--surface:#15171c;
+--ink:#f5f5f7;--ink-soft:#c7c9d1;--muted:#8b8f9a;--line:#23262e;--accent:#4f8cff;--accent-wash:#101b33;color-scheme:dark;
+--glow:radial-gradient(55% 70% at 90% 0%,rgba(79,140,255,.22),transparent 70%)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:var(--glow);background-repeat:no-repeat;color:var(--ink);
+font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.page{max-width:820px;margin:0 auto;padding:40px 24px 56px}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted)}
+.top a{color:var(--muted)}
+.tag{display:inline-block;margin-top:28px;padding:4px 12px;border-radius:999px;background:var(--accent-wash);
+color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+h1{font:700 34px/1.12 var(--display);letter-spacing:-.02em;margin:12px 0 10px}
+.client{color:var(--ink-soft);margin:0 0 18px;font-size:15px}
+.q{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:0 0 22px;font-size:17px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}
+.kpi{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px}
+.kpi b{display:block;font:700 21px/1.15 var(--display);letter-spacing:-.01em;margin-bottom:4px}
+.kpi span{display:block;font-size:12px;line-height:1.35;color:var(--ink-soft)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+h2{font:650 13px/1.3 var(--font);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
+.check{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:4px 0 18px;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.skills span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600}
+.foot{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.list{display:grid;gap:12px;margin-top:24px}
+.item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
+border-radius:16px;padding:16px 18px}
+.item:hover{border-color:var(--accent)}
+.shot{margin:0 0 22px}.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
+.item span{color:var(--ink-soft);font-size:14px}
+@media (max-width:680px){.kpis{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr;gap:0}h1{font-size:28px}}
+@page{size:A4;margin:12mm 13mm}
+@media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
+--accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
+.top .web,.shot{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.skills{margin-bottom:12px}
+.foot{margin-top:12px;padding-top:8px}.links a::after{content:" " attr(href);
+font-weight:400;color:#6e6e73}}
+</style></head>
+<body><main class="page">
+<div class="top"><span>Caso di studio · Domenico Perroni</span>
+<span class="web"><a href="./">Tutti i casi di studio (inglese)</a> · <a href="engagement-survey-analytics-it.pdf">PDF</a> · <a href="engagement-survey-analytics.html" hreflang="en">English</a></span></div>
+<span class="tag">People analytics</span>
+<h1>Cosa dice il sondaggio, e agire è servito?</h1>
+<p class="client"><b>Cliente:</b> Un gruppo di servizi con 3.800 dipendenti in 149 team e quattro paesi (dati sintetici), il cui HR fa un sondaggio di engagement ogni anno e agisce sui risultati.</p>
+<p class="q">Cosa dice il sondaggio, ci dice chi se ne andrà, e il piano d&#x27;azione ha funzionato?</p>
+<div class="kpis"><div class="kpi"><b>16,8%</b><span>dimessi in un anno nel quarto di team con l&#x27;engagement più basso; 7,3% nel più alto</span></div><div class="kpi"><b>+14,0</b><span>punti dal piano rispetto al gruppo di confronto (da +7,8 a +20,4)</span></div><div class="kpi"><b>+8,2</b><span>l&#x27;effetto vero, dentro l&#x27;intervallo; il prima-dopo diceva +15,2</span></div><div class="kpi"><b>40%</b><span>della variazione spiegata dell&#x27;engagement dovuta a Manager Support</span></div></div>
+<figure class="shot"><picture><source srcset="../media/esa-tool.png" media="(prefers-reduced-motion: reduce)"><img src="../media/esa-tool.webp" width="960" height="608" loading="lazy" alt="Lo strumento sui file d&#x27;esempio: le colonne, i punteggi per dimensione con gli intervalli, cosa guida l&#x27;engagement, i risultati per team."></picture></figure>
+<div class="cols">
+<section><h2>Cosa ho fatto</h2><ul><li>Ho dato a ogni dimensione un punteggio con intervalli che ricampionano team interi, e ordinato i fattori con pesi relativi che reggono al bootstrap.</li><li>Ho messo il sondaggio riservato accanto alle dimissioni team per team, mai persona per persona, con un modello di Poisson sui conteggi.</li><li>Ho valutato un piano per i responsabili provato su metà dei team più deboli contro l&#x27;altra metà, e confrontato la stima con l&#x27;effetto vero.</li><li>Ho consegnato uno strumento nel browser per il sondaggio del cliente, team sotto i cinque mai mostrati, e un file Excel riconciliato con Python.</li></ul></section>
+<section><h2>Cosa ha trovato</h2><ul><li>Recognition, Career Growth e Manager Support vanno con meno dimissioni e non si distinguono tra loro; Pay &amp; Benefits, il tema più citato nei commenti, è il meno legato a chi resta.</li><li>Rispetto al gruppo di confronto il piano vale +14,0 punti; il vero è +8,2. Con 23 team per lato, l&#x27;intervallo è la parte da riportare.</li><li>Costruendo la verifica dello strumento è emerso un bug nel rapporto: un eNPS di 0 era letto come non risposta.</li></ul><h2>Con dati reali</h2><ul><li>Le dimissioni per team dal gestionale HR, aggregate prima di incontrare il sondaggio.</li><li>Un piano provato su una parte dei team idonei, così il sondaggio seguente distingue il piano dal caso.</li></ul></section>
+</div>
+<p class="check"><b>Come è verificato.</b> Statistica scritta da zero e verificata su risultati noti (rapporti di tassi di Poisson, pesi relativi); lo strumento coincide con Python su 3.111 valori, l&#x27;Excel su 223, e il rapporto è identico su ogni versione di Python provata.</p>
+<div class="skills"><span>People analytics</span><span>Statistica dei sondaggi</span><span>Valutazione di programmi</span><span>Privacy by design</span><span>Python senza dipendenze</span></div>
+<div class="links"><a href="https://d0m3n1c0x.github.io/engagement-survey-analytics/tool/?lang=it">Prova lo strumento</a><a href="https://d0m3n1c0x.github.io/engagement-survey-analytics/">Apri la dashboard (inglese)</a><a href="https://github.com/D0M3N1C0X/engagement-survey-analytics">Il repository</a></div>
+<p class="foot">Dati sintetici o pubblici; non è consulenza legale, retributiva o finanziaria. Cifre pubblicate il
+24 novembre 2026. Domenico Perroni · consulenza HR, people analytics, retribuzioni · Kraków ·
+<a href="https://d0m3n1c0x.github.io/">d0m3n1c0x.github.io</a></p>
+</main></body></html>

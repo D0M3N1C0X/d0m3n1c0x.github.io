@@ -297,6 +297,98 @@ CASES = [
         "skills": ["Eurostat SES", "Decomposition", "R and Quarto", "Research writing", "Data visualisation"],
     },
     {
+        "slug": "engagement-survey-analytics",
+        "repo": "engagement-survey-analytics",
+        "translation": "engagement-survey-analytics-it",
+        "media": ("esa-tool", "The survey check on the example files: the columns, the dimension scores with their "
+                              "intervals, what drives engagement, results by team."),
+        "tag": "People analytics",
+        "title": "What does the survey say, and did acting on it work?",
+        "as_of": "24 November 2026",
+        "client": "A services group of 3,800 employees in 149 teams across four countries (synthetic), whose HR team "
+                  "runs a yearly engagement survey and acts on it.",
+        "question": "What does the survey say, does it tell us who will leave, and did the action plan work?",
+        "did": [
+            "Scored each dimension with intervals that resample whole teams, and ranked the drivers with relative "
+            "weights that hold up in a bootstrap.",
+            "Set the confidential survey against resignations team by team, never person by person, with a Poisson "
+            "model on team counts.",
+            "Evaluated a manager-support plan piloted on half of the weakest teams against the other half, and "
+            "checked the estimate against the true effect.",
+            "Delivered a browser tool for the client's own survey, teams under five never shown, and a workbook "
+            "reconciled with Python.",
+        ],
+        "kpis": [("16.8%", "resigned in a year in the lowest-scoring quarter of teams; 7.3% in the highest"),
+                 ("+14.0", "points from the plan against its comparison group (+7.8 to +20.4)"),
+                 ("+8.2", "the true effect, inside the interval; before-and-after said +15.2"),
+                 ("40%", "of explained variance in engagement carried by Manager Support")],
+        "found": [
+            "Recognition, Career Growth and Manager Support go with fewer resignations and cannot be told apart; Pay & "
+            "Benefits, the loudest theme in the comments, has the weakest link to who stays.",
+            "Against its comparison group the plan is worth +14.0 points; the truth is +8.2. With 23 teams a side, "
+            "the interval is the part to report.",
+            "Building the tool's cross-check found a bug in the read-out: an eNPS of 0 was read as no answer.",
+        ],
+        "real": [
+            "Resignations per team from the HRIS, aggregated before they meet the survey.",
+            "A plan piloted on part of the eligible teams, so the next survey can tell the plan from chance.",
+        ],
+        "checked": "Statistics written from scratch and tested against closed forms (Poisson rate ratios, relative "
+                   "weights); the tool agrees with Python on 3,111 values, the workbook on 223, and the read-out is "
+                   "identical on every Python version tested.",
+        "links": [("Try the tool", f"{SITE}/engagement-survey-analytics/tool/"),
+                  ("Open the dashboard", f"{SITE}/engagement-survey-analytics/")],
+        "skills": ["People analytics", "Survey statistics", "Programme evaluation", "Privacy by design",
+                   "Python, no dependencies"],
+    },
+    {
+        "slug": "engagement-survey-analytics-it",
+        "repo": "engagement-survey-analytics",
+        "lang": "it",
+        "translation": "engagement-survey-analytics",
+        "media": ("esa-tool", "Lo strumento sui file d'esempio: le colonne, i punteggi per dimensione con gli "
+                              "intervalli, cosa guida l'engagement, i risultati per team."),
+        "tag": "People analytics",
+        "title": "Cosa dice il sondaggio, e agire è servito?",
+        "as_of": "24 novembre 2026",
+        "client": "Un gruppo di servizi con 3.800 dipendenti in 149 team e quattro paesi (dati sintetici), il cui HR "
+                  "fa un sondaggio di engagement ogni anno e agisce sui risultati.",
+        "question": "Cosa dice il sondaggio, ci dice chi se ne andrà, e il piano d'azione ha funzionato?",
+        "did": [
+            "Ho dato a ogni dimensione un punteggio con intervalli che ricampionano team interi, e ordinato i fattori "
+            "con pesi relativi che reggono al bootstrap.",
+            "Ho messo il sondaggio riservato accanto alle dimissioni team per team, mai persona per persona, con un "
+            "modello di Poisson sui conteggi.",
+            "Ho valutato un piano per i responsabili provato su metà dei team più deboli contro l'altra metà, e "
+            "confrontato la stima con l'effetto vero.",
+            "Ho consegnato uno strumento nel browser per il sondaggio del cliente, team sotto i cinque mai mostrati, "
+            "e un file Excel riconciliato con Python.",
+        ],
+        "kpis": [("16,8%", "dimessi in un anno nel quarto di team con l'engagement più basso; 7,3% nel più alto"),
+                 ("+14,0", "punti dal piano rispetto al gruppo di confronto (da +7,8 a +20,4)"),
+                 ("+8,2", "l'effetto vero, dentro l'intervallo; il prima-dopo diceva +15,2"),
+                 ("40%", "della variazione spiegata dell'engagement dovuta a Manager Support")],
+        "found": [
+            "Recognition, Career Growth e Manager Support vanno con meno dimissioni e non si distinguono tra loro; Pay & "
+            "Benefits, il tema più citato nei commenti, è il meno legato a chi resta.",
+            "Rispetto al gruppo di confronto il piano vale +14,0 punti; il vero è +8,2. Con 23 team per lato, "
+            "l'intervallo è la parte da riportare.",
+            "Costruendo la verifica dello strumento è emerso un bug nel rapporto: un eNPS di 0 era letto come non "
+            "risposta.",
+        ],
+        "real": [
+            "Le dimissioni per team dal gestionale HR, aggregate prima di incontrare il sondaggio.",
+            "Un piano provato su una parte dei team idonei, così il sondaggio seguente distingue il piano dal caso.",
+        ],
+        "checked": "Statistica scritta da zero e verificata su risultati noti (rapporti di tassi di Poisson, pesi "
+                   "relativi); lo strumento coincide con Python su 3.111 valori, l'Excel su 223, e il rapporto è "
+                   "identico su ogni versione di Python provata.",
+        "links": [("Prova lo strumento", f"{SITE}/engagement-survey-analytics/tool/?lang=it"),
+                  ("Apri la dashboard (inglese)", f"{SITE}/engagement-survey-analytics/")],
+        "skills": ["People analytics", "Statistica dei sondaggi", "Valutazione di programmi", "Privacy by design",
+                   "Python senza dipendenze"],
+    },
+    {
         "slug": "hr-people-analytics",
         "repo": "hr-people-analytics",
         "translation": "hr-people-analytics-it",
@@ -626,7 +718,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,300 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,523 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">

@@ -140,6 +140,15 @@ SCENES = {
         (scroll_to("#h-drv", -20), 2600),
         (scroll_to("#h-team", -20), 2600),
     ], 3),
+    # the survey check: the example files, the columns, scores, drivers, teams
+    "esa-tool": ("https://d0m3n1c0x.github.io/engagement-survey-analytics/tool/", [
+        (nothing, 1400),
+        (lambda p: (p.click("#esempio"), p.wait_for_selector("#tab-items input")), 1600),
+        (lambda p: (p.click("#calcola"), p.wait_for_selector("#kpis .s-kpi")), 600),
+        (scroll_to("#kpis", -90), 2600),
+        (scroll_to("#tab-drv", -140), 2600),
+        (scroll_to("#tab-grp", -140), 2400),
+    ], 3),
 }
 
 
