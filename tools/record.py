@@ -130,6 +130,16 @@ SCENES = {
         (lambda p: (p.click("#dclose"), p.click(".tab:has-text('All postings')")), 2600),
         (click(".tab:has-text('Insights')"), 2600),
     ], 2),
+    # the retention check: the example file, the columns, the results section by section
+    "hpa-tool": ("https://d0m3n1c0x.github.io/hr-people-analytics/tool/", [
+        (nothing, 1400),
+        (lambda p: (p.click("#esempio"), p.wait_for_selector("#colonne select")), 1600),
+        (lambda p: (p.click("#calcola"), p.wait_for_selector("#kpis .s-kpi")), 600),
+        (scroll_to("#kpis", -90), 2400),
+        (scroll_to("#h-surv", -20), 2400),
+        (scroll_to("#h-drv", -20), 2600),
+        (scroll_to("#h-team", -20), 2600),
+    ], 3),
 }
 
 

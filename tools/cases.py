@@ -297,6 +297,104 @@ CASES = [
         "skills": ["Eurostat SES", "Decomposition", "R and Quarto", "Research writing", "Data visualisation"],
     },
     {
+        "slug": "hr-people-analytics",
+        "repo": "hr-people-analytics",
+        "translation": "hr-people-analytics-it",
+        "media": ("hpa-tool", "The retention check on the example file: turnover by department, how long people stay, "
+                              "what goes with resigning, warning signs per team."),
+        "tag": "People analytics",
+        "title": "Who leaves, and may a model say who?",
+        "as_of": "24 November 2026",
+        "client": "A shared-services organisation of 4,000 employees in Italy, Poland, Germany and Spain (synthetic), "
+                  "whose HR team wants a retention model and has to decide whether it may use one.",
+        "question": "Who leaves and when, can a model warn in time, is it fair, and what may HR do with it under the "
+                    "AI Act?",
+        "did": [
+            "Fitted an attrition model on one quarter and scored it on the next two, which it had never seen, against a "
+            "checklist of the same signs and the data's own ceiling.",
+            "Audited it by sex, age, country and working time, and wrote its model card: the provider's answers to the "
+            "14 questions the AI Act register asks of a high-risk system.",
+            "Measured how long people stay with survival analysis on tenure, counting people hired before the data "
+            "began from the tenure they had then.",
+            "Delivered a browser tool for the client's own HRIS export, teams never names, and a workbook reconciled "
+            "with Python.",
+        ],
+        "kpis": [("0.75", "AUC on quarters the model never saw; counting the same signs gets 0.72"),
+                 ("38%", "of next quarter's resignations in the top 10% of scores"),
+                 ("77 of 100", "hires still here after a year; 94 if early leavers are miscounted"),
+                 ("88%", "of flagged people stay: why the card rules out decisions")],
+        "found": [
+            "Most of the value is in knowing which signs to watch: the weights add 0.03 of AUC over counting them, and "
+            "the model closes 84% of the gap between chance and the ceiling.",
+            "Country of work is not an input, so Germany is over-read, 3.6% predicted where 2.2% resign. Fixing it is a "
+            "significant change under the AI Act, so the provider's duties come first.",
+            "People paid below band stay 22.4 of their first 36 months against 31.3, the same effect in year one as "
+            "after it.",
+        ],
+        "real": [
+            "Inputs as they stood on each scoring date, with pay position changing at every raise.",
+            "A decision on the engagement input: an individual survey score breaks the confidentiality most surveys "
+            "promise.",
+        ],
+        "checked": "Statistics written from scratch and tested against closed forms (AUC as Mann-Whitney, the Cox "
+                   "score test as the log-rank test); the tool agrees with Python on 1,530 values, the workbook on "
+                   "121, recalculated by LibreOffice in CI.",
+        "links": [("Read the report", f"{SITE}/hr-people-analytics/"),
+                  ("Try the tool", f"{SITE}/hr-people-analytics/tool/"),
+                  ("Model card", f"{REPO}/hr-people-analytics/blob/main/docs/model_card.md")],
+        "skills": ["People analytics", "Model validation", "Survival analysis", "EU AI Act", "Python, no dependencies"],
+    },
+    {
+        "slug": "hr-people-analytics-it",
+        "repo": "hr-people-analytics",
+        "lang": "it",
+        "translation": "hr-people-analytics",
+        "media": ("hpa-tool", "Lo strumento sul file d'esempio: turnover per reparto, quanto restano le persone, cosa si "
+                              "accompagna alle dimissioni, segnali per reparto."),
+        "tag": "People analytics",
+        "title": "Chi se ne va, e può dirlo un modello?",
+        "as_of": "24 novembre 2026",
+        "client": "Un centro servizi condivisi di 4.000 dipendenti in Italia, Polonia, Germania e Spagna (dati "
+                  "sintetici), il cui HR vuole un modello di retention e deve decidere se può usarlo.",
+        "question": "Chi se ne va e quando, un modello può avvisare in tempo, è equo, e cosa può farne l'HR secondo "
+                    "l'AI Act?",
+        "did": [
+            "Ho stimato un modello di attrition su un trimestre e l'ho applicato ai due successivi, mai visti, contro "
+            "una checklist degli stessi segnali e il massimo raggiungibile sui dati.",
+            "L'ho verificato per sesso, età, paese e orario, e ho scritto la sua scheda: le risposte del fornitore alle "
+            "14 domande che il registro AI Act pone a un sistema ad alto rischio.",
+            "Ho misurato quanto restano le persone con l'analisi di sopravvivenza sull'anzianità, contando chi era già "
+            "assunto dall'anzianità che aveva quando iniziano i dati.",
+            "Ho consegnato uno strumento nel browser per l'export del gestionale HR, per reparto e mai per nome, e un "
+            "file Excel riconciliato con Python.",
+        ],
+        "kpis": [("0,75", "AUC su trimestri mai visti dal modello; contare gli stessi segnali dà 0,72"),
+                 ("38%", "delle dimissioni del trimestre dopo nel 10% di punteggi più alti"),
+                 ("77 su 100", "assunti ancora qui dopo un anno; 94 contando male chi se n'è andato prima"),
+                 ("88%", "dei segnalati resta: per questo la scheda esclude le decisioni")],
+        "found": [
+            "Quasi tutto il valore sta nel sapere quali segnali guardare: i pesi aggiungono 0,03 di AUC rispetto a "
+            "contarli, e il modello copre l'84% della distanza tra il caso e il massimo.",
+            "Il paese di lavoro non è tra gli ingressi, così la Germania è sovrastimata, 3,6% previsto dove si dimette "
+            "il 2,2%. Correggerlo è una modifica sostanziale per l'AI Act: prima vengono gli obblighi del fornitore.",
+            "Chi è pagato sotto la fascia resta 22,4 dei primi 36 mesi contro 31,3, con lo stesso effetto nel primo "
+            "anno e dopo.",
+        ],
+        "real": [
+            "Ingressi presi com'erano a ogni data di calcolo, con la posizione in fascia che cambia a ogni aumento.",
+            "Una decisione sull'engagement: il punteggio individuale del sondaggio rompe la riservatezza che quasi "
+            "ogni sondaggio promette.",
+        ],
+        "checked": "Statistica scritta da zero e verificata su risultati noti (AUC come Mann-Whitney, il test score "
+                   "di Cox come log-rank); lo strumento coincide con Python su 1.530 valori, l'Excel su 121, "
+                   "ricalcolato da LibreOffice nella CI.",
+        "links": [("Leggi il rapporto (inglese)", f"{SITE}/hr-people-analytics/"),
+                  ("Prova lo strumento", f"{SITE}/hr-people-analytics/tool/?lang=it"),
+                  ("Scheda del modello (inglese)", f"{REPO}/hr-people-analytics/blob/main/docs/model_card.md")],
+        "skills": ["People analytics", "Validazione di modelli", "Analisi di sopravvivenza", "AI Act",
+                   "Python senza dipendenze"],
+    },
+    {
         "slug": "job-search-agent",
         "repo": "job-search-agent",
         "translation": "job-search-agent-it",
@@ -528,7 +626,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,179 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,300 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
