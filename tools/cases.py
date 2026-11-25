@@ -23,42 +23,102 @@ CASES = [
     {
         "slug": "pay-transparency-readiness",
         "repo": "pay-transparency-readiness-kit",
+        "translation": "pay-transparency-readiness-it",
+        "media": ("kit-tool", "The tool on a full year of actual pay: payroll, role grid and pay-code map loaded, 4,000 "
+                              "rows reconciled to the cent, then Milan's results and the category screen."),
         "tag": "Reward & HR consulting",
         "title": "Is a four-country employer ready for the EU Pay Transparency Directive?",
+        "as_of": "25 November 2026",
         "client": "A synthetic employer with 3,443 workers in Italy, Poland, Germany and Spain, about to file its first "
                   "pay gap reports under Directive (EU) 2023/970.",
-        "question": "When do we report, what will the numbers say, where are the gaps and why, and what would closing "
-                    "them cost?",
+        "question": "When do we report, what will the numbers say, how far can we trust them, and how will they look "
+                    "next to the national figures?",
         "did": [
             "Computed the seven Article 9 reporting items and the Article 10 screen for every employer and category of "
-            "workers, on hourly and on annual pay.",
-            "Built the categories of equal value with a gender-neutral job evaluation, and tested its weights against "
-            "the EU guidelines published by the Commission and EIGE in March 2026.",
-            "Read the Italian decree in the Gazzetta Ufficiale and reported Milan on both measures: the Directive's "
-            "total pay and Italy's fixed pay (livello retributivo).",
-            "Delivered a live Excel model, a board briefing, a readiness checklist and a browser tool that runs the same "
-            "assessment on a client's payroll without the file leaving the computer.",
+            "workers, with categories from a gender-neutral job evaluation tested against the EU guidelines.",
+            "Checked the screen against a known ground truth: the payroll rebuilt from the same random draws without "
+            "the two discriminatory mechanisms planted in it, with a bootstrap interval and an exact split of every gap.",
+            "Reran everything on a full year of pay actually paid, leavers and joiners included, and set each employer "
+            "against Eurostat's national and sector figures.",
+            "Delivered a live Excel model with a justification register, a board briefing, an Article 7 reply in "
+            "Italian and English, and a browser tool that runs on a client's payroll without the file leaving the "
+            "computer.",
         ],
-        "kpis": [("17.6%", "hourly gender pay gap across the group"),
-                 ("12 of 28", "categories of workers to justify or remedy by 7 Dec 2027"),
-                 ("≤ €1.9M", "a year to close every flagged gap"),
-                 ("1 of 14", "obligations already in place")],
+        "kpis": [("12 of 28", "categories to justify or remedy; none clear of the 5% line"),
+                 ("6 of 12", "flags caused by the planted mechanisms; 6 would be there without them"),
+                 ("8 of 12", "still flagged on a full year of pay, leavers and joiners in"),
+                 ("3.4×", "Milan's gap against Italy's national figure, yet inside its sectors")],
         "found": [
-            "Bonus, commission and allowances add 2.2 points to a 15.4% base-pay gap. In Sales, commission is 12.6% of "
-            "base pay for women and 15.1% for men under identical rules: territories are allocated unequally.",
-            "In Italy the decree counts fixed pay only: Milan's gap is 18.0% on that measure against 19.7% on total pay, "
-            "and what each flagged category has to justify changes.",
+            "Within the same role the gap is about 2% in every employer, and indistinguishable from zero once the "
+            "planted mechanisms are removed: too small to see category by category, clear employer by employer.",
+            "On a full year 15 categories are flagged instead of 12; all 7 newcomers had been marked as close to the "
+            "line. 7 of the 15 come from annual pay alone, which moves with turnover.",
+            "Against Eurostat, Milan and Kraków are three times their national figure but ordinary for the sectors "
+            "they resemble; Barcelona is above every one of them.",
         ],
         "real": [
-            "Calendar-year payroll instead of a snapshot, with leavers and pay after leave.",
+            "A calendar year with pay history, instead of current rates applied to the twelve months to the snapshot.",
             "In Italy, the collective agreement's levels as the starting categories (D.lgs. 96/2026, art. 4).",
-            "A justification workshop per flagged category, before the cost is budgeted.",
+            "A justification workshop per register row, before the cost is budgeted.",
         ],
-        "checked": "511 figures reconciled between the Excel formulas and pandas; the browser tool checked on 4,452 "
-                   "values; every legal statement in a verification register with its source.",
+        "checked": "547 figures reconciled between the Excel formulas and pandas, recalculated by LibreOffice in CI; "
+                   "the browser tool checked on 5,009 values; every legal and statistical statement in a "
+                   "verification register with its source.",
         "links": [("Read the report", f"{SITE}/pay-transparency-readiness-kit/"),
                   ("Try the tool", f"{SITE}/pay-transparency-readiness-kit/tool/")],
-        "skills": ["Directive (EU) 2023/970", "Job evaluation", "Excel modelling", "Python", "Board communication"],
+        "skills": ["Directive (EU) 2023/970", "Job evaluation", "Statistical validation", "Excel modelling", "Python"],
+    },
+    {
+        "slug": "pay-transparency-readiness-it",
+        "repo": "pay-transparency-readiness-kit",
+        "lang": "it",
+        "translation": "pay-transparency-readiness",
+        "media": ("kit-tool", "Lo strumento su un anno intero di retribuzioni effettive: paghe, griglia dei ruoli e "
+                              "codici paga caricati, 4.000 righe riconciliate al centesimo, poi i risultati di Milano "
+                              "e le categorie."),
+        "tag": "Reward e consulenza HR",
+        "title": "Un datore di lavoro in quattro paesi è pronto per la direttiva sulla trasparenza retributiva?",
+        "as_of": "25 novembre 2026",
+        "client": "Un datore di lavoro sintetico con 3.443 lavoratori in Italia, Polonia, Germania e Spagna, alla vigilia "
+                  "del primo rapporto sul divario retributivo previsto dalla Direttiva (UE) 2023/970.",
+        "question": "Quando dobbiamo riferire, cosa diranno i numeri, quanto possiamo fidarci e come appariranno accanto "
+                    "ai dati nazionali?",
+        "did": [
+            "Ho calcolato i sette indicatori dell'articolo 9 e la verifica dell'articolo 10 per ogni datore di lavoro e "
+            "categoria, con categorie da una valutazione dei ruoli neutra rispetto al genere, confrontata con le linee "
+            "guida UE.",
+            "Ho verificato la soglia contro una verità nota: le stesse paghe ricostruite senza i due meccanismi "
+            "discriminatori inseriti nei dati, con un intervallo bootstrap e una scomposizione esatta di ogni divario.",
+            "Ho ripetuto tutto su un anno intero di retribuzioni effettivamente pagate, con chi è uscito e chi è "
+            "entrato, e ho messo ogni datore di lavoro accanto ai dati Eurostat nazionali e di settore.",
+            "Ho consegnato un modello Excel con formule vive e un registro delle giustificazioni, una presentazione per "
+            "il consiglio, una risposta all'articolo 7 in italiano e inglese e uno strumento nel browser che lavora sul "
+            "file paghe senza che esca dal computer.",
+        ],
+        "kpis": [("12 su 28", "categorie da giustificare o correggere; nessuna nettamente oltre il 5%"),
+                 ("6 su 12", "segnalazioni causate dai meccanismi inseriti; 6 ci sarebbero comunque"),
+                 ("8 su 12", "ancora segnalate su un anno intero, con chi è uscito e chi è entrato"),
+                 ("3,4×", "il divario di Milano rispetto al dato italiano, ma nella norma del suo settore")],
+        "found": [
+            "A parità di ruolo il divario è di circa il 2% in ogni datore di lavoro, e scompare togliendo i meccanismi "
+            "inseriti: troppo piccolo per vederlo categoria per categoria, chiaro datore per datore.",
+            "Su un anno intero le categorie segnalate sono 15 invece di 12; le 7 nuove erano già indicate come vicine "
+            "alla soglia. 7 delle 15 dipendono solo dalla retribuzione annua, che si muove con il turnover.",
+            "Rispetto a Eurostat, Milano e Cracovia hanno un divario triplo di quello nazionale ma normale per i "
+            "settori a cui somigliano; Barcellona è sopra tutti.",
+        ],
+        "real": [
+            "Un anno solare con lo storico delle retribuzioni, invece delle paghe attuali applicate ai dodici mesi.",
+            "In Italia, i livelli del contratto collettivo come categorie di partenza (D.lgs. 96/2026, art. 4).",
+            "Un incontro di giustificazione per ogni riga del registro, prima di mettere a budget il costo.",
+        ],
+        "checked": "547 cifre riconciliate tra le formule Excel e pandas, ricalcolate da LibreOffice nella CI; lo "
+                   "strumento verificato su 5.009 valori; ogni affermazione legale e statistica in un registro con la "
+                   "sua fonte.",
+        "links": [("Leggi il rapporto (inglese)", f"{SITE}/pay-transparency-readiness-kit/"),
+                  ("Prova lo strumento", f"{SITE}/pay-transparency-readiness-kit/tool/?lang=it")],
+        "skills": ["Direttiva (UE) 2023/970", "Valutazione dei ruoli", "Validazione statistica", "Modelli Excel",
+                   "Python"],
     },
     {
         "slug": "ai-act-hr-readiness",
@@ -718,7 +778,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,523 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,559 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">

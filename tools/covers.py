@@ -23,11 +23,13 @@ SPECS = {
     "pay-transparency-readiness-kit": {
         "eyebrow": "EU Pay Transparency Directive · Articles 4 to 12",
         "title": "Ready for the EU Pay Transparency Directive?",
-        "sub": "A four-country employer, run end to end as a consulting team would deliver it: the seven reporting "
-               "items, the 5% screen, the cost of closing the gaps and the deadlines.",
-        "stats": [["17.6%", "hourly gender pay gap across the group"], ["12 of 28", "categories of workers to justify or remedy"],
-                  ["€1.9M", "a year, at most, to close every flagged gap"]],
-        "chips": ["Python", "Excel model", "Browser tool", "Board deck"],
+        "sub": "A four-country employer, run end to end: the seven reporting items, the 5% screen checked against a "
+               "known ground truth, a full year of pay with leavers and joiners, and the official figures it will be "
+               "read against.",
+        "stats": [["12 of 28", "categories to justify or remedy, none clear of the 5% line"],
+                  ["8 of 12", "still flagged on a full year of pay, leavers and joiners in"],
+                  ["3.4×", "Milan's gap against Italy's national figure, yet inside its sectors"]],
+        "chips": ["Python", "Excel model", "Browser tool", "Eurostat data"],
     },
     "ai-act-hr-readiness-kit": {
         "eyebrow": "EU AI Act · Regulation (EU) 2024/1689 and 2026/1744",
@@ -146,7 +148,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["6,523", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
+        "stats": [["6,559", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -155,7 +157,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["8", "analysis repositories reconcile through it"], ["6,523", "figures checked between Python and Excel"],
+        "stats": [["8", "analysis repositories reconcile through it"], ["6,559", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
@@ -168,7 +170,7 @@ CASES_CARD = {
     "title": "Ten client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["10", "case studies, each also a PDF"], ["6,523", "values reconciled between Excel and Python"]],
+    "stats": [["10", "case studies, each also a PDF"], ["6,559", "values reconciled between Excel and Python"]],
     "chips": ["Pay transparency", "AI Act", "Payroll", "Automation"],
 }
 

@@ -15,6 +15,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright
 
 OUT = Path(__file__).resolve().parent.parent / "media"
+KIT = Path.home() / "pay-transparency-readiness-kit"     # the files the payroll tool is shown loading
 SIZE = (1200, 760)
 WIDTH = 960                      # width of the published loop
 
@@ -114,14 +115,20 @@ SCENES = {
         (scroll_to("#h-avvisi", -20), 2400),
     ], 2),
     # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen
+    # the payroll check on a full year of actual pay: payroll, role grid and pay-code map in, then the results
     "kit-tool": ("https://d0m3n1c0x.github.io/pay-transparency-readiness-kit/tool/?lang=en", [
         (nothing, 1400),
-        (lambda p: (p.click("#esempio"), p.wait_for_selector("#kpis .s-kpi")), 600),
+        (lambda p: (p.set_input_files("#file-paghe", str(KIT / "data" / "payroll_reference_year.csv")),
+                    p.set_input_files("#file-griglia", str(KIT / "data" / "job_evaluation.csv")),
+                    p.set_input_files("#file-codici", str(KIT / "web" / "template_pay_code_map.csv")),
+                    p.wait_for_function("!document.querySelector('#esegui').disabled"),
+                    scroll_to("#passo-colonne", -40)(p)), 2400),
+        (lambda p: (p.click("#esegui"), p.wait_for_selector("#kpis .s-kpi"),
+                    scroll_to("#payroll-reconciliation-result", -140)(p)), 2400),
         (scroll_to("#kpis", -90), 2400),
-        (scroll_to("#grafico-quartili", -160), 2200),
         (scroll_to("#grafico-categorie", -120), 2600),
         (scroll_to("#tab-categorie", -40), 2400),
-    ], 2),
+    ], 3),
     # the job search: the roles worth an hour, why one scored 94, every posting with its verdict, the funnel
     "jsa": ("https://d0m3n1c0x.github.io/job-search-agent/demo/", [
         (nothing, 1600),
