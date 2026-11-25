@@ -81,14 +81,13 @@ SCENES = {
         (scroll_by(380), 1600),
         (scroll_to("#novembre", -140), 2400),
     ], 3),
-    # the people-cost simulator: base case, then a hiring freeze and more leavers, and the months
+    # the people-cost simulator: a hiring freeze against the base case, then the outlook and plan, then one employee
     "wcm-sim": ("https://d0m3n1c0x.github.io/workforce-cost-model/simulator/?lang=en", [
         (nothing, 1200),
-        (scroll_to("#h-leve", -20), 1600),
-        (click("#preset button[data-p='1']"), 1400),
-        (scroll_to("#kpis", -20), 2200),
-        (scroll_to("#h-mesi", -20), 2400),
-        (scroll_to("#h-confronto", -20), 2200),
+        (lambda p: (p.click("#preset button[data-p='1']"), scroll_to("#kpis", -20)(p)), 2400),
+        (scroll_to("#h-mesi", -20), 2200),
+        (lambda p: (p.click("#viste button[data-v='piano']"), scroll_to("#h-piano", -20)(p)), 2600),
+        (lambda p: (p.click("#viste button[data-v='costo']"), scroll_to("#h-costo", -20)(p)), 2600),
     ], 3),
     # the pay range finder: one role after another
     "ads": ("https://d0m3n1c0x.github.io/equal-value-pay-ranges/ads.html", [
