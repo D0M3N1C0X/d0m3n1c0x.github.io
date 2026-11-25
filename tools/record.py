@@ -106,11 +106,12 @@ SCENES = {
     ], 1),
     # the AI Act tool: the sample systems, the register, what applies when, whom to tell
     "aiact-tool": ("https://d0m3n1c0x.github.io/ai-act-hr-readiness-kit/tool/?lang=en", [
-        (nothing, 1400),
-        (lambda p: (p.click("#esempio"), p.wait_for_selector("#kpis .s-kpi")), 600),
-        (scroll_to("#kpis", -90), 2200),
-        (scroll_to("#h-registro", -20), 2400),
-        (scroll_to("#h-obblighi", -20), 2400),
+        (nothing, 1200),
+        (lambda p: (p.click("#aggiungi"), p.fill("#f-name", "Call centre mood tracker"),
+                    scroll_to("#q-infers_emotions", -30)(p)), 2600),
+        (lambda p: (p.check("#q-infers_emotions input[value='Yes']"), scroll_to("#q-medical_or_safety", -30)(p)), 3200),
+        (lambda p: (p.click("#annulla"), p.click("#esempio"), p.wait_for_selector("#kpis .s-kpi"),
+                    scroll_to("#h-registro", -20)(p)), 2400),
         (scroll_to("#h-avvisi", -20), 2400),
     ], 2),
     # the kit's browser tool: the sample employer, the obligations, the seven items and the category screen

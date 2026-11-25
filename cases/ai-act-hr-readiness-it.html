@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quali sistemi di IA dell&#x27;HR sono ad alto rischio, e cosa devono fare? · Caso di studio</title>
+<meta name="description" content="Quali sistemi l&#x27;AI Act vieta o considera ad alto rischio, quali obblighi hanno e da quando, quanto è affidabile la classificazione e chi vigila in ogni paese?">
+<style>
+:root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
+--line:#e8e8ed;--accent:#0066cc;--accent-wash:#eef5fd;--glow:none;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#000000;--paper-2:#0b0c0f;--surface:#15171c;
+--ink:#f5f5f7;--ink-soft:#c7c9d1;--muted:#8b8f9a;--line:#23262e;--accent:#4f8cff;--accent-wash:#101b33;color-scheme:dark;
+--glow:radial-gradient(55% 70% at 90% 0%,rgba(79,140,255,.22),transparent 70%)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:var(--glow);background-repeat:no-repeat;color:var(--ink);
+font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.page{max-width:820px;margin:0 auto;padding:40px 24px 56px}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted)}
+.top a{color:var(--muted)}
+.tag{display:inline-block;margin-top:28px;padding:4px 12px;border-radius:999px;background:var(--accent-wash);
+color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+h1{font:700 34px/1.12 var(--display);letter-spacing:-.02em;margin:12px 0 10px}
+.client{color:var(--ink-soft);margin:0 0 18px;font-size:15px}
+.q{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:0 0 22px;font-size:17px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}
+.kpi{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px}
+.kpi b{display:block;font:700 21px/1.15 var(--display);letter-spacing:-.01em;margin-bottom:4px}
+.kpi span{display:block;font-size:12px;line-height:1.35;color:var(--ink-soft)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+h2{font:650 13px/1.3 var(--font);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
+.check{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:4px 0 18px;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.skills span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600}
+.foot{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.list{display:grid;gap:12px;margin-top:24px}
+.item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
+border-radius:16px;padding:16px 18px}
+.item:hover{border-color:var(--accent)}
+.shot{margin:0 0 22px}.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
+.item span{color:var(--ink-soft);font-size:14px}
+@media (max-width:680px){.kpis{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr;gap:0}h1{font-size:28px}}
+@page{size:A4;margin:12mm 13mm}
+@media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
+--accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
+.top .web,.shot{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.skills{margin-bottom:12px}
+.foot{margin-top:12px;padding-top:8px}.links a::after{content:" " attr(href);
+font-weight:400;color:#6e6e73}}
+</style></head>
+<body><main class="page">
+<div class="top"><span>Caso di studio · Domenico Perroni</span>
+<span class="web"><a href="./">Tutti i casi di studio (inglese)</a> · <a href="ai-act-hr-readiness-it.pdf">PDF</a> · <a href="ai-act-hr-readiness.html" hreflang="en">English</a></span></div>
+<span class="tag">Governance dell&#x27;IA · HR</span>
+<h1>Quali sistemi di IA dell&#x27;HR sono ad alto rischio, e cosa devono fare?</h1>
+<p class="client"><b>Cliente:</b> Lo stesso datore di lavoro in quattro paesi, la cui funzione HR usa dodici sistemi di IA, dalla selezione dei CV al sistema che propone gli aumenti, fino a un modello di attrition costruito in casa.</p>
+<p class="q">Quali sistemi l&#x27;AI Act vieta o considera ad alto rischio, quali obblighi hanno e da quando, quanto è affidabile la classificazione e chi vigila in ogni paese?</p>
+<div class="kpis"><div class="kpi"><b>8 su 21</b><span>casi della Commissione sbagliati dalle prime domande; ora tutti e 21 coincidono</span></div><div class="kpi"><b>3 su 21</b><span>obblighi del fornitore già rispettati dal modello interno; 8 mancano</span></div><div class="kpi"><b>0,1 punti</b><span>l&#x27;effetto di una revisione per merito su un divario del 17,6%; un fondo per l&#x27;equità lo porta al 15,5%</span></div><div class="kpi"><b>1 su 12</b><span>sistemi da fermare subito: riconoscere le emozioni nei colloqui</span></div></div>
+<figure class="shot"><picture><source srcset="../media/aiact-tool.png" media="(prefers-reduced-motion: reduce)"><img src="../media/aiact-tool.webp" width="960" height="608" loading="lazy" alt="Lo strumento: un sistema che legge l&#x27;umore in un call center, verificato domanda per domanda, risulta vietato; poi i dodici sistemi d&#x27;esempio e chi informare in ogni paese."></picture></figure>
+<div class="cols">
+<section><h2>Cosa ho fatto</h2><ul><li>Ho classificato dodici sistemi secondo l&#x27;AI Act e il regolamento Omnibus, con obblighi, regole nazionali di informazione ai lavoratori in nove paesi, domande ai fornitori, formazione e valutazioni d&#x27;impatto.</li><li>Ho messo alla prova la classificazione sui 21 casi delle linee guida della Commissione sulle pratiche vietate, ho corretto le due domande che risultavano sbagliate e ho verificato su quali risposte poggia ogni classe.</li><li>Ho confrontato il vero modello di attrition di hr-people-analytics con i 21 obblighi del fornitore e ho simulato il sistema degli aumenti sulle paghe del kit sulla trasparenza retributiva.</li><li>Ho letto alla fonte chi vigila sull&#x27;AI Act dove era raggiungibile, e segnato il resto.</li></ul></section>
+<section><h2>Cosa ha trovato</h2><ul><li>Chiedere se un sistema legge le emozioni &quot;dalle parole&quot; era sbagliato: il divieto riguarda solo i dati biometrici, e benessere, stress e burnout non rientrano nell&#x27;eccezione medica.</li><li>L&#x27;analisi del modello di attrition è fatta, i documenti no: log, sistema di qualità, valutazione di conformità e registrazione vanno fatti prima della correzione già prevista.</li><li>Nessuna revisione per merito chiude un divario che nasce dai livelli; destinare prima il tetto di costo del kit sulla trasparenza, dentro lo stesso budget, chiude tutte e dodici le categorie segnalate.</li></ul><h2>Con dati reali</h2><ul><li>Le istruzioni d&#x27;uso dei fornitori e le loro valutazioni ai sensi dell&#x27;art. 6(4).</li><li>Le linee guida della Commissione sull&#x27;alto rischio, quando saranno definitive.</li><li>La legge 132/2025 letta nel testo ufficiale, e un giuslavorista in ogni paese per le informative.</li></ul></section>
+</div>
+<p class="check"><b>Come è verificato.</b> 838 cifre riconciliate tra le formule Excel e Python, ricalcolate da LibreOffice a ogni modifica; lo strumento verificato su 16.309 valori; ogni affermazione legale registrata con fonte e stato, e segnato ciò che non è stato possibile leggere.</p>
+<div class="skills"><span>AI Act</span><span>Linee guida della Commissione</span><span>Diritto del lavoro in nove paesi</span><span>Governance dell&#x27;IA</span><span>Python</span></div>
+<div class="links"><a href="https://d0m3n1c0x.github.io/ai-act-hr-readiness-kit/tool/?lang=it">Prova lo strumento</a><a href="https://d0m3n1c0x.github.io/ai-act-hr-readiness-kit/">Leggi il rapporto (inglese)</a><a href="https://github.com/D0M3N1C0X/ai-act-hr-readiness-kit">Il repository</a></div>
+<p class="foot">Dati sintetici o pubblici; non è consulenza legale, retributiva o finanziaria. Cifre pubblicate il
+25 novembre 2026. Domenico Perroni · consulenza HR, people analytics, retribuzioni · Kraków ·
+<a href="https://d0m3n1c0x.github.io/">d0m3n1c0x.github.io</a></p>
+</main></body></html>

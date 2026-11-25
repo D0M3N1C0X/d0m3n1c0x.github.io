@@ -123,46 +123,98 @@ CASES = [
     {
         "slug": "ai-act-hr-readiness",
         "repo": "ai-act-hr-readiness-kit",
+        "translation": "ai-act-hr-readiness-it",
+        "media": ("aiact-tool", "The tool: a call centre mood tracker checked question by question, a prohibited "
+                                "verdict, then the twelve sample systems and whom to tell in each country."),
         "tag": "AI governance · HR",
         "title": "Which of HR's AI systems are high-risk, and what do they owe?",
-        "as_of": "8 November 2026",
+        "as_of": "25 November 2026",
         "client": "The same four-country employer, whose HR function uses twelve AI systems, from CV screening to a "
                   "pay review recommender and an attrition model built in-house.",
-        "question": "Which systems does the AI Act ban or class as high-risk, what does each owe and from when, and whom "
-                    "do we have to tell before we use them?",
+        "question": "Which systems does the AI Act ban or class as high-risk, what does each owe and from when, how far "
+                    "can the classification be trusted, and who enforces it in each country?",
         "did": [
-            "Read the AI Act and the Digital Omnibus (Regulation (EU) 2026/1744) in the Official Journal.",
-            "Classified each system from eighteen answers: prohibited, high-risk, not high-risk under Article 6(3), "
-            "transparency only or minimal, with the reason written next to it, and when its duties bite under the "
-            "amended Article 111(2).",
-            "Mapped fifteen obligations, including the fundamental rights impact assessment and registration that "
-            "public bodies owe, and the national rules on informing workers in nine countries.",
-            "Wrote what to ask each supplier (sixteen questions, each tied to a duty), an AI literacy plan for named "
-            "groups, and a draft impact assessment per high-risk system that reuses the DPIA.",
-            "Delivered a live Excel register, a report, model notices per country and a browser tool.",
+            "Classified twelve systems under the AI Act and the Digital Omnibus, with their obligations, the national "
+            "rules on telling workers in nine countries, supplier questions, literacy and impact assessments.",
+            "Tested the classification on the 21 workplace cases in the Commission's guidelines on prohibited "
+            "practices, fixed the two questions they showed wrong, and checked which answers each class rests on.",
+            "Set the real in-house attrition model, from hr-people-analytics, against the 21 provider duties, and ran "
+            "the pay review recommender on the pay transparency kit's payroll.",
+            "Read who supervises the AI Act at the source where it could be reached, and marked the rest.",
         ],
-        "kpis": [("1 of 12", "systems to stop now: emotion recognition in interviews"),
-                 ("7", "high-risk systems, with duties from 2 December 2027"),
-                 ("1", "system built in-house that makes the employer a provider"),
-                 ("11 · 5+", "systems to tell the German works council about · that need its agreement")],
+        "kpis": [("8 of 21", "Commission cases the first questions got wrong; now all 21 agree"),
+                 ("3 of 21", "provider duties the in-house model meets; 8 missing before its next version"),
+                 ("0.1 pts", "what a merit pay review does to a 17.6% gap; an equity fund cuts it to 15.5%"),
+                 ("1 of 12", "systems to stop now: emotion recognition in interviews")],
         "found": [
-            "A video interview pilot infers candidates' emotions: prohibited since February 2025.",
-            "National labour law binds before the AI Act does: Spain owes the works council the parameters of seven "
-            "systems; Italy requires a written notice for the fully automated shift rota.",
-            "Already on the market is not a free pass: the seven high-risk systems fall under the duties at their next "
-            "significant design change (Art. 111(2)), and cloud HR software changes often.",
+            "Asking whether a system reads emotions \"from words\" was wrong: the ban covers biometric data only, and "
+            "wellbeing, stress and burnout monitoring are not a medical exception.",
+            "The attrition model's analysis is done and its paperwork is not: logging, quality management, conformity "
+            "assessment and registration must come before the fix it already plans.",
+            "No merit design closes a pay gap made of level mix; spending the pay transparency kit's cost ceiling first, "
+            "out of the same budget, clears all twelve flagged categories.",
         ],
         "real": [
             "The suppliers' instructions for use and their Article 6(4) assessments, on file.",
-            "The Commission's guidelines on high-risk classification applied to the boundary cases.",
-            "A labour lawyer in each country to confirm the notices before they go out.",
+            "The Commission's high-risk guidelines, once final, applied to the boundary cases.",
+            "Italy's Law 132/2025 read in the official text, and a labour lawyer in each country for the notices.",
         ],
-        "checked": "813 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
-                   "change; the browser tool checked against Python on 16,309 values; every legal statement read in "
-                   "the official text and logged with its source.",
+        "checked": "838 figures reconciled between the Excel formulas and Python, recalculated by LibreOffice on every "
+                   "change; the browser tool checked against Python on 16,309 values; every legal statement logged "
+                   "with its source and status, and what could not be read marked as such.",
         "links": [("Try the tool", f"{SITE}/ai-act-hr-readiness-kit/tool/"),
                   ("Read the report", f"{SITE}/ai-act-hr-readiness-kit/")],
-        "skills": ["EU AI Act", "Labour law in nine countries", "AI governance", "Excel modelling", "Python"],
+        "skills": ["EU AI Act", "Commission guidelines", "Labour law in nine countries", "AI governance", "Python"],
+    },
+    {
+        "slug": "ai-act-hr-readiness-it",
+        "repo": "ai-act-hr-readiness-kit",
+        "lang": "it",
+        "translation": "ai-act-hr-readiness",
+        "media": ("aiact-tool", "Lo strumento: un sistema che legge l'umore in un call center, verificato domanda per "
+                                "domanda, risulta vietato; poi i dodici sistemi d'esempio e chi informare in ogni paese."),
+        "tag": "Governance dell'IA · HR",
+        "title": "Quali sistemi di IA dell'HR sono ad alto rischio, e cosa devono fare?",
+        "as_of": "25 novembre 2026",
+        "client": "Lo stesso datore di lavoro in quattro paesi, la cui funzione HR usa dodici sistemi di IA, dalla "
+                  "selezione dei CV al sistema che propone gli aumenti, fino a un modello di attrition costruito in casa.",
+        "question": "Quali sistemi l'AI Act vieta o considera ad alto rischio, quali obblighi hanno e da quando, quanto è "
+                    "affidabile la classificazione e chi vigila in ogni paese?",
+        "did": [
+            "Ho classificato dodici sistemi secondo l'AI Act e il regolamento Omnibus, con obblighi, regole nazionali "
+            "di informazione ai lavoratori in nove paesi, domande ai fornitori, formazione e valutazioni d'impatto.",
+            "Ho messo alla prova la classificazione sui 21 casi delle linee guida della Commissione sulle pratiche "
+            "vietate, ho corretto le due domande che risultavano sbagliate e ho verificato su quali risposte poggia "
+            "ogni classe.",
+            "Ho confrontato il vero modello di attrition di hr-people-analytics con i 21 obblighi del fornitore e ho "
+            "simulato il sistema degli aumenti sulle paghe del kit sulla trasparenza retributiva.",
+            "Ho letto alla fonte chi vigila sull'AI Act dove era raggiungibile, e segnato il resto.",
+        ],
+        "kpis": [("8 su 21", "casi della Commissione sbagliati dalle prime domande; ora tutti e 21 coincidono"),
+                 ("3 su 21", "obblighi del fornitore già rispettati dal modello interno; 8 mancano"),
+                 ("0,1 punti", "l'effetto di una revisione per merito su un divario del 17,6%; un fondo per l'equità "
+                               "lo porta al 15,5%"),
+                 ("1 su 12", "sistemi da fermare subito: riconoscere le emozioni nei colloqui")],
+        "found": [
+            "Chiedere se un sistema legge le emozioni \"dalle parole\" era sbagliato: il divieto riguarda solo i dati "
+            "biometrici, e benessere, stress e burnout non rientrano nell'eccezione medica.",
+            "L'analisi del modello di attrition è fatta, i documenti no: log, sistema di qualità, valutazione di "
+            "conformità e registrazione vanno fatti prima della correzione già prevista.",
+            "Nessuna revisione per merito chiude un divario che nasce dai livelli; destinare prima il tetto di costo "
+            "del kit sulla trasparenza, dentro lo stesso budget, chiude tutte e dodici le categorie segnalate.",
+        ],
+        "real": [
+            "Le istruzioni d'uso dei fornitori e le loro valutazioni ai sensi dell'art. 6(4).",
+            "Le linee guida della Commissione sull'alto rischio, quando saranno definitive.",
+            "La legge 132/2025 letta nel testo ufficiale, e un giuslavorista in ogni paese per le informative.",
+        ],
+        "checked": "838 cifre riconciliate tra le formule Excel e Python, ricalcolate da LibreOffice a ogni modifica; lo "
+                   "strumento verificato su 16.309 valori; ogni affermazione legale registrata con fonte e stato, e "
+                   "segnato ciò che non è stato possibile leggere.",
+        "links": [("Prova lo strumento", f"{SITE}/ai-act-hr-readiness-kit/tool/?lang=it"),
+                  ("Leggi il rapporto (inglese)", f"{SITE}/ai-act-hr-readiness-kit/")],
+        "skills": ["AI Act", "Linee guida della Commissione", "Diritto del lavoro in nove paesi", "Governance dell'IA",
+                   "Python"],
     },
     {
         "slug": "equal-value-pay-ranges",
@@ -835,7 +887,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,606 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,631 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
