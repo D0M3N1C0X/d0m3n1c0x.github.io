@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>What will next year&#x27;s people cost be? · Case study</title>
-<meta name="description" content="What does one person really cost in each country, why did last year overrun, what does next year cost under each scenario, and where is it heading now that four months have closed?">
+<meta name="description" content="What does one person really cost in each country, why did last year overrun, what will next year cost, and how far can that forecast be trusted?">
 <style>
 :root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
 --line:#e8e8ed;--accent:#0066cc;--accent-wash:#eef5fd;--glow:none;
@@ -54,20 +54,21 @@ font-weight:400;color:#6e6e73}}
 </style></head>
 <body><main class="page">
 <div class="top"><span>Case study · Domenico Perroni</span>
-<span class="web"><a href="./">All case studies</a> · <a href="workforce-cost-model.pdf">PDF</a></span></div>
+<span class="web"><a href="./">All case studies</a> · <a href="workforce-cost-model.pdf">PDF</a> · <a href="workforce-cost-model-it.html" hreflang="it">Italiano</a></span></div>
 <span class="tag">HR &amp; finance</span>
 <h1>What will next year&#x27;s people cost be?</h1>
 <p class="client"><b>Client:</b> An employer in Milan, Kraków, Munich and Barcelona, four months into FY2027.</p>
-<p class="q">What does one person really cost in each country, why did last year overrun, what does next year cost under each scenario, and where is it heading now that four months have closed?</p>
-<div class="kpis"><div class="kpi"><b>€9.9M</b><span>over the FY2026 budget (5.6%), explained by volume</span></div><div class="kpi"><b>€74,887</b><span>a fully loaded FTE in Munich, against €41,727 in Kraków</span></div><div class="kpi"><b>€192.9M</b><span>FY2027 in the base case (+4.0%)</span></div><div class="kpi"><b>64 a month</b><span>hires from January to land on the June 2027 plan</span></div></div>
+<p class="q">What does one person really cost in each country, why did last year overrun, what will next year cost, and how far can that forecast be trusted?</p>
+<div class="kpis"><div class="kpi"><b>€9.9M</b><span>over the FY2026 budget (5.6%), explained by volume</span></div><div class="kpi"><b>€192.9M</b><span>FY2027 in the base case; a fair 90% range is €184.4M to €207.0M</span></div><div class="kpi"><b>4.4%</b><span>off nine months ahead, run through FY2026; the budget 6.4%</span></div><div class="kpi"><b>1 of 9</b><span>runs inside an interval that counts only leavers; 6 of 9 with hiring</span></div></div>
+<figure class="shot"><picture><source srcset="../media/wcm-sim.png" media="(prefers-reduced-motion: reduce)"><img src="../media/wcm-sim.webp" width="960" height="608" loading="lazy" alt="The simulator: a hiring freeze against the base case, FY2027 month by month, the outlook after October with the hires the plan takes, and what one employee costs in four countries."></picture></figure>
 <div class="cols">
-<section><h2>What I did</h2><ul><li>Loaded every employee with each employer contribution, ceiling by ceiling: INPS and TFR in Italy; ZUS, PPK and the funds in Poland; German social insurance; Spanish Seguridad Social and its solidarity contribution.</li><li>Split the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.</li><li>Forecast FY2027 month by month under five scenarios, renewals and the zloty included; then re-forecast it from the closed months and turned a June 2027 headcount target into hires a month.</li><li>Built a simulator for the budget meeting, with the cost of one employee in four countries.</li></ul></section>
-<section><h2>What it found</h2><ul><li>After October the year is €0.18M over budget for the wrong reasons: fewer people save €0.60M, a higher cost per FTE, mostly in Kraków, adds €0.77M.</li><li>A hiring freeze from October cuts FY2027 to €182.6M but ends the year with 411 fewer FTE: a capacity decision, not a finance one.</li><li>Collective renewals and a stronger zloty would add €4.45M, €3.12M of it from the exchange rate alone.</li></ul><h2>With real data</h2><ul><li>Actual payroll by month, with the company&#x27;s own on-cost rules and benefits.</li><li>Hiring and leaver plans by team from the business, not last year&#x27;s rates.</li><li>The pay-gap remediation from the client&#x27;s own Article 10 screen.</li></ul></section>
+<section><h2>What I did</h2><ul><li>Loaded every employee with each employer contribution, ceiling by ceiling, in four countries, and split the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.</li><li>Forecast FY2027 month by month under five scenarios, renewals and the zloty included, then re-forecast it from the closed months and turned a headcount target into hires a month.</li><li>Put the forecast to the test: its rules run at every FY2026 month-end with only what was known then, against what happened, the last month carried forward and the budget; then an interval checked on the same runs before it was used.</li><li>Built a simulator for the budget meeting, with the cost of one employee in four countries.</li></ul></section>
+<section><h2>What it found</h2><ul><li>The rules beat the budget easily and the last month carried forward only just: hiring, not leavers, moves this payroll, and the company hired for months at twice the rules&#x27; pace.</li><li>An interval built on who leaves is a few tenths of a percent wide and almost never right; the honest range for FY2027 is about ±7%, and even that is a floor.</li><li>After October the year is €0.18M over budget for the wrong reasons: fewer people save €0.60M, a higher cost per FTE, mostly in Kraków, adds €0.77M.</li></ul><h2>With real data</h2><ul><li>Actual payroll by month, with pay history, instead of current rates applied to every month.</li><li>Hiring plans by team from the business, so the forecast models hiring rather than only replacing leavers.</li><li>The pay-gap remediation from the client&#x27;s own Article 10 screen.</li></ul></section>
 </div>
-<p class="check"><b>How it is checked.</b> 1,649 figures reconciled between the Excel formulas and pandas; the simulator checked against the model on 43,152 values; every rate and ceiling in a register with its source; the closed months of FY2027 are synthetic and say so.</p>
-<div class="skills"><span>Workforce planning</span><span>Budget variance</span><span>Employer costs IT/PL/DE/ES</span><span>Excel modelling</span><span>Python</span></div>
+<p class="check"><b>How it is checked.</b> 1,696 figures reconciled between the Excel formulas and pandas, recalculated by LibreOffice in CI; the simulator checked against the model on 43,152 values; every rate and ceiling in a register with its source; the closed months of FY2027 are synthetic and say so.</p>
+<div class="skills"><span>Workforce planning</span><span>Forecast validation</span><span>Employer costs IT/PL/DE/ES</span><span>Excel modelling</span><span>Python</span></div>
 <div class="links"><a href="https://d0m3n1c0x.github.io/workforce-cost-model/">Read the CFO memo</a><a href="https://d0m3n1c0x.github.io/workforce-cost-model/simulator/">Try the simulator</a><a href="https://github.com/D0M3N1C0X/workforce-cost-model">The repository</a></div>
 <p class="foot">Synthetic or public data; not legal, pay or investment advice. Figures as published on
-8 November 2026. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
+25 November 2026. Domenico Perroni · HR advisory, people analytics, reward · Kraków ·
 <a href="https://d0m3n1c0x.github.io/">d0m3n1c0x.github.io</a></p>
 </main></body></html>

@@ -55,9 +55,10 @@ SPECS = {
         "eyebrow": "People budget · HR and finance",
         "title": "What will next year's people cost be?",
         "sub": "A four-country employer's people budget, built as HR and finance would build it: what an employee really "
-               "costs, why last year overran, next year under your own scenarios, and where it is heading after October.",
-        "stats": [["€192.9M", "FY2027 in the base case, +4.0% on FY2026"], ["€9.9M", "FY2026 over budget, explained by headcount"],
-                  ["64 a month", "hires from January to land on the June 2027 headcount plan"]],
+               "costs, why last year overran, next year under your own scenarios, and how far the forecast can be trusted.",
+        "stats": [["€192.9M", "FY2027 in the base case; a fair 90% range is €184.4M to €207.0M"],
+                  ["4.4%", "off nine months ahead when the forecast is run through FY2026; the budget 6.4%"],
+                  ["€9.9M", "FY2026 over budget, explained by headcount"]],
         "chips": ["Python", "Excel model", "Scenario simulator", "CFO memo"],
     },
     "equal-value-pay-ranges": {
@@ -148,7 +149,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["6,559", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
+        "stats": [["6,606", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -157,7 +158,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["8", "analysis repositories reconcile through it"], ["6,559", "figures checked between Python and Excel"],
+        "stats": [["8", "analysis repositories reconcile through it"], ["6,606", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
@@ -170,7 +171,7 @@ CASES_CARD = {
     "title": "Ten client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["10", "case studies, each also a PDF"], ["6,559", "values reconciled between Excel and Python"]],
+    "stats": [["10", "case studies, each also a PDF"], ["6,606", "values reconciled between Excel and Python"]],
     "chips": ["Pay transparency", "AI Act", "Payroll", "Automation"],
 }
 

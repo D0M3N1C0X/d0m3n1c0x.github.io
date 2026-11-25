@@ -203,43 +203,100 @@ CASES = [
     {
         "slug": "workforce-cost-model",
         "repo": "workforce-cost-model",
+        "translation": "workforce-cost-model-it",
+        "media": ("wcm-sim", "The simulator: a hiring freeze against the base case, FY2027 month by month, the outlook "
+                             "after October with the hires the plan takes, and what one employee costs in four "
+                             "countries."),
         "tag": "HR & finance",
         "title": "What will next year's people cost be?",
-        "as_of": "8 November 2026",
+        "as_of": "25 November 2026",
         "client": "An employer in Milan, Kraków, Munich and Barcelona, four months into FY2027.",
-        "question": "What does one person really cost in each country, why did last year overrun, what does next year "
-                    "cost under each scenario, and where is it heading now that four months have closed?",
+        "question": "What does one person really cost in each country, why did last year overrun, what will next year "
+                    "cost, and how far can that forecast be trusted?",
         "did": [
-            "Loaded every employee with each employer contribution, ceiling by ceiling: INPS and TFR in Italy; ZUS, "
-            "PPK and the funds in Poland; German social insurance; Spanish Seguridad Social and its solidarity "
-            "contribution.",
-            "Split the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.",
-            "Forecast FY2027 month by month under five scenarios, renewals and the zloty included; then re-forecast "
-            "it from the closed months and turned a June 2027 headcount target into hires a month.",
+            "Loaded every employee with each employer contribution, ceiling by ceiling, in four countries, and split "
+            "the FY2026 variance into volume, mix and rate, adding up exactly to the overrun.",
+            "Forecast FY2027 month by month under five scenarios, renewals and the zloty included, then re-forecast it "
+            "from the closed months and turned a headcount target into hires a month.",
+            "Put the forecast to the test: its rules run at every FY2026 month-end with only what was known then, "
+            "against what happened, the last month carried forward and the budget; then an interval checked on the "
+            "same runs before it was used.",
             "Built a simulator for the budget meeting, with the cost of one employee in four countries.",
         ],
         "kpis": [("€9.9M", "over the FY2026 budget (5.6%), explained by volume"),
-                 ("€74,887", "a fully loaded FTE in Munich, against €41,727 in Kraków"),
-                 ("€192.9M", "FY2027 in the base case (+4.0%)"),
-                 ("64 a month", "hires from January to land on the June 2027 plan")],
+                 ("€192.9M", "FY2027 in the base case; a fair 90% range is €184.4M to €207.0M"),
+                 ("4.4%", "off nine months ahead, run through FY2026; the budget 6.4%"),
+                 ("1 of 9", "runs inside an interval that counts only leavers; 6 of 9 with hiring")],
         "found": [
+            "The rules beat the budget easily and the last month carried forward only just: hiring, not leavers, "
+            "moves this payroll, and the company hired for months at twice the rules' pace.",
+            "An interval built on who leaves is a few tenths of a percent wide and almost never right; the honest "
+            "range for FY2027 is about ±7%, and even that is a floor.",
             "After October the year is €0.18M over budget for the wrong reasons: fewer people save €0.60M, a higher "
             "cost per FTE, mostly in Kraków, adds €0.77M.",
-            "A hiring freeze from October cuts FY2027 to €182.6M but ends the year with 411 fewer FTE: a capacity "
-            "decision, not a finance one.",
-            "Collective renewals and a stronger zloty would add €4.45M, €3.12M of it from the exchange rate alone.",
         ],
         "real": [
-            "Actual payroll by month, with the company's own on-cost rules and benefits.",
-            "Hiring and leaver plans by team from the business, not last year's rates.",
+            "Actual payroll by month, with pay history, instead of current rates applied to every month.",
+            "Hiring plans by team from the business, so the forecast models hiring rather than only replacing leavers.",
             "The pay-gap remediation from the client's own Article 10 screen.",
         ],
-        "checked": "1,649 figures reconciled between the Excel formulas and pandas; the simulator checked against the "
-                   "model on 43,152 values; every rate and ceiling in a register with its source; the closed months "
-                   "of FY2027 are synthetic and say so.",
+        "checked": "1,696 figures reconciled between the Excel formulas and pandas, recalculated by LibreOffice in "
+                   "CI; the simulator checked against the model on 43,152 values; every rate and ceiling in a "
+                   "register with its source; the closed months of FY2027 are synthetic and say so.",
         "links": [("Read the CFO memo", f"{SITE}/workforce-cost-model/"),
                   ("Try the simulator", f"{SITE}/workforce-cost-model/simulator/")],
-        "skills": ["Workforce planning", "Budget variance", "Employer costs IT/PL/DE/ES", "Excel modelling", "Python"],
+        "skills": ["Workforce planning", "Forecast validation", "Employer costs IT/PL/DE/ES", "Excel modelling",
+                   "Python"],
+    },
+    {
+        "slug": "workforce-cost-model-it",
+        "repo": "workforce-cost-model",
+        "lang": "it",
+        "translation": "workforce-cost-model",
+        "media": ("wcm-sim", "Il simulatore: un blocco delle assunzioni contro lo scenario base, il FY2027 mese per "
+                             "mese, la previsione dopo ottobre con le assunzioni che il piano richiede, e quanto costa "
+                             "un dipendente in quattro paesi."),
+        "tag": "HR e finanza",
+        "title": "Quanto costerà il personale l'anno prossimo?",
+        "as_of": "25 novembre 2026",
+        "client": "Un datore di lavoro a Milano, Cracovia, Monaco e Barcellona, a quattro mesi dall'inizio del FY2027.",
+        "question": "Quanto costa davvero una persona in ogni paese, perché l'anno scorso il budget è stato superato, "
+                    "quanto costerà il prossimo anno e quanto ci si può fidare di quella previsione?",
+        "did": [
+            "Ho calcolato il costo pieno di ogni dipendente con tutti i contributi del datore di lavoro, massimale per "
+            "massimale, in quattro paesi, e ho scomposto lo scostamento del FY2026 in volume, mix e tasso.",
+            "Ho previsto il FY2027 mese per mese in cinque scenari, rinnovi contrattuali e zloty compresi, poi l'ho "
+            "aggiornato con i mesi chiusi e ho trasformato un obiettivo di organico in assunzioni al mese.",
+            "Ho messo alla prova la previsione: le sue regole applicate alla fine di ogni mese del FY2026 con i soli "
+            "dati di quel giorno, contro la realtà, l'ultimo mese ripetuto e il budget; poi un intervallo verificato "
+            "sulle stesse prove prima di usarlo.",
+            "Ho costruito un simulatore per la riunione di budget, con il costo di un dipendente in quattro paesi.",
+        ],
+        "kpis": [("€9,9M", "oltre il budget FY2026 (5,6%), spiegati dal volume"),
+                 ("€192,9M", "il FY2027 nello scenario base; un intervallo onesto al 90% va da €184,4M a €207,0M"),
+                 ("4,4%", "di errore a nove mesi, provata sul FY2026; il budget sbaglia del 6,4%"),
+                 ("1 su 9", "prove dentro un intervallo che conta solo le uscite; 6 su 9 con le assunzioni")],
+        "found": [
+            "Le regole battono nettamente il budget e solo di poco l'ultimo mese ripetuto: a muovere questo costo sono "
+            "le assunzioni, non le uscite, e per mesi l'azienda ha assunto al doppio del ritmo previsto.",
+            "Un intervallo costruito su chi esce è largo pochi decimi di punto e quasi mai giusto; l'intervallo onesto "
+            "per il FY2027 è di circa ±7%, e anche questo è un minimo.",
+            "Dopo ottobre l'anno è €0,18M oltre il budget per le ragioni sbagliate: meno persone fanno risparmiare "
+            "€0,60M, un costo per FTE più alto, soprattutto a Cracovia, aggiunge €0,77M.",
+        ],
+        "real": [
+            "Il costo del personale effettivo mese per mese, con lo storico delle retribuzioni.",
+            "I piani di assunzione per team dal business, così la previsione modella le assunzioni e non solo le "
+            "sostituzioni.",
+            "Il costo per chiudere i divari retributivi dalla verifica dell'articolo 10 del cliente.",
+        ],
+        "checked": "1.696 cifre riconciliate tra le formule Excel e pandas, ricalcolate da LibreOffice nella CI; il "
+                   "simulatore verificato sul modello su 43.152 valori; ogni aliquota e massimale in un registro con "
+                   "la sua fonte; i mesi chiusi del FY2027 sono sintetici e lo dichiarano.",
+        "links": [("Leggi il memo per il CFO (inglese)", f"{SITE}/workforce-cost-model/"),
+                  ("Prova il simulatore", f"{SITE}/workforce-cost-model/simulator/?lang=it")],
+        "skills": ["Pianificazione del personale", "Validazione delle previsioni", "Costo del lavoro IT/PL/DE/ES",
+                   "Modelli Excel", "Python"],
     },
     {
         "slug": "controlli-cedolini",
@@ -778,7 +835,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,559 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,606 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">
