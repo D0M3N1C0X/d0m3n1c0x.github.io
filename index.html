@@ -121,7 +121,7 @@ footer a { text-decoration: underline; text-underline-offset: 3px; }
     <a class="btn" href="cases/">One-page case studies</a>
   </div>
   <ul class="facts">
-    <li><b>6,631</b><span>figures reconciled between Python and Excel, on every change</span></li>
+    <li><b>6,738</b><span>figures reconciled between Python and Excel, on every change</span></li>
     <li><b>12</b><span>projects with reports, dashboards or tools to open now, nothing to install</span></li>
     <li><b>2</b><span>master's degrees: politics &amp; organisation, media education (110/110)</span></li>
     <li><b>5</b><span>languages: Italian, English C1, Spanish, French, Polish</span></li>
@@ -159,23 +159,24 @@ footer a { text-decoration: underline; text-underline-offset: 3px; }
   <article class="project">
     <figure>
       <picture>
-        <source srcset="media/controlli.png" media="(prefers-reduced-motion: reduce)">
-        <img src="media/controlli.webp" width="960" height="608" loading="lazy" alt="The payroll tool loads example payslips, runs the checks and lists each flag with the expected and found amount.">
+        <source srcset="media/controlli-en.png" media="(prefers-reduced-motion: reduce)">
+        <img src="media/controlli-en.webp" width="960" height="608" loading="lazy" alt="The payroll tool loads example payslips, runs the checks and lists each flag with the expected and found amount.">
       </picture>
-      <figcaption>The browser tool on the example files: 67 flags, each with the expected amount and what to do.</figcaption>
+      <figcaption>The browser tool on the example files: 69 flags, each with the expected amount and what to do, pay in lieu of notice included.</figcaption>
     </figure>
     <div>
       <span class="tag">Payroll operations</span>
       <h3>Payroll checks before the payslips go out</h3>
-      <p>Twenty-two checks on Italian payslips, each client under its own collective agreement (retail and services,
+      <p>Twenty-three checks on Italian payslips, each client under its own collective agreement (retail and services,
         engineering industry, bars and restaurants, logistics): minimum pay, seniority steps, each client's INPS rate,
         sick and maternity pay with the employer's top-up, income tax and the adjustment at leaving, leave hours,
         severance, holidays, the F24 tax payment, master-data changes nobody declared, 13th and 14th month pay, and for
-        leavers untaken holiday, notice and severance with ISTAT's revaluation. Plus what the November 2026 pay rise
-        costs each client.</p>
+        leavers untaken holiday, notice, pay in lieu of notice and severance with ISTAT's revaluation. Plus what the
+        November 2026 pay rise costs each client, and the same payslips feeding the pay-transparency kit.</p>
       <ul class="proof">
-        <li><b>Finds all 67 planted errors</b> with no false alarms, most of them another agreement's rule applied by mistake; a statistical anomaly detector on the same data finds about four in ten.</li>
-        <li><b>Three twins, one answer:</b> Python, a live-formula sheet (1,682 checks) and a browser tool (3,909 values) agree, and files never leave the computer.</li>
+        <li><b>Finds all 69 planted errors</b> with no false alarms, most of them another agreement's rule applied by mistake; a statistical anomaly detector on the same data finds fewer than half.</li>
+        <li><b>A whole year, nine misconfigured payroll engines:</b> every rule error is flagged from its first month; a wrong grade from the hiring date passes all twelve, and the report says so.</li>
+        <li><b>Three twins, one answer:</b> Python, a live-formula sheet (1,789 checks) and a browser tool (3,991 values) agree, and files never leave the computer.</li>
         <li><b>Sources on every rule,</b> and a test that keeps the one error no check can see on record.</li>
       </ul>
       <div class="cta">

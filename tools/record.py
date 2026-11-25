@@ -43,14 +43,15 @@ def click(sel):
 nothing = lambda p: None
 
 SCENES = {
-    # the payroll tool: load the example files, run the checks, read the flags
-    "controlli": ("https://d0m3n1c0x.github.io/controlli-cedolini/strumento/?lang=en", [
+    # the payroll checks in Italian, for the Italian case: the flags down to pay in lieu of notice, then November
+    "controlli": ("https://d0m3n1c0x.github.io/controlli-cedolini/strumento/", [
         (nothing, 1400),
         (click("#esempio"), 900),
         (lambda p: (p.wait_for_function("!document.querySelector('#esegui').disabled"), p.click("#esegui")), 300),
         (scroll_to("#risultati"), 2200),
         (scroll_by(380), 1600),
         (scroll_by(380), 1600),
+        (scroll_to("#novembre", -560), 2400),
         (scroll_to("#novembre", -140), 2400),
     ], 3),
     # the business case: move the real uplift through break-even and watch the verdict flip
@@ -79,6 +80,7 @@ SCENES = {
         (scroll_to("#risultati"), 2200),
         (scroll_by(380), 1600),
         (scroll_by(380), 1600),
+        (scroll_to("#novembre", -560), 2400),
         (scroll_to("#novembre", -140), 2400),
     ], 3),
     # the people-cost simulator: a hiring freeze against the base case, then the outlook and plan, then one employee
