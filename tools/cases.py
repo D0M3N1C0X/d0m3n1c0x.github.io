@@ -353,46 +353,109 @@ CASES = [
     {
         "slug": "controlli-cedolini",
         "repo": "controlli-cedolini",
+        "translation": "controlli-cedolini-it",
+        "media": ("controlli-en", "The browser tool on the example files: the checks run, the flags with the expected "
+                                  "and found amount and what to do, pay in lieu of notice included, then the November "
+                                  "2026 pay rise per client."),
         "tag": "Payroll operations",
         "title": "Catching payroll errors before the client does",
-        "as_of": "9 November 2026",
+        "as_of": "25 November 2026",
         "client": "An Italian payroll provider sending payslips for six clients and 182 employees under four collective "
                   "agreements (retail and services, engineering industry, bars and restaurants, logistics), with errors "
                   "planted on purpose.",
-        "question": "Which payslips are wrong before they go out, by how much, and what does the November 2026 pay "
-                    "increase cost each client?",
+        "question": "Which payslips are wrong before they go out, which errors would a misconfigured payroll engine "
+                    "make that the checks cannot see, and do the same payslips feed the pay-gap report correctly?",
         "did": [
-            "Wrote twenty-two checks that recompute each item from the client's agreement, INPS and the 2026 tax law, "
-            "not from the payroll software: minimums, INPS rates, sick and maternity pay, income tax, TFR, notice.",
-            "Read each agreement's rules in the texts its signatories publish or filed at CNEL, and kept them in one "
-            "table: steps, monthly payments, part months, holidays, notice, sick pay and top-up.",
-            "Reconciled the F24 tax payment with the sum of each client's payslips.",
+            "Wrote twenty-three checks that recompute each item from the client's agreement, INPS and the 2026 tax "
+            "law, not from the payroll software: minimums, INPS rates, sick pay, income tax, TFR, notice and pay in "
+            "lieu of it.",
+            "Ran a whole year, January to December 2026, then nine payroll engines configured wrong, each recomputed "
+            "downstream so every total still adds up, and measured which checks catch each one and when.",
+            "Mapped every payslip item to what the EU Pay Transparency Directive counts as pay and turned the year "
+            "into the pay-transparency kit's extract; the kit's own code gets the same gaps.",
             "Delivered the checks three ways that agree: Python, a live-formula sheet for Google Sheets and a browser "
-            "tool in English and Italian.",
+            "tool in English and Italian; every dated source carries its expiry.",
         ],
-        "kpis": [("67 of 67", "planted errors found, with no false alarms"),
-                 ("10", "employees below their agreement's minimum: €305.24 a month plus arrears"),
-                 ("€212.40", "less withholding tax in one F24 than the payslips add up to"),
-                 ("€2,448.98", "a month to pay in November 2026, after absorption")],
+        "kpis": [("69 of 69", "planted errors found, with no false alarms"),
+                 ("6 of 6", "misconfigured rules flagged from their first month, every month after"),
+                 ("0", "flags on 2,434 payslips of a clean year, pay rises and promotions included"),
+                 ("€2,417.36", "a month to pay in November 2026, after absorption")],
         "found": [
-            "Five contributions withheld at the wrong rate: CIGS and the FIS share missing above 15 staff on average, "
-            "CIGS taken below it, the extra 1% forgotten above €4,685 a month.",
-            "Leavers carry errors in the 14th month, holiday, notice and severance: a coefficient from the wrong month, "
-            "the 17% substitute tax not deducted.",
-            "Most errors in the new clients are another agreement's rule applied by mistake: steps every three years "
-            "where they are every two, 50% sick pay where bars and restaurants get 80%.",
+            "A rule set wrong (last year's tax bands, a June pay rise not loaded, 13 monthly payments instead of 14) "
+            "is caught at once: the checks recompute the rule and do not trust the software.",
+            "A grade wrong from the hiring date passes every check for twelve months, €1,877.98 net overpaid; a "
+            "part-time entered without a letter is flagged once, in the month it changes, and then becomes the base.",
+            "Ten employees below their agreement's minimum, €212.40 of withholding tax missing from one F24, and two "
+            "leavers' pay in lieu of notice wrong: accruals left out, or a resignation charged at the dismissal rate.",
         ],
         "real": [
             "A pilot on one client's real payslips, run in the browser so the files never leave the office.",
+            "A yearly sample of personnel records against hiring letters: the one blind spot arithmetic cannot close.",
             "Blue-collar staff and drivers, whose sick pay base and notice follow other rules.",
-            "A monthly record of what the checks caught, to measure the errors avoided.",
         ],
-        "checked": "The sheet checked against Python on 1,682 values; the browser tool on 3,909 values, half-cent "
-                   "alterations and Italian file formats included; every rule with its source in the agreement, an "
-                   "INPS circular or ISTAT's indices.",
+        "checked": "The sheet checked against Python on 1,789 values and recalculated by LibreOffice in CI; the "
+                   "browser tool on 3,991 values; the pay-transparency kit re-runs the Article 9 gaps on the extract "
+                   "in CI; ISTAT's index series and the INPS 2026 band read at source on 25 November 2026.",
         "links": [("Try the tool", f"{SITE}/controlli-cedolini/strumento/?lang=en"),
                   ("Read the report (Italian)", f"{SITE}/controlli-cedolini/")],
-        "skills": ["Italian payroll", "Four CCNLs", "Process controls", "Google Sheets", "Python"],
+        "skills": ["Italian payroll", "Four CCNLs", "Process controls", "Pay transparency", "Google Sheets", "Python"],
+    },
+    {
+        "slug": "controlli-cedolini-it",
+        "repo": "controlli-cedolini",
+        "lang": "it",
+        "translation": "controlli-cedolini",
+        "media": ("controlli", "Lo strumento nel browser sui file d'esempio: i controlli, le segnalazioni con valore "
+                               "atteso, trovato e cosa fare, l'indennità sostitutiva del preavviso compresa, poi la "
+                               "tranche di novembre 2026 per cliente."),
+        "tag": "Paghe",
+        "title": "Trovare gli errori in busta paga prima del cliente",
+        "as_of": "25 novembre 2026",
+        "client": "Uno studio paghe che elabora i cedolini di sei clienti e 182 dipendenti con quattro CCNL "
+                  "(Terziario, Metalmeccanico industria, Turismo e pubblici esercizi, Logistica), con errori inseriti "
+                  "apposta.",
+        "question": "Quali cedolini sono sbagliati prima dell'invio, quali errori di un software paghe configurato "
+                    "male i controlli non possono vedere, e gli stessi cedolini alimentano bene il calcolo del "
+                    "divario retributivo?",
+        "did": [
+            "Ho scritto ventitré controlli che ricalcolano ogni voce dal CCNL del cliente, dall'INPS e dalle regole "
+            "fiscali del 2026, non dal software paghe: minimi, aliquote INPS, malattia, IRPEF, TFR, preavviso e "
+            "indennità sostitutiva.",
+            "Ho fatto girare un anno intero, gennaio-dicembre 2026, e poi nove software configurati male, ognuno "
+            "ricalcolato a cascata così che ogni totale torni, e ho misurato quali controlli li vedono e quando.",
+            "Ho dato a ogni voce del cedolino la sua natura per la direttiva europea sulla trasparenza retributiva e "
+            "ho trasformato l'anno nell'estratto del kit della trasparenza: il codice del kit trova gli stessi divari.",
+            "Ho consegnato i controlli in tre forme che danno lo stesso risultato: Python, un foglio con formule vive "
+            "per Google Sheets e uno strumento nel browser in italiano e in inglese; ogni fonte con una data dice "
+            "fino a quando vale.",
+        ],
+        "kpis": [("69 su 69", "errori inseriti trovati, senza falsi allarmi"),
+                 ("6 su 6", "regole configurate male segnalate dal primo mese, e ogni mese dopo"),
+                 ("0", "segnalazioni su 2.434 cedolini di un anno pulito, tranche e passaggi di livello compresi"),
+                 ("2.417,36 €", "al mese da pagare a novembre 2026, dopo l'assorbimento")],
+        "found": [
+            "Una regola sbagliata (gli scaglioni IRPEF dell'anno prima, la tranche di giugno non caricata, 13 "
+            "mensilità invece di 14) si vede subito: i controlli ricalcolano la regola e non si fidano del software.",
+            "Un livello sbagliato dall'assunzione passa tutti i controlli per dodici mesi, 1.877,98 € netti pagati in "
+            "più; un part-time inserito senza lettera si vede una volta, nel mese del cambio, poi diventa la base.",
+            "Dieci dipendenti sotto il minimo del CCNL, 212,40 € di ritenute mancanti in un F24 e due indennità "
+            "sostitutive del preavviso sbagliate: senza i ratei, o una dimissione trattenuta con i giorni del "
+            "licenziamento.",
+        ],
+        "real": [
+            "Una prova sui cedolini veri di un cliente, nel browser, così i file non lasciano lo studio.",
+            "Un confronto a campione, una volta l'anno, tra anagrafica e lettere di assunzione: il punto cieco che i "
+            "conti non chiudono.",
+            "Operai e personale viaggiante, con altre regole per malattia e preavviso.",
+        ],
+        "checked": "Il foglio verificato su Python su 1.789 valori e ricalcolato da LibreOffice nella CI; lo "
+                   "strumento nel browser su 3.991 valori; il kit della trasparenza ricalcola nella CI i divari "
+                   "dell'articolo 9 sull'estratto; la serie FOI dell'ISTAT e la prima fascia INPS 2026 lette alla "
+                   "fonte il 25 novembre 2026.",
+        "links": [("Prova lo strumento", f"{SITE}/controlli-cedolini/strumento/"),
+                  ("Leggi il rapporto", f"{SITE}/controlli-cedolini/")],
+        "skills": ["Paghe italiane", "Quattro CCNL", "Controlli di processo", "Trasparenza retributiva",
+                   "Google Sheets", "Python"],
     },
     {
         "slug": "vimeo-growth-case",
@@ -887,7 +950,7 @@ def index() -> str:
 <meta property="og:image" content="https://d0m3n1c0x.github.io/media/og-cases.png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,631 values reconciled between Excel and Python.">
+<meta property="og:image:alt" content="{count.capitalize()} client questions, one page each; 6,738 values reconciled between Excel and Python.">
 <meta name="twitter:card" content="summary_large_image">
 <style>{CSS}</style></head>
 <body><main class="page">

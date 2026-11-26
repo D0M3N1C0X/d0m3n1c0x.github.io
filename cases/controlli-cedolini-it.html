@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trovare gli errori in busta paga prima del cliente · Caso di studio</title>
+<meta name="description" content="Quali cedolini sono sbagliati prima dell&#x27;invio, quali errori di un software paghe configurato male i controlli non possono vedere, e gli stessi cedolini alimentano bene il calcolo del divario retributivo?">
+<style>
+:root{--paper:#ffffff;--paper-2:#f5f5f7;--surface:#ffffff;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;
+--line:#e8e8ed;--accent:#0066cc;--accent-wash:#eef5fd;--glow:none;
+--font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+--display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#000000;--paper-2:#0b0c0f;--surface:#15171c;
+--ink:#f5f5f7;--ink-soft:#c7c9d1;--muted:#8b8f9a;--line:#23262e;--accent:#4f8cff;--accent-wash:#101b33;color-scheme:dark;
+--glow:radial-gradient(55% 70% at 90% 0%,rgba(79,140,255,.22),transparent 70%)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:var(--glow);background-repeat:no-repeat;color:var(--ink);
+font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.page{max-width:820px;margin:0 auto;padding:40px 24px 56px}
+.top{display:flex;justify-content:space-between;gap:16px;font-size:13px;color:var(--muted)}
+.top a{color:var(--muted)}
+.tag{display:inline-block;margin-top:28px;padding:4px 12px;border-radius:999px;background:var(--accent-wash);
+color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+h1{font:700 34px/1.12 var(--display);letter-spacing:-.02em;margin:12px 0 10px}
+.client{color:var(--ink-soft);margin:0 0 18px;font-size:15px}
+.q{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:0 0 22px;font-size:17px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 22px}
+.kpi{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 12px 10px}
+.kpi b{display:block;font:700 21px/1.15 var(--display);letter-spacing:-.01em;margin-bottom:4px}
+.kpi span{display:block;font-size:12px;line-height:1.35;color:var(--ink-soft)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+h2{font:650 13px/1.3 var(--font);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+ul{margin:0 0 18px;padding-left:18px}li{margin:0 0 6px}
+.check{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:4px 0 18px;font-size:14px}
+.skills{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 18px}
+.skills span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;font-size:12.5px;color:var(--ink-soft)}
+.links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;font-weight:600}
+.foot{margin-top:22px;padding-top:12px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.list{display:grid;gap:12px;margin-top:24px}
+.item{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);
+border-radius:16px;padding:16px 18px}
+.item:hover{border-color:var(--accent)}
+.shot{margin:0 0 22px}.shot img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--line)}
+.item small{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+.item strong{display:block;font:650 19px/1.25 var(--display);margin:4px 0}
+.item span{color:var(--ink-soft);font-size:14px}
+@media (max-width:680px){.kpis{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr;gap:0}h1{font-size:28px}}
+@page{size:A4;margin:12mm 13mm}
+@media print{:root{--paper:#fff;--paper-2:#f5f5f7;--ink:#1d1d1f;--ink-soft:#424245;--muted:#6e6e73;--line:#e8e8ed;
+--accent:#0066cc;--accent-wash:#eef5fd;--glow:none}body{font-size:12.4px}.page{padding:0;max-width:none}
+.top .web,.shot{display:none}h1{font-size:26px;margin-top:8px}.tag{margin-top:12px}.q{font-size:14.5px;margin-bottom:14px}
+.client{font-size:12.6px;margin-bottom:12px}.kpis{margin-bottom:14px}.kpi b{font-size:17px}.kpi span{font-size:10.5px}
+li{margin-bottom:4px}ul{margin-bottom:12px}.check{font-size:11.6px;margin-bottom:12px}.skills{margin-bottom:12px}
+.foot{margin-top:12px;padding-top:8px}.links a::after{content:" " attr(href);
+font-weight:400;color:#6e6e73}}
+</style></head>
+<body><main class="page">
+<div class="top"><span>Caso di studio · Domenico Perroni</span>
+<span class="web"><a href="./">Tutti i casi di studio (inglese)</a> · <a href="controlli-cedolini-it.pdf">PDF</a> · <a href="controlli-cedolini.html" hreflang="en">English</a></span></div>
+<span class="tag">Paghe</span>
+<h1>Trovare gli errori in busta paga prima del cliente</h1>
+<p class="client"><b>Cliente:</b> Uno studio paghe che elabora i cedolini di sei clienti e 182 dipendenti con quattro CCNL (Terziario, Metalmeccanico industria, Turismo e pubblici esercizi, Logistica), con errori inseriti apposta.</p>
+<p class="q">Quali cedolini sono sbagliati prima dell&#x27;invio, quali errori di un software paghe configurato male i controlli non possono vedere, e gli stessi cedolini alimentano bene il calcolo del divario retributivo?</p>
+<div class="kpis"><div class="kpi"><b>69 su 69</b><span>errori inseriti trovati, senza falsi allarmi</span></div><div class="kpi"><b>6 su 6</b><span>regole configurate male segnalate dal primo mese, e ogni mese dopo</span></div><div class="kpi"><b>0</b><span>segnalazioni su 2.434 cedolini di un anno pulito, tranche e passaggi di livello compresi</span></div><div class="kpi"><b>2.417,36 €</b><span>al mese da pagare a novembre 2026, dopo l&#x27;assorbimento</span></div></div>
+<figure class="shot"><picture><source srcset="../media/controlli.png" media="(prefers-reduced-motion: reduce)"><img src="../media/controlli.webp" width="960" height="608" loading="lazy" alt="Lo strumento nel browser sui file d&#x27;esempio: i controlli, le segnalazioni con valore atteso, trovato e cosa fare, l&#x27;indennità sostitutiva del preavviso compresa, poi la tranche di novembre 2026 per cliente."></picture></figure>
+<div class="cols">
+<section><h2>Cosa ho fatto</h2><ul><li>Ho scritto ventitré controlli che ricalcolano ogni voce dal CCNL del cliente, dall&#x27;INPS e dalle regole fiscali del 2026, non dal software paghe: minimi, aliquote INPS, malattia, IRPEF, TFR, preavviso e indennità sostitutiva.</li><li>Ho fatto girare un anno intero, gennaio-dicembre 2026, e poi nove software configurati male, ognuno ricalcolato a cascata così che ogni totale torni, e ho misurato quali controlli li vedono e quando.</li><li>Ho dato a ogni voce del cedolino la sua natura per la direttiva europea sulla trasparenza retributiva e ho trasformato l&#x27;anno nell&#x27;estratto del kit della trasparenza: il codice del kit trova gli stessi divari.</li><li>Ho consegnato i controlli in tre forme che danno lo stesso risultato: Python, un foglio con formule vive per Google Sheets e uno strumento nel browser in italiano e in inglese; ogni fonte con una data dice fino a quando vale.</li></ul></section>
+<section><h2>Cosa ha trovato</h2><ul><li>Una regola sbagliata (gli scaglioni IRPEF dell&#x27;anno prima, la tranche di giugno non caricata, 13 mensilità invece di 14) si vede subito: i controlli ricalcolano la regola e non si fidano del software.</li><li>Un livello sbagliato dall&#x27;assunzione passa tutti i controlli per dodici mesi, 1.877,98 € netti pagati in più; un part-time inserito senza lettera si vede una volta, nel mese del cambio, poi diventa la base.</li><li>Dieci dipendenti sotto il minimo del CCNL, 212,40 € di ritenute mancanti in un F24 e due indennità sostitutive del preavviso sbagliate: senza i ratei, o una dimissione trattenuta con i giorni del licenziamento.</li></ul><h2>Con dati reali</h2><ul><li>Una prova sui cedolini veri di un cliente, nel browser, così i file non lasciano lo studio.</li><li>Un confronto a campione, una volta l&#x27;anno, tra anagrafica e lettere di assunzione: il punto cieco che i conti non chiudono.</li><li>Operai e personale viaggiante, con altre regole per malattia e preavviso.</li></ul></section>
+</div>
+<p class="check"><b>Come è verificato.</b> Il foglio verificato su Python su 1.789 valori e ricalcolato da LibreOffice nella CI; lo strumento nel browser su 3.991 valori; il kit della trasparenza ricalcola nella CI i divari dell&#x27;articolo 9 sull&#x27;estratto; la serie FOI dell&#x27;ISTAT e la prima fascia INPS 2026 lette alla fonte il 25 novembre 2026.</p>
+<div class="skills"><span>Paghe italiane</span><span>Quattro CCNL</span><span>Controlli di processo</span><span>Trasparenza retributiva</span><span>Google Sheets</span><span>Python</span></div>
+<div class="links"><a href="https://d0m3n1c0x.github.io/controlli-cedolini/strumento/">Prova lo strumento</a><a href="https://d0m3n1c0x.github.io/controlli-cedolini/">Leggi il rapporto</a><a href="https://github.com/D0M3N1C0X/controlli-cedolini">Il repository</a></div>
+<p class="foot">Dati sintetici o pubblici; non è consulenza legale, retributiva o finanziaria. Cifre pubblicate il
+25 novembre 2026. Domenico Perroni · consulenza HR, people analytics, retribuzioni · Kraków ·
+<a href="https://d0m3n1c0x.github.io/">d0m3n1c0x.github.io</a></p>
+</main></body></html>

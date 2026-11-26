@@ -45,10 +45,10 @@ SPECS = {
     "controlli-cedolini": {
         "eyebrow": "Payroll operations · four Italian CCNLs",
         "title": "Catch payroll errors before the client does",
-        "sub": "Twenty-two checks on Italian payslips before they go out, each client on its own collective agreement: "
-               "minimums, INPS rates, sick pay and the employer's top-up, income tax, severance, the F24 tax payment.",
-        "stats": [["67 of 67", "planted errors found, with no false alarms"],
-                  ["4 CCNLs", "retail, engineering, hospitality and logistics, each with its own rules"],
+        "sub": "Twenty-three checks on Italian payslips before they go out, each client on its own collective agreement, "
+               "then a whole year and nine misconfigured payroll engines: what the checks catch, and what they cannot.",
+        "stats": [["69 of 69", "planted errors found, with no false alarms"],
+                  ["6 of 6", "rule errors flagged from their first month, across a whole year"],
                   ["3 engines", "Python, a live spreadsheet and a browser tool, in agreement"]],
         "chips": ["Python", "Excel and Google Sheets", "Browser tool", "Sourced rules"],
     },
@@ -150,7 +150,7 @@ SPECS = {
         "title": "Domenico Perroni",
         "sub": "I build the analysis an HR function runs on: payroll checks, pay transparency reporting, workforce costs and "
                "business cases. Every figure computed twice or traced to its source.",
-        "stats": [["6,631", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
+        "stats": [["6,738", "figures reconciled between Python and Excel"], ["12", "projects to open live, nothing to install"],
                   ["5", "languages: Italian, English, Spanish, French, Polish"]],
         "chips": ["Payroll", "Pay transparency", "Workforce planning", "Business analysis"],
     },
@@ -159,7 +159,7 @@ SPECS = {
         "title": "Prove the spreadsheet matches the model",
         "sub": "excel-twin checks that a workbook's live formulas reproduce a Python model, recalculates it with LibreOffice "
                "in CI and keeps .xlsx files byte-stable.",
-        "stats": [["8", "analysis repositories reconcile through it"], ["6,631", "figures checked between Python and Excel"],
+        "stats": [["8", "analysis repositories reconcile through it"], ["6,738", "figures checked between Python and Excel"],
                   ["34.25", "ROUND(34.245, 2) the way Excel computes it"]],
         "chips": ["Python 3.12+", "openpyxl", "LibreOffice", "Typed"],
     },
@@ -172,7 +172,7 @@ CASES_CARD = {
     "title": "Ten client questions, one page each",
     "sub": "The question, what was done, what it found and what real data would change. Every page is also a PDF "
            "to attach to an application.",
-    "stats": [["10", "case studies, each also a PDF"], ["6,631", "values reconciled between Excel and Python"]],
+    "stats": [["10", "case studies, each also a PDF"], ["6,738", "values reconciled between Excel and Python"]],
     "chips": ["Pay transparency", "AI Act", "Payroll", "Automation"],
 }
 
